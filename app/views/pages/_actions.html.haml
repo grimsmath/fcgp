@@ -1,0 +1,14 @@
+.button-bar.right(style="margin-bottom: 10px")
+  %ul.button-group
+    %li
+      = link_to 'New Page', new_page_path, class: "button tiny success"
+
+  %ul.button-group
+    %li
+      %a.button.tiny{:href => "#"} Show
+    %li
+      %a.button.tiny{:href => "#"} Edit
+
+  %ul.button-group(style="margin-right: 0")
+    %li
+      %a.button.tiny.alert{:href => "#"} Delete

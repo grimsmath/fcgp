@@ -1,0 +1,85 @@
+$green: rgb(182,216,64),
+        rgb(205,202,159),
+        rgb(195,208,146),
+        rgb(110,166,52),
+        rgb(151,168,52);
+
+$blue:  rgb(0,175,209),
+        rgb(111,191,187),
+        rgb(70,141,151),
+        rgb(53,87,119);
+
+$orange: rgb(255,212,98),
+         rgb(239,140,64),
+         rgb(213,116,68);
+
+$red: rgb(169,47,47);
+
+$grey: rgb(135,128,124);
+
+$logo:  rgb(0,175,209),
+        rgb(111,191,187),
+        rgb(182,216,64);
+
+@mixin lighten_color($color_name, $color_value, $i) {
+  @for $x from 1 through 5 {
+    $value: $x * 0.1;
+    .background.solid.#{$color_name}#{$i}.darker#{$x} {
+      background-color: lighten(nth($color_value, $i), percentage($value));
+    }
+  }
+}
+
+@mixin darken_color($color_name, $color_value, $i) {
+  @for $x from 1 through 5 {
+    $value: $x * 0.1;
+    .background.solid.#{$color_name}#{$i}.darker#{$x} {
+      background-color: darken(nth($color_value, $i), percentage($value));
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .background.solid.green#{$i} {
+    background-color: nth($green, $i)
+  }
+
+  @include lighten_color('green', $green, $i);
+  @include darken_color('green', $green, $i);
+}
+
+@for $i from 1 through 4 {
+  .background.solid.blue#{$i} {
+    background-color: nth($blue, $i)
+  }
+
+  @include lighten_color('blue', $blue, $i);
+  @include darken_color('blue', $blue, $i);
+}
+
+@for $i from 1 through 3 {
+  .background.solid.orange#{$i} {
+    background-color: nth($orange, $i)
+  }
+
+  @include lighten_color('orange', $orange, $i);
+  @include darken_color('orange', $orange, $i);
+}
+
+@for $i from 1 through 3 {
+  .background.logo#{$i} {
+    background-color: nth($logo, $i)
+  }
+
+  @include lighten_color('logo', $logo, $i);
+  @include darken_color('logo', $logo, $i);
+}
+
+.background.solid.red {
+  background-color: $red;
+}
+
+.background.solid.grey {
+  background-color: $grey;
+}
+

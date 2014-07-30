@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @individual.first_name
+%p
+  %b Last name:
+  = @individual.last_name
+%p
+  %b Street1:
+  = @individual.street1
+%p
+  %b Street2:
+  = @individual.street2
+%p
+  %b City:
+  = @individual.city
+%p
+  %b State:
+  = @individual.state
+%p
+  %b Postalcode:
+  = @individual.postalcode
+
+= link_to 'Edit', edit_individual_path(@individual)
+\|
+= link_to 'Back', individuals_path

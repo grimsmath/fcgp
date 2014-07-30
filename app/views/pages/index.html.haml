@@ -1,0 +1,27 @@
+.row
+  .columns.large-12.small-2
+    .panel(style="margin-top: 20px")
+      %h4.left Pages
+      = render 'pages/actions'
+
+      %table.large-12.small-2
+        %thead
+          %tr
+            %th(style="width: 50px; text-align: center")
+              %input(style="margin: 0 auto"){type: "checkbox"}
+            %th Title
+            %th(width="300") Page Name
+            %th.text-center(width="200")
+              Last Updated
+
+        %tbody
+          - @pages.each do |page|
+            %tr
+              %td.text-center
+                = check_box_tag "page_ids[]", page.id, nil, style: "margin: 0 auto"
+              %td
+                = link_to page.title, page
+              %td
+                = link_to page.name, page.name
+              %td.text-center
+                = page.updated_at.to_formatted_s(:short)
