@@ -8,45 +8,72 @@
     %table.table.table-hover
       %thead
         %th Day
-        %th Open
-        %th Close
+        %th
+          Open
+          %a#copy_open.btn.btn-primary.btn-xs.pull-right{href: "#"} Set All Open
+        %th
+          Close
+          %a#copy_closed.btn.btn-primary.btn-xs.pull-right{href: "#"} Set All Closed
 
       %tbody
         %tr
           %td Monday
-          %td= f.text_field :mon_open, class: "form-control time-picker"
-          %td= f.text_field :mon_close, class: "form-control time-picker"
+          %td= f.text_field :mon_open, class: "form-control time-picker open-time"
+          %td= f.text_field :mon_close, class: "form-control time-picker close-time"
         %tr
           %td Tuesday
-          %td= f.text_field :tue_open, class: "form-control time-picker"
-          %td= f.text_field :tue_close, class: "form-control time-picker"
+          %td= f.text_field :tue_open, class: "form-control time-picker open-time"
+          %td= f.text_field :tue_close, class: "form-control time-picker close-time"
         %tr
           %td Wednesday
-          %td= f.text_field :wed_open, class: "form-control time-picker"
-          %td= f.text_field :wed_close, class: "form-control time-picker"
+          %td= f.text_field :wed_open, class: "form-control time-picker open-time"
+          %td= f.text_field :wed_close, class: "form-control time-picker close-time"
         %tr
           %td Thursday
-          %td= f.text_field :thu_open, class: "form-control time-picker"
-          %td= f.text_field :thu_close, class: "form-control time-picker"
+          %td= f.text_field :thu_open, class: "form-control time-picker open-time"
+          %td= f.text_field :thu_close, class: "form-control time-picker close-time"
         %tr
           %td Friday
-          %td= f.text_field :fri_open, class: "form-control time-picker"
-          %td= f.text_field :fri_close, class: "form-control time-picker"
+          %td= f.text_field :fri_open, class: "form-control time-picker open-time"
+          %td= f.text_field :fri_close, class: "form-control time-picker close-time"
         %tr
           %td Saturday
-          %td= f.text_field :sat_open, class: "form-control time-picker"
-          %td= f.text_field :sat_close, class: "form-control time-picker"
+          %td= f.text_field :sat_open, class: "form-control time-picker open-time"
+          %td= f.text_field :sat_close, class: "form-control time-picker close-time"
         %tr
           %td Sunday
-          %td= f.text_field :sun_open, class: "form-control time-picker"
-          %td= f.text_field :sun_close, class: "form-control time-picker"
-
-      %tfoot
-        %th Day
-        %th Open
-        %th Close
+          %td= f.text_field :sun_open, class: "form-control time-picker open-time"
+          %td= f.text_field :sun_close, class: "form-control time-picker close-time"
 
 :javascript
+  $('#copy_open').timepicker({
+    step: '15'
+  });
+
+  $('#copy_open').on('change', function(e) {
+    var time = moment($(this).timepicker('getTime')).format("h:mm a");
+    $('.open-time').val(time);
+  });
+
+  $('#copy_closed').timepicker({
+    step: '15'
+  });
+
+  $('#copy_closed').on('change', function(e) {
+    var time = moment($(this).timepicker('getTime')).format("h:mm a");
+    $('.close-time').val(time);
+  });
+
+  $('#copy_open').click(function() {
+    $(this).timepicker('show');
+    return false;
+  });
+
+  $('#copy_closed').click(function() {
+    $(this).timepicker('show');
+    return false;
+  });
+
   $('.time-picker').timepicker({
     step: '15'
   });
