@@ -1,7 +1,7 @@
 .row.down-20px
   .col-lg-7
     %label Vendor Description
-    = f.cktext_area :description, :ckeditor => { :uiColor => '#AADC6E' }
+    = f.cktext_area :description, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'tiny'}
 
   .col-lg-5
     %label Hours of Operation
@@ -46,6 +46,13 @@
           %td= f.text_field :sun_close, class: "form-control time-picker close-time"
 
 :javascript
+  bkLib.onDomLoaded(function() {
+    new nicEditor({
+      fullPanel: true,
+      iconsPath: '/images/nicEditorIcons.gif'
+    }).panelInstance('vendor_description');
+  });
+
   $('#copy_open').timepicker({
     step: '15'
   });

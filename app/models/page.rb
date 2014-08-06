@@ -6,6 +6,10 @@ class Page < ActiveRecord::Base
 
   has_ancestry
 
+  has_attached_file :data,
+                    :url => "/ckeditor_assets/attachments/:id/:filename",
+                    :path => ":rails_root/public/ckeditor_assets/attachments/:id/:filename"
+
   def reload_routes
     DynamicRouter.reload
   end

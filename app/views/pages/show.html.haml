@@ -1,6 +1,13 @@
 %section#wrapper{data: {link: "link-pages"}}
-  .col-lg-12.col-sm-2
-    = @page.body.html_safe
+  .row
+    .col-lg-12.col-sm-2
+      %h2
+        = @page.title
 
-    = link_to 'Back', pages_path, class: 'button tiny'
-    = link_to 'Edit', edit_page_path(@page), class: 'btn btn-general'
+      = @page.body.html_safe
+
+    .col-lg-12.col-sm-2
+      = link_to 'Back', pages_path, class: 'btn btn-default'
+
+      - if current_user.admin?
+        = link_to 'Edit', edit_page_path(@page), class: 'btn btn-primary'

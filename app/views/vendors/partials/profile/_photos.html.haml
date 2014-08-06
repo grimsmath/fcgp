@@ -6,7 +6,7 @@
 
     #photo-list(style="margin-top: 30px")
       = f.fields_for :photos, :wrapper => false do |photo_form|
-        .alert.alert-info.clearfix
+        .alert.alert-info.fields.clearfix
           - if photo_form.object.image?
             .pull-left
               = image_tag photo_form.object.image.url(:thumb)
@@ -20,7 +20,7 @@
             = photo_form.text_field :title, class: 'form-control input-sm'
 
             %label Description
-            = photo_form.text_area :description, rows: 10, class: 'form-control input-sm'
+            = photo_form.cktext_area :description, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'tiny'}
 
           - unless photo_form.object.image?
             .col-lg-6
