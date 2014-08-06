@@ -14,7 +14,7 @@
         %li.dropdown
           %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
             %span.fa.fa-leaf
-              Categories
+            Categories
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
             %li
@@ -29,10 +29,11 @@
               %a{:href => "#"} Separated link
             %li
               %a{:href => "#"} One more separated link
-        %li
-          = link_to pages_path do
-            %i.fa.fa-edit
-            Pages
+
+        - Page.where(parent_id: nil).first(5).each do |page|
+          %li
+            = link_to page.title, page
+
       %ul.nav.navbar-nav.pull-right
         - if current_user
           %li.dropdown

@@ -13,3 +13,12 @@ CKEDITOR.config.toolbar_tiny = [
   ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
   ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat']
 ];
+
+CKEDITOR.config.toolbar_basic = [
+  [ 'Bold', 'Italic', 'Underline', 'Strike' ],
+  [ 'NumberedList', 'BulletedList', 'HorizontalRule' ],
+  [ 'Blockquote' ],
+  [ 'Undo', 'Redo' ],
+  [ 'insertResolved' ],
+  [ 'Source' ]
+];

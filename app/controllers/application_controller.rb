@@ -19,6 +19,19 @@ class ApplicationController < ActionController::Base
       super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
     end
 
+    def resolve_layout
+      case user_signed_in?
+        when true
+          if current_user.admin?
+            "admin"
+          else
+            "application"
+          end
+        else
+          "application"
+      end
+    end
+
   private
     def user_not_authorized
       flash[:error] = "You are not authorized to perform this action."
