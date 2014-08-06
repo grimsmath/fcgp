@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorization
-  layout "admin"
+  layout :resolve_layout
 
   # GET /users
   # GET /users.json

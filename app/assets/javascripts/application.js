@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require jasny-bootstrap
 //= require bootstrap-datepicker
+//= require bootstrap.wysiwig
 //= require moment
 //= require fileinput
 //= require bootstrap

@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  layout "admin"
+  layout :resolve_layout
 
   # GET /members
   # GET /members.json

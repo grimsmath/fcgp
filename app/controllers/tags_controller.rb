@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  layout "admin"
+  before_action :authenticate_user!, :except => [:index, :show]
+  layout :resolve_layout
 
   # GET /tags
   # GET /tags.json

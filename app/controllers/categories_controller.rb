@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  layout "admin"
+  before_action :authenticate_user!, :except => [:index, :show]
+  layout :resolve_layout
 
   # GET /categories
   # GET /categories.json

@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  layout "admin"
+  layout :resolve_layout
 
   # GET /vendors
   # GET /vendors.json

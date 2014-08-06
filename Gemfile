@@ -84,6 +84,9 @@ gem 'google-webfonts'
 # https://github.com/galetahub/ckeditor
 gem 'ckeditor', '~> 4.1.0'
 
+# https://github.com/eric1234/file_browser
+gem 'file_browser', '~> 0.3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

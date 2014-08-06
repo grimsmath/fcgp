@@ -1,3 +1,11 @@
+CKEDITOR.editorConfig = function( config )
+{
+  config.language = 'en';
+  config.uiColor = '#AADC6E';
+  config.filebrowserBrowseUrl = '/local/uploaded_files/select/ck_browser';
+  config.filebrowserUploadUrl = '/local/uploaded_files/drop/ck_browser';
+};
+
 CKEDITOR.config.toolbar_mini = [
   ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
   ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
@@ -22,3 +30,4 @@ CKEDITOR.config.toolbar_basic = [
   [ 'insertResolved' ],
   [ 'Source' ]
 ];
+

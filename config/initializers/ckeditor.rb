@@ -37,3 +37,6 @@ Ckeditor.setup do |config|
   # config.assets_languages = ['en', 'uk']
   # config.assets_plugins = ['image', 'smiley']
 end
+
+FileBrowser.storages[:local] =
+  FilesystemStorage.new Rails.root.join('public/uploads')
