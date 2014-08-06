@@ -1,0 +1,60 @@
+= nested_form_for @vendor do |f|
+  .ui.one.column.page.grid.middle.aligned.relaxed.basic.segment
+    .column
+      .ui.top.attached.header.segment.green.inverted
+        %h2 Vendor Signup
+
+      .ui.segment.attached
+        .ui.form
+          .field
+            %label Vendor Name
+            = f.text_field :name
+
+        .ui.tabular.menu
+          %a.item.active{data:{tab: 'tab-general'}}
+            General Details
+          %a.item{data:{tab: 'tab-description'}}
+            Company Description
+          %a.item{data:{tab: 'tab-green'}}
+            How Green Are You?
+          %a.item{data:{tab: 'tab-listing'}}
+            Listing Options
+          %a.item{data:{tab: 'tab-login'}}
+            Login Information
+          %a.item{data:{tab: 'tab-review'}}
+            Review
+
+        .tab-content
+          .ui.tab.active{data:{tab: 'tab-general'}}
+            .ui.ten.wide.column
+              -#= render 'signup/partials/vendor/location', f: f
+              -#= render 'signup/partials/vendor/contact', f: f
+            .ui.five.wide.column
+              -#= render 'signup/partials/vendor/map', f: f
+
+            .ui.sixteen.wide.column
+              = render 'signup/partials/vendor/hours', f: f
+
+          .ui.tab{data:{tab: 'tab-description'}}
+            .ui.grid
+              .ui.sixteen.wide.column
+                = render 'signup/partials/vendor/about', f: f
+
+          .ui.tab{data:{tab: 'tab-green'}}
+            = render 'signup/partials/vendor/green', f: f
+
+          .ui.tab{data:{tab: 'tab-listing'}}
+            = render 'signup/partials/vendor/listing', f: f
+
+          .ui.tab{data:{tab: 'tab-login'}}
+            %h3.ui.header.green
+              Login Information
+
+          .ui.tab{data:{tab: 'tab-review'}}
+            %h3.ui.header.green
+              Review Your Listing
+
+:javascript
+  $('.menu .item').tab();
+
+  $('.ui.selection.dropdown').dropdown();

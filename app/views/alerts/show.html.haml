@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @alert.title
+%p
+  %b Message:
+  = @alert.message
+%p
+  %b Begins:
+  = @alert.begins
+%p
+  %b Ends:
+  = @alert.ends
+
+= link_to 'Edit', edit_alert_path(@alert)
+\|
+= link_to 'Back', alerts_path

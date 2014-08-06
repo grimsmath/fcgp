@@ -1,27 +1,37 @@
-.row
-  .columns.large-12
-    %h1 Listing categories
+%section#wrapper{data: {link: "link-categories"}}
+  .col-lg-12.col-sm-2
+    = render 'categories/partials/menubar'
 
-    %table.large-12
+    %table.table.table-hover
       %thead
         %tr
-          %th Name
+          %th Title
+          %th Parent Category
           %th Enabled
-          %th Category
-          %th
-          %th
-          %th
+          %th Last Updated
+          %th.action_column Actions
 
       %tbody
-        - @categories.each do |category|
+        - if @categories.count == 0
           %tr
-            %td= category.name
-            %td= category.enabled
-            %td= category.category
-            %td= link_to 'Show', category
-            %td= link_to 'Edit', edit_category_path(category)
-            %td= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %td(colspan="6")
+              No categories defined
+        - else
+          - @categories.each do |category|
+            %tr
+              %td= link_to category.title, edit_category_path(category)
+              %td
+                - unless category.parent_id.nil?
+                  = link_to Category.where(id: category.parent_id).first.title
+              %td= category.enabled
+              %td= category.updated_at
+              %td
+                = render 'categories/partials/actions', category: category
 
-    %br
-
-    = link_to 'New Category', new_category_path, class: "button"
+      %tfoot
+        %tr
+          %th Name
+          %th Parent
+          %th Enabled
+          %th Last Updated
+          %th.action_column Actions

@@ -1,0 +1,37 @@
+%ul.nav.nav-sidebar
+  %li.active#link-dashboard
+    = link_to admin_path do
+      %i.fa.fa-dashboard
+      Admin Dashboard
+  %li#link-pages
+    = link_to pages_path do
+      %i.fa.fa-folder-open
+      Dynamic Pages
+  %li#link-categories
+    = link_to categories_path do
+      %i.fa.fa-cubes
+      Categories
+%ul.nav.nav-sidebar
+  %li#link-vendors
+    = link_to vendors_path do
+      %i.fa.fa-truck
+      Vendors
+  %li#link-members
+    = link_to members_path do
+      %i.fa.fa-building
+      Members
+  %li#link-users
+    = link_to users_path do
+      %i.fa.fa-users
+      Users
+
+%ul.nav.nav-sidebar
+  %li#link-alerts
+    = link_to alerts_path do
+      %i.fa.fa-bell
+      Site Alerts
+
+  %li
+    %a{:href => ""}
+      %i.fa.fa-gear
+      Configuration

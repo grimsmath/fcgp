@@ -1,1 +1,1 @@
-json.extract! @vendor, :id, :name, :street1, :street2, :city, :state, :postalcode, :description, :created_at, :updated_at
+json.extract! @vendor, :id, :name, :description, :created_at, :updated_at

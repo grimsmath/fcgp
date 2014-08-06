@@ -1,0 +1,66 @@
+.row.down-20px
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Certifications
+        .pull-right
+          = f.link_to_add :certifications, class: 'btn btn-primary btn-xs pull-right', data: { target: '#certifications' } do
+            %i.fa.fa-plus
+            Add Certification
+
+      .panel-body
+        #certifications
+          = f.fields_for :certifications, :wrapper => false do |cert_form|
+            .alert.alert-info.fields
+              .pull-right
+                = cert_form.link_to_remove class: 'btn btn-default btn-xs' do
+                  %i.fa.fa-trash-o
+              %label Certification Title
+              = cert_form.text_field :title, class: 'form-control input-sm'
+              %label Date Awarded
+              = cert_form.text_field :awarded, class: 'form-control input-sm datepicker'
+              %label Certification Notes
+              = cert_form.text_area :notes, class: 'form-control input-sm'
+
+      .panel-footer
+        Panel footer content goes here
+
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Green Badges
+        .pull-right
+          = f.link_to_add :badges, class: 'btn btn-primary btn-xs pull-right', data: { target: '#badges' } do
+            %i.fa.fa-plus
+            Add Badge
+
+      .panel-body
+        #badges
+          = f.fields_for :badges, :wrapper => false do |badge_form|
+            .alert.alert-success.fields
+              .pull-right
+                = badge_form.link_to_remove class: 'btn btn-default btn-xs' do
+                  %i.fa.fa-trash-o
+              %label Badge Title
+              = badge_form.text_field :title, class: 'form-control input-sm'
+              %label Date Awarded
+              = badge_form.text_field :awarded, class: 'form-control input-sm datepicker'
+              %label Badge Image
+              = badge_form.file_field :image, class: 'file'
+
+      .panel-footer
+        Panel footer content goes here
+
+:javascript
+
+  $(document).on('nested:fieldAdded', function(event){
+    $('.datepicker').datepicker();
+
+    $(".file").fileinput({
+      showUpload: false,
+      showCaption: false,
+      previewFileType: 'any'
+    });
+  });

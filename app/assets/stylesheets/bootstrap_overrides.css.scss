@@ -1,0 +1,16 @@
+$green1: rgb(182,216,64);
+$green2: darken($green1, 15%);
+$green3: darken($green1, 20%);
+
+$navbar-default-bg: $green1;
+$navbar-default-link-color: #fff;
+
+.btn-green {
+  @extend .btn-success;
+  background-color: $green1;
+}
+
+ul.nav a:hover {
+  color: #fff;
+  background-color: $green2 !important;
+}

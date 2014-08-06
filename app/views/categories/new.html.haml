@@ -1,5 +1,6 @@
-.row
-  .columns.large-12
-    %h1 New category
-    = render 'form'
-    = link_to 'Back', categories_path, class: 'button'
+%section#wrapper{data: {link: "link-categories"}}
+  .col-lg-12.col-sm-2
+
+    %h2 New Category
+
+    = render 'categories/partials/form'

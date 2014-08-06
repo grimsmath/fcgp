@@ -1,0 +1,13 @@
+= form_for @member do |f|
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary btn-tiny'
+    = link_to 'Back', members_path, class: 'btn btn-default btn-tiny'
+
+:javascript
+  changeActiveName('#link-members');

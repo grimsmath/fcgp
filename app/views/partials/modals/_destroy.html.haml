@@ -1,0 +1,11 @@
+#delete-confirm.modal.fade
+  .modal-header
+    %a.close{"data-dismiss" => "modal"} ×
+    %h3 Delete this thing?
+
+  .modal-body
+    %p Be certain, sonny.
+
+  .modal-footer
+    = link_to 'Delete', something_path+'/pony', method: :delete, :class => 'btn btn-danger'
+    %a.btn{"data-dismiss" => "modal", :href => "#"} Cancel

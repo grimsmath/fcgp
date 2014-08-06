@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
-  has_many :vendor_tags, :dependent => :destroy
-  has_many :categories, :through => :vendor_tags
+  has_and_belongs_to_many :vendor
+  has_and_belongs_to_many :member
 end

@@ -1,0 +1,43 @@
+= nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
+  %ul.nav.nav-tabs{role: "tablist"}
+    %li.active
+      %a{data: {toggle: "tab"}, href: "#general", role: "tab"}
+        General Details
+    %li
+      %a{data: {toggle: "tab"}, href: "#profile", role: "tab"}
+        Description &amp; Hours
+    %li
+      %a{data: {toggle: "tab"}, href: "#green", role: "tab"}
+        Green Details
+    %li
+      %a{data: {toggle: "tab"}, href: "#photos", role: "tab"}
+        Photos
+    %li
+      %a{data: {toggle: "tab"}, href: "#listing", role: "tab"}
+        Listing Options
+
+  .tab-content
+    #general.tab-pane.active
+      .row.down-20px
+        .col-lg-12
+          .form-group
+            %label Vendor Name
+            = f.text_field :name, class: 'form-control'
+
+        .col-lg-6.col-sm-2
+          = render 'vendors/partials/profile/general', f: f
+
+        .col-lg-6.col-sm-2
+          = render 'vendors/partials/profile/map', f: f
+
+    #profile.tab-pane
+      = render 'vendors/partials/profile/hours', f: f
+
+    #green.tab-pane
+      = render 'vendors/partials/profile/green', f: f
+
+    #photos.tab-pane
+      = render 'vendors/partials/profile/photos', f: f
+
+    #listing.tab-pane
+      = render 'vendors/partials/profile/listing', f: f

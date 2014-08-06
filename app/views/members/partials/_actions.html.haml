@@ -1,0 +1,13 @@
+%span.dropdown
+  %button.btn.btn-primary.btn-xs.dropdown-toggle{'data-toggle'=> 'dropdown', 'data-target' => '#', href: '#'}
+    Manage
+    %span.caret
+    %span.sr-only Toggle Dropdown
+  %nav.dropdown-menu
+    %li
+      = link_to edit_member_path(member) do
+        %i.fa.fa-edit
+        Edit Member
+    %li
+      = link_to content_tag('i', '', class: 'fa fa-trash-o') + " Delete",
+        member, confirm: "Are you sure you want to delete '#{member.title}'?", method: :delete

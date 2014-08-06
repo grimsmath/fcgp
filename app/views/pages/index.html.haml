@@ -1,27 +1,42 @@
-.row
-  .columns.large-12.small-2
-    .panel(style="margin-top: 20px")
-      %h4.left Pages
-      = render 'pages/actions'
+%section#wrapper{data: {link: "link-pages"}}
+  .col-lg-12.col-sm-2
+    = render 'pages/partials/menubar'
 
-      %table.large-12.small-2
-        %thead
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Page Name
+          %th Page Title
+          %th Parent Page
+          %th Last Updated
+          %th.action_column
+            Actions
+
+      %tbody
+        - if @pages.count == 0
           %tr
-            %th(style="width: 50px; text-align: center")
-              %input(style="margin: 0 auto"){type: "checkbox"}
-            %th Title
-            %th(width="300") Page Name
-            %th.text-center(width="200")
-              Last Updated
-
-        %tbody
+            %td(colspan="4")
+              No pages defined
+        - else
           - @pages.each do |page|
             %tr
-              %td.text-center
-                = check_box_tag "page_ids[]", page.id, nil, style: "margin: 0 auto"
-              %td
+              %td(style="width: 150px")
+                = link_to page.name, edit_page_path(page)
+              %td(style="width: 300px")
                 = link_to page.title, page
-              %td
-                = link_to page.name, page.name
-              %td.text-center
+              %td(style="width: 150px")
+                - unless page.parent_id.nil?
+                  = link_to Page.where(id: page.parent_id).first.name
+              %td(style="width: 150px")
                 = page.updated_at.to_formatted_s(:short)
+              %td.action_column
+                = render 'pages/partials/actions', page: page
+
+      %tfoot
+        %tr
+          %th Title
+          %th Page Name
+          %th Parent Page
+          %th Last Updated
+          %th.action_column
+            Actions

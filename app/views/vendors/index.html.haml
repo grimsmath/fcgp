@@ -1,31 +1,31 @@
-%h1 Listing vendors
+%section#wrapper{data: {link: "link-vendors"}}
+  .col-lg-12.col-sm-2
+    = render 'vendors/partials/actionbar'
 
-%table
-  %tr
-    %th Name
-    %th Street1
-    %th Street2
-    %th City
-    %th State
-    %th Postalcode
-    %th Description
-    %th
-    %th
-    %th
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Description
+          %th.action_column
+            Actions
 
-  - @vendors.each do |vendor|
-    %tr
-      %td= vendor.name
-      %td= vendor.street1
-      %td= vendor.street2
-      %td= vendor.city
-      %td= vendor.state
-      %td= vendor.postalcode
-      %td= vendor.description
-      %td= link_to 'Show', vendor
-      %td= link_to 'Edit', edit_vendor_path(vendor)
-      %td= link_to 'Destroy', vendor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tbody
+        - if @vendors.count == 0
+          %tr
+            %td(colspan="3")
+              No vendors defined
+        - else
+          - @vendors.each do |vendor|
+            %tr
+              %td= vendor.name
+              %td= vendor.description
+              %td
+                = render 'vendors/partials/actions', vendor: vendor
 
-%br
-
-= link_to 'New Vendor', new_vendor_path
+      %tfoot
+        %tr
+          %th Name
+          %th Description
+          %th.action_column
+            Actions

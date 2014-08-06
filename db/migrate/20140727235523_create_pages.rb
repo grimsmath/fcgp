@@ -6,9 +6,15 @@ class CreatePages < ActiveRecord::Migration
       t.string :sub_title
       t.text :description
       t.text :body
-      t.integer :author_id
+      t.belongs_to :user
+      t.references :parent
+      t.string :ancestry
       t.boolean :enabled
+
       t.timestamps
+
+      t.index :id
+      t.index :ancestry
     end
   end
 end

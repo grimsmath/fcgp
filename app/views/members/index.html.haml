@@ -1,0 +1,29 @@
+%section#wrapper{data: {link: "link-members"}}
+  .col-lg-12.col-sm-2
+    = render 'members/partials/actionbar'
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Last Name
+          %th First Name
+          %th Actions
+
+      %tbody
+        - if @members.count == 0
+          %tr
+            %td(colspan="4")
+              No members defined
+        - else
+          - @members.each do |member|
+            %tr
+              %td= member.first_name
+              %td= member.last_name
+              %td
+                = render 'members/partials/actions', member: member
+
+      %tfoot
+        %tr
+          %th Last Name
+          %th First Name
+          %th Actions

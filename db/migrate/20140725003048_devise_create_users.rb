@@ -5,6 +5,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      ## Roles for Pundit
+      t.boolean :admin,       default: false
+      t.boolean :moderator,   default: false
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -30,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.belongs_to :individual
+      t.belongs_to :member
 
       t.timestamps
     end

@@ -4,7 +4,13 @@ class Page < ActiveRecord::Base
 
   after_save :reload_routes
 
+  has_ancestry
+
   def reload_routes
     DynamicRouter.reload
+  end
+
+  def indented_title
+    '--' * ancestors.count + ' ' + title
   end
 end

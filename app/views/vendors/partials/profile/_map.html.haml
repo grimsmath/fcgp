@@ -1,0 +1,16 @@
+#map
+  .panel.panel-default
+    .panel-heading.clearfix
+      %h4.panel-title.pull-left
+        Vendor Location
+      .lat-long.pull-right
+
+    .panel-body(style="height: 350px")
+      = f.hidden_field :latitude
+      = f.hidden_field :longitude
+
+      #map-canvas(style="height: 100%; width: 100%")
+
+    .panel-footer
+      %button.btn.btn-primary.fa.fa-map-marker
+        Get Directions

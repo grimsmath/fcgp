@@ -11,13 +11,17 @@
 // about supported directives.
 //
 //= require jquery
-//= require foundation
+//= require jquery.address
+//= require rails
+//= require jquery.timepicker
+//= require jquery_nested_form
+//= require turbolinks
+//= require jasny-bootstrap
+//= require bootstrap-datepicker
+//= require fileinput
+//= require bootstrap
 //= require ckeditor/init
 //= require holder
-//= require sticky.footer
 //= require pages
-
-// Initialize Foundation CSS/JS framework
-$(function(){
-  $(document).foundation();
-});
+//= require gmaps
+//= require admin

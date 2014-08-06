@@ -8,7 +8,7 @@ class IndividualsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:individuals)
+    assert_not_nil assigns(:members)
   end
 
   test "should get new" do

@@ -1,8 +1,6 @@
-.row
-  .columns.large-12
-    %h1 Editing category
-    = render 'form'
+%section#wrapper{data: {link: "link-categories"}}
+  .col-lg-12.col-sm-2
 
-    = link_to 'Show', @category
-    \|
-    = link_to 'Back', categories_path
+    %h1 Editing category
+
+    = render 'categories/partials/form'

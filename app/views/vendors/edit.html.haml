@@ -1,7 +1,4 @@
-%h1 Editing vendor
-
-= render 'form'
-
-= link_to 'Show', @vendor
-\|
-= link_to 'Back', vendors_path
+%section#wrapper{data: {link: "link-vendors"}}
+  .col-lg-12.col-sm-2
+    %h2 Edit Vendor Profile
+    = render 'vendors/partials/form'

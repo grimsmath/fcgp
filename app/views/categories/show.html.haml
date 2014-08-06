@@ -1,15 +1,4 @@
-%p#notice= notice
+%section#wrapper{data: {link: "link-categories"}}
+  .col-lg-12.col-sm-2
 
-%p
-  %b Name:
-  = @category.name
-%p
-  %b Enabled:
-  = @category.enabled
-%p
-  %b Category:
-  = @category.category
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+    %h2 Category

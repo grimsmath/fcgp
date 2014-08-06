@@ -1,7 +1,6 @@
-.row
-  .columns.large-12.small-2
-    %div.page
-      = @page.body.html_safe
+%section#wrapper{data: {link: "link-pages"}}
+  .col-lg-12.col-sm-2
+    = @page.body.html_safe
 
-      = link_to 'Edit', edit_page_path(@page), class: 'button tiny'
-      = link_to 'Back', pages_path, class: 'button tiny'
+    = link_to 'Back', pages_path, class: 'button tiny'
+    = link_to 'Edit', edit_page_path(@page), class: 'btn btn-general'

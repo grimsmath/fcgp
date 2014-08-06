@@ -1,0 +1,28 @@
+.row.down-20px
+  .col-lg-12
+    = f.link_to_add :photos, class: 'btn btn-primary btn-xs pull-right', data: { target: '#photo-list' } do
+      %i.fa.fa-plus
+      Add Photo
+
+    #photo-list(style="margin-top: 30px")
+      = f.fields_for :photos, :wrapper => false do |photo_form|
+        .alert.alert-info.clearfix
+          - if photo_form.object.image?
+            .pull-left
+              = image_tag photo_form.object.image.url(:thumb)
+
+          .pull-right
+            = photo_form.link_to_remove class: 'btn btn-default btn-xs' do
+              %i.fa.fa-trash-o
+
+          .col-lg-5
+            %label Title
+            = photo_form.text_field :title, class: 'form-control input-sm'
+
+            %label Description
+            = photo_form.text_area :description, rows: 10, class: 'form-control input-sm'
+
+          - unless photo_form.object.image?
+            .col-lg-6
+              %label Image File
+              = photo_form.file_field :image, class: 'file'

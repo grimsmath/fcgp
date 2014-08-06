@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
-  resources :individuals
 
-  resources :vendors
+  devise_for :users
+
+  resources :alerts
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  get '/admin' => 'admin#index'
+
+  resources :users
+  resources :members
+  resources :vendors
   resources :pages
   resources :categories
   resources :addresses
   resources :tags
 
-  devise_for :users
-
+  # Root path
   root to: "home#index"
 
   # handle not-found pages
@@ -19,6 +24,9 @@ Rails.application.routes.draw do
 
   # This is a globbing catch-all route
   DynamicRouter.load
+
+  get '/signup/vendor' => 'signup#vendor'
+  get '/signup/individual' => 'signup#individual'
 
   # get '*path' => 'application#index'
 

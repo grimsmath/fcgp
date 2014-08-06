@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  layout "admin"
 
   # GET /pages
   # GET /pages.json
@@ -66,7 +68,7 @@ class PagesController < ApplicationController
   def destroy_multiple
     @pages = Page.find(params[:page_ids])
   end
-  ß
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
@@ -75,6 +77,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:name, :title, :sub_title, :description, :body)
+      params.require(:page).permit(:name, :title, :sub_title, :parent_id, :user_id, :body, :enabled)
     end
 end

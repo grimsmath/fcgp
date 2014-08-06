@@ -1,9 +1,24 @@
-%h2 Sign in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Sign in"
-= render "devise/shared/links"
+.col-lg-4.col-lg-offset-4
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .panel.panel-success
+      .panel-heading
+        %h4.panel-title First Coast Green Pages Signin
+
+      .panel-body
+        .form-group
+          = f.label :email
+          = f.email_field :email, :autofocus => true, class: "form-control"
+
+        .form-group
+          = f.label :password
+          = f.password_field :password, class: "form-control"
+
+        - if devise_mapping.rememberable?
+          .checkbox
+            %label
+              %input{name: "remember_me", id: "remember_me", type: "checkbox"}
+              Remember Me
+
+      .panel-footer
+        = f.submit "Sign in", class: "btn btn-green"
+        = render "devise/shared/links"

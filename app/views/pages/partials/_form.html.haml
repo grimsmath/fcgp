@@ -1,0 +1,30 @@
+= form_for(@page, html: {role: "form"}) do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    %label Page Name (automatically generated)
+    = f.text_field :name, readonly: true, class: 'form-control'
+
+  .form-group
+    = f.label :sub_title
+    = f.text_field :sub_title, class: 'form-control'
+
+  .form-group
+    %label Parent Page
+    = f.select :parent_id, nested_dropdown(Page.all.arrange), { include_blank: '' }, class: 'form-control'
+
+  .form-group
+    = f.label :body
+    = f.cktext_area :body
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary btn-small'
+    = link_to 'Back', pages_path, class: 'btn btn-default btn-small'
+
+:javascript
+  $('#page_title').on("keydown keyup", function() {
+    newText = $('#page_title').val().replace(/\s+/g, "_").toLowerCase();
+    return $('#page_name').val(newText.replace(/[^\w\s_]/g,''));
+  });
