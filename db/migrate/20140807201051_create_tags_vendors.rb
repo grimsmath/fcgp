@@ -1,6 +1,6 @@
-class CreateVendorTags < ActiveRecord::Migration
+class CreateTagsVendors < ActiveRecord::Migration
   def change
-    create_table :vendor_tags do |t|
+    create_table :tags_vendors, id: false do |t|
       t.belongs_to :vendor
       t.belongs_to :tag
 

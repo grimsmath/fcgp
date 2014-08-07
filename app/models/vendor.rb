@@ -3,8 +3,9 @@ class Vendor < ActiveRecord::Base
   has_many :certifications, :dependent => :destroy
   has_many :badges, :dependent => :destroy
   has_many :photos, :dependent => :destroy
-  has_many :categories, :through => :vendor_category
-  has_many :tags, :thorough => :vendor_tag
+
+  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :tags
 
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :certifications, allow_destroy: true
