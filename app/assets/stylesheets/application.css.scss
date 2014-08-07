@@ -18,13 +18,58 @@
 @import "bootstrap_overrides";
 @import "bootstrap";
 @import "jasny-bootstrap";
+@import "bootstrap-select";
 @import "datepicker3";
 @import "fileinput";
 @import "font-awesome";
 @import "admin";
 
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: #fff
+}
+
+body {
+  padding-top: 70px;
+}
+
 #content_wrapper {
-  margin-top: 50px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.logo {
+  background: image-url('logo_fcgp.png') no-repeat center;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+#footer, .push {
+  height: 150px;
+}
+
+#footer {
+  background-color: darken($green5, 0.5);
+}
+
+.categories ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: outisde;
+}
+
+.categories ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: outisde;
 }
 
 .down-20px {

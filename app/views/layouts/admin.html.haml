@@ -23,9 +23,10 @@
         = render 'partials/flash'
         = yield
 
-    = render 'partials/sitefoot'
+    -#= render 'partials/sitefoot'
 
 :javascript
+
   function changeActiveLink(link) {
     $('.sidebar li').each(function (){
       $(this).removeClass("active");

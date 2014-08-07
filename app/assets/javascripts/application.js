@@ -19,6 +19,7 @@
 //= require jasny-bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap.wysiwig
+//= require bootstrap-select
 //= require moment
 //= require fileinput
 //= require bootstrap

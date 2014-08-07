@@ -13,9 +13,11 @@
     = csrf_meta_tags
 
   %body
-    #content_wrapper(style="margin-top: 70px")
+    #content_wrapper
       = render 'partials/sitenav'
       = render 'partials/flash'
       = yield
+
+      .push
 
     = render 'partials/sitefoot'
