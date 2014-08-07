@@ -1,3 +1,15 @@
 .row.down-20px
+  .col-lg-4
+    %h4 Categories
+
+    #categories
+      = f.fields_for :categories, :wrapper => false do |cat_form|
+        .alert.alert-info.fields
+          .pull-right
+            = cat_form.link_to_remove class: 'btn btn-default btn-xs' do
+              %i.fa.fa-trash-o
+          %label Category
+          = f.collection_select :category_id, Category.all, :id, :title, { include_blank: '' }, class: "form-control"
+
   .col-lg-12
     = f.submit 'Save', class: 'btn btn-primary'

@@ -5,7 +5,6 @@ class CreateCategories < ActiveRecord::Migration
       t.boolean :enabled
       t.references :parent
       t.string :ancestry
-      t.belongs_to :vendor
 
       t.timestamps
 
