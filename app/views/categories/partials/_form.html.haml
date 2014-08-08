@@ -4,9 +4,11 @@
       .form-group
         = f.label :title
         = f.text_field :title, class: 'form-control'
+
       .form-group
         %label Name
         = f.text_field :name, class: 'form-control', readonly: true
+
       .form-group
         %label Parent Category
         = f.select :parent_id, nested_dropdown(Category.all.arrange), { include_blank: '' }, class: 'form-control'
@@ -18,3 +20,14 @@
 
   = f.submit 'Save', class: 'btn btn-primary'
   = link_to 'Back', categories_path, class: 'btn btn-default btn-small'
+
+:javascript
+  $('#category_title').on("keydown keyup", function() {
+    newText = $('#category_title').val().replace(/\s+/g, "_").toLowerCase();
+
+    newText = newText.replace(/[^\w\s_]/g, '');
+
+    newText = newText.replace(/__+/g, '');
+
+    return $('#category_name').val(newText);
+  });

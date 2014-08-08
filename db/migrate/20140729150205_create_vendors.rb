@@ -7,6 +7,7 @@ class CreateVendors < ActiveRecord::Migration
       t.datetime :signup_date
       t.boolean :enabled
       t.boolean :paid
+      t.float :staff_rating, default: 0.0
 
       t.timestamps
     end
