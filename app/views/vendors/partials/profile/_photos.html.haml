@@ -1,28 +1,33 @@
 .row.down-20px
   .col-lg-12
-    = f.link_to_add :photos, class: 'btn btn-primary btn-xs pull-right', data: { target: '#photo-list' } do
-      %i.fa.fa-plus
-      Add Photo
+    .panel.panel-default
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Photos
+        = f.link_to_add :photos, class: 'btn btn-primary btn-xs pull-right', data: { target: '#photo-list' } do
+          %i.fa.fa-plus
+          Add Photo
 
-    #photo-list(style="margin-top: 30px")
-      = f.fields_for :photos, :wrapper => false do |photo_form|
-        .alert.alert-info.fields.clearfix
-          - if photo_form.object.image?
-            .pull-left
-              = image_tag photo_form.object.image.url(:thumb)
+      .panel-body.custom
+        %table#photo-list.table.table-striped.table-hover
+          %thead
+            %th(style="width: 250px") Image
+            %th Title
+            %th Caption
+            %th.action_column Actions
 
-          .pull-right
-            = photo_form.link_to_remove class: 'btn btn-default btn-xs' do
-              %i.fa.fa-trash-o
-
-          .col-lg-5
-            %label Title
-            = photo_form.text_field :title, class: 'form-control input-sm'
-
-            %label Description
-            = photo_form.cktext_area :description, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'tiny'}
-
-          - unless photo_form.object.image?
-            .col-lg-6
-              %label Image File
-              = photo_form.file_field :image, class: 'file'
+          %tbody
+            = f.fields_for :photos, :wrapper => false do |photo_form|
+              %tr.fields
+                %td
+                  - unless photo_form.object.image?
+                    = photo_form.file_field :image, class: 'file'
+                  - else
+                    = image_tag photo_form.object.image.url(:thumb)
+                %td
+                  = photo_form.text_field :title, class: 'form-control'
+                %td
+                  = photo_form.text_area :description, rows: 5, class: 'form-control fill-text-area vert-only'
+                %td.action_column
+                  = photo_form.link_to_remove class: 'btn btn-default btn-small' do
+                    %i.fa.fa-trash-o

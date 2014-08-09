@@ -9,7 +9,7 @@
             %i.fa.fa-plus
             Add Certification
 
-      .panel-body
+      .panel-body.custom
         #certifications
           = f.fields_for :certifications, :wrapper => false do |cert_form|
             .alert.alert-info.fields
@@ -23,9 +23,6 @@
               %label Certification Notes
               = cert_form.text_area :notes, class: 'form-control input-sm'
 
-      .panel-footer
-        Panel footer content goes here
-
   .col-lg-6
     .panel.panel-default
       .panel-heading.clearfix
@@ -36,7 +33,7 @@
             %i.fa.fa-plus
             Add Badge
 
-      .panel-body
+      .panel-body.custom
         #badges
           = f.fields_for :badges, :wrapper => false do |badge_form|
             .alert.alert-success.fields
@@ -49,9 +46,6 @@
               = badge_form.text_field :awarded, class: 'form-control input-sm datepicker'
               %label Badge Image
               = badge_form.file_field :image, class: 'file'
-
-      .panel-footer
-        Panel footer content goes here
 
 :javascript
 

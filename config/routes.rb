@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # This is a globbing catch-all route
   DynamicRouter.load
 
+  get '/signup' => 'signup#index'
   get '/signup/vendor' => 'signup#vendor'
   get '/signup/individual' => 'signup#individual'
 

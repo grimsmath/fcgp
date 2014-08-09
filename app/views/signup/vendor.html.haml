@@ -3,25 +3,36 @@
     %h2 New Vendor Registration
 
     = nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
-      %ul.nav.nav-tabs{role: "tablist"}
+      %ul.nav.nav-pills.nav-wizard{role: "tablist"}
         %li.active
-          %a{data: {toggle: "tab"}, href: "#general", role: "tab"}
+          %a{data: {toggle: "tab"}, href: "#general"}
             General Details
+          .nav-arrow
         %li
-          %a{data: {toggle: "tab"}, href: "#profile", role: "tab"}
+          .nav-wedge
+          %a{data: {toggle: "tab"}, href: "#profile"}
             Description &amp; Hours
+          .nav-arrow
         %li
-          %a{data: {toggle: "tab"}, href: "#green", role: "tab"}
+          .nav-wedge
+          %a{data: {toggle: "tab"}, href: "#green"}
             Green Details
+          .nav-arrow
         %li
-          %a{data: {toggle: "tab"}, href: "#photos", role: "tab"}
+          .nav-wedge
+          %a{data: {toggle: "tab"}, href: "#photos"}
             Photos
+          .nav-arrow
         %li
-          %a{data: {toggle: "tab"}, href: "#listing", role: "tab"}
+          .nav-wedge
+          %a{data: {toggle: "tab"}, href: "#listing"}
             Listing Options
+          .nav-arrow
         %li
-          %a{data: {toggle: "tab"}, href: "#complete", role: "tab"}
+          .nav-wedge
+          %a{data: {toggle: "tab"}, href: "#complete"}
             Complete Registration
+          .nav-wedge
 
       .tab-content
         #general.tab-pane.active

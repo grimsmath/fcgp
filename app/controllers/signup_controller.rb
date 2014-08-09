@@ -1,8 +1,9 @@
 class SignupController < ApplicationController
-  include Devise::Controllers::Helpers
-
   def vendor
     @vendor = Vendor.new
+    @vendor.addresses.build
+    @vendor.categories.build
+    @vendor.tags.build
   end
 
   def individual
