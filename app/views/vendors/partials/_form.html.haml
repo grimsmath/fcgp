@@ -15,6 +15,9 @@
     %li
       %a{data: {toggle: "tab"}, href: "#listing", role: "tab"}
         Listing Options
+    %li
+      %a{data: {toggle: "tab"}, href: "#complete", role: "tab"}
+        Complete Registration
 
   .tab-content
     #general.tab-pane.active
@@ -41,3 +44,6 @@
 
     #listing.tab-pane
       = render 'vendors/partials/profile/listing', f: f
+
+    #complete.tab-pane
+      = render 'vendors/partials/profile/complete', f: f

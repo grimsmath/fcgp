@@ -18,6 +18,8 @@ class VendorsController < ApplicationController
   def new
     @vendor = Vendor.new
     @vendor.addresses.build
+    @vendor.categories.build
+    @vendor.tags.build
   end
 
   # GET /vendors/1/edit
@@ -92,6 +94,8 @@ class VendorsController < ApplicationController
                                      addresses_attributes:      [:id, :street1,  :street2,     :city,    :state, :postal_code, :_destroy],
                                      certifications_attributes: [:id, :title,    :awarded,     :image,   :notes,               :_destroy],
                                      badges_attributes:         [:id, :title,    :awarded,     :image,                         :_destroy],
-                                     photos_attributes:         [:id, :title,    :description, :image,                         :_destroy])
+                                     photos_attributes:         [:id, :title,    :description, :image,                         :_destroy],
+                                     categories_attributes:     [:id, :title,    :name,                                        :_destroy],
+                                     tags_attributes:           [:id, :title,    :name,                                        :_destroy])
     end
 end

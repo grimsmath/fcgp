@@ -1,60 +1,53 @@
-= nested_form_for @vendor do |f|
-  .ui.one.column.page.grid.middle.aligned.relaxed.basic.segment
-    .column
-      .ui.top.attached.header.segment.green.inverted
-        %h2 Vendor Signup
+.container
+  .col-md-12.col-sm-2
+    %h2 New Vendor Registration
 
-      .ui.segment.attached
-        .ui.form
-          .field
-            %label Vendor Name
-            = f.text_field :name
-
-        .ui.tabular.menu
-          %a.item.active{data:{tab: 'tab-general'}}
+    = nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
+      %ul.nav.nav-tabs{role: "tablist"}
+        %li.active
+          %a{data: {toggle: "tab"}, href: "#general", role: "tab"}
             General Details
-          %a.item{data:{tab: 'tab-description'}}
-            Company Description
-          %a.item{data:{tab: 'tab-green'}}
-            How Green Are You?
-          %a.item{data:{tab: 'tab-listing'}}
+        %li
+          %a{data: {toggle: "tab"}, href: "#profile", role: "tab"}
+            Description &amp; Hours
+        %li
+          %a{data: {toggle: "tab"}, href: "#green", role: "tab"}
+            Green Details
+        %li
+          %a{data: {toggle: "tab"}, href: "#photos", role: "tab"}
+            Photos
+        %li
+          %a{data: {toggle: "tab"}, href: "#listing", role: "tab"}
             Listing Options
-          %a.item{data:{tab: 'tab-login'}}
-            Login Information
-          %a.item{data:{tab: 'tab-review'}}
-            Review
+        %li
+          %a{data: {toggle: "tab"}, href: "#complete", role: "tab"}
+            Complete Registration
 
-        .tab-content
-          .ui.tab.active{data:{tab: 'tab-general'}}
-            .ui.ten.wide.column
-              -#= render 'signup/partials/vendor/location', f: f
-              -#= render 'signup/partials/vendor/contact', f: f
-            .ui.five.wide.column
-              -#= render 'signup/partials/vendor/map', f: f
+      .tab-content
+        #general.tab-pane.active
+          .row.down-20px
+            .col-lg-12
+              .form-group
+                %label Vendor Name
+                = f.text_field :name, class: 'form-control'
 
-            .ui.sixteen.wide.column
-              = render 'signup/partials/vendor/hours', f: f
+            .col-lg-6.col-sm-2
+              = render 'vendors/partials/profile/general', f: f
 
-          .ui.tab{data:{tab: 'tab-description'}}
-            .ui.grid
-              .ui.sixteen.wide.column
-                = render 'signup/partials/vendor/about', f: f
+            .col-lg-6.col-sm-2
+              = render 'vendors/partials/profile/map', f: f
 
-          .ui.tab{data:{tab: 'tab-green'}}
-            = render 'signup/partials/vendor/green', f: f
+        #profile.tab-pane
+          = render 'vendors/partials/profile/hours', f: f
 
-          .ui.tab{data:{tab: 'tab-listing'}}
-            = render 'signup/partials/vendor/listing', f: f
+        #green.tab-pane
+          = render 'vendors/partials/profile/green', f: f
 
-          .ui.tab{data:{tab: 'tab-login'}}
-            %h3.ui.header.green
-              Login Information
+        #photos.tab-pane
+          = render 'vendors/partials/profile/photos', f: f
 
-          .ui.tab{data:{tab: 'tab-review'}}
-            %h3.ui.header.green
-              Review Your Listing
+        #listing.tab-pane
+          = render 'vendors/partials/profile/listing', f: f
 
-:javascript
-  $('.menu .item').tab();
-
-  $('.ui.selection.dropdown').dropdown();
+        #complete.tab-pane
+          = render 'vendors/partials/profile/complete', f: f

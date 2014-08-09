@@ -1,15 +1,87 @@
 .row.down-20px
-  .col-lg-4
-    %h4 Categories
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          Membership Details
 
-    #categories
-      = f.fields_for :categories, :wrapper => false do |cat_form|
-        .alert.alert-info.fields
-          .pull-right
-            = cat_form.link_to_remove class: 'btn btn-default btn-xs' do
-              %i.fa.fa-trash-o
-          %label Category
-          = f.collection_select :category_id, Category.all, :id, :title, { include_blank: '' }, class: "form-control"
+      .panel-body
+        .col-lg-6
+          .row
+            .col-md-4
+              .form-group
+                %label Enabled
+                - if user_signed_in? && current_user.admin?
+                  = f.select :enabled, yes_no_select, {}, class: 'form-control'
+                - else
+                  = f.select :enabled, yes_no_select, {}, class: 'form-control', readonly: true
 
-  .col-lg-12
-    = f.submit 'Save', class: 'btn btn-primary'
+            .col-md-8
+              .form-group
+                %label Signup Date
+                = f.text_field :signup_date, class: 'form-control datepicker'
+
+        - if user_signed_in? && current_user.admin?
+          .col-lg-6
+            .row
+              .col-lg-4
+                .form-group
+                  %label Subscription Paid?
+                  = f.select :paid, no_yes_select, {}, class: 'form-control'
+
+              .col-lg-8
+                .form-group
+                  %label Subscription Date
+                  = f.text_field :subscription_date, class: 'form-control datepicker'
+
+  .col-lg-6
+    .panel.panel-success
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Categories
+        .pull-right
+          = f.link_to_add :categories, class: 'btn btn-primary btn-xs pull-right', data: { target: '#categories' } do
+            %i.fa.fa-plus
+            Add Category
+
+      .panel-body
+        #categories
+          = f.fields_for :categories, :wrapper => false do |cat_form|
+            .alert.alert-success.fields
+              .row
+                .col-md-10
+                  = f.select :category_ids, nested_dropdown(Category.all.arrange), { include_blank: '' }, class: 'form-control'
+                .col-md-2
+                  = cat_form.link_to_remove class: 'btn btn-default btn-small' do
+                    %i.fa.fa-trash-o
+
+  .col-lg-6
+    .panel.panel-warning
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Tags
+        .pull-right
+          = f.link_to_add :tags, class: 'btn btn-primary btn-xs pull-right', data: { target: '#tags' } do
+            %i.fa.fa-plus
+            Add Tag
+
+      .panel-body
+        #tags
+          = f.fields_for :tags, :wrapper => false do |tag_form|
+            .alert.alert-warning.fields
+              .row
+                .col-md-10
+                  = tag_form.text_field :name, class: 'form-control'
+                .col-md-2
+                  = tag_form.link_to_remove class: 'btn btn-default btn-small' do
+                    %i.fa.fa-trash-o
+
+:javascript
+  $('.datepicker').datepicker();
+
+  paid_date = $('#vendor_subscription_date').val();
+  sign_date = $('#vendor_signup_date').val();
+
+  if (sign_date == "") {
+    $('#vendor_signup_date').val(moment().format('L'));
+  }

@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+  include Devise::Controllers::Helpers
 
   def vendor
     @vendor = Vendor.new
@@ -7,5 +8,4 @@ class SignupController < ApplicationController
   def individual
     @individual = Member.new
   end
-
 end
