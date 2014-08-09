@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807213826) do
+ActiveRecord::Schema.define(version: 20140808151905) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -146,6 +146,16 @@ ActiveRecord::Schema.define(version: 20140807213826) do
   end
 
   add_index "photos", ["vendor_id"], name: "index_photos_on_vendor_id"
+
+  create_table "reviews", force: true do |t|
+    t.text     "body"
+    t.boolean  "enabled",    default: true
+    t.float    "rating",     default: 0.0
+    t.integer  "vendor_id"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false

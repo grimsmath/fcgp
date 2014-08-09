@@ -25,9 +25,7 @@
   $('#category_title').on("keydown keyup", function() {
     newText = $('#category_title').val().replace(/\s+/g, "_").toLowerCase();
 
-    newText = newText.replace(/[^\w\s_]/g, '');
-
-    newText = newText.replace(/__+/g, '');
+    newText = newText.replace(/[^\w\s_][_]/g,'');
 
     return $('#category_name').val(newText);
   });

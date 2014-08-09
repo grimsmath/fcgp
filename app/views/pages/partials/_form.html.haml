@@ -26,5 +26,6 @@
 :javascript
   $('#page_title').on("keydown keyup", function() {
     newText = $('#page_title').val().replace(/\s+/g, "_").toLowerCase();
-    return $('#page_name').val(newText.replace(/[^\w\s_]/g,''));
+    newText = newText.replace(/[^\w\s_][_]/g,'');
+    return $('#page_name').val(newText);
   });
