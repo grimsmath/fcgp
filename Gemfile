@@ -87,6 +87,10 @@ gem 'ckeditor', '~> 4.1.0'
 # https://github.com/eric1234/file_browser
 gem 'file_browser', '~> 0.3.0'
 
+# Add Apache Solr searching to ActiveRecord models
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

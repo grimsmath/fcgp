@@ -21,4 +21,15 @@ class Vendor < ActiveRecord::Base
   validates :signup_date, presence: true
   validates :enabled, presence: true
   validates :paid, presence: true
+
+  searchable do
+    text :title, :description
+    text :comments do
+      comments.map { |comment| comment.body }
+    end
+
+    string :sort_title do
+      title.downcase.gsub(/^(an?|the)/, '')
+    end
+  end
 end
