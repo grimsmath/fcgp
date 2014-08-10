@@ -9,12 +9,9 @@
     %li
       %a#tab-green{data: {toggle: "tab"}, href: "#green", role: "tab"}
         Green Details
-
-    - if f.object.paid == true
-      %li
-        %a#tab-photos{data: {toggle: "tab"}, href: "#photos", role: "tab"}
-          Photos
-
+    %li
+      %a#tab-photos{data: {toggle: "tab"}, href: "#photos", role: "tab"}
+        Photos
     %li
       %a#tab-listing{data: {toggle: "tab"}, href: "#listing", role: "tab"}
         Listing Options
@@ -24,12 +21,12 @@
 
   .tab-content
     #general.tab-pane.active
-      .row.down-20px
-        .col-lg-6.col-sm-2
-          = render 'vendors/partials/profile/general', f: f
 
-        .col-lg-6.col-sm-2
-          = render 'vendors/partials/profile/map', f: f
+      .col-md-6.col-sm-6
+        = render 'vendors/partials/profile/address', f: f
+
+      .col-md-6.col-sm-6
+        = render 'vendors/partials/profile/map', f: f
 
     #profile.tab-pane
       = render 'vendors/partials/profile/hours', f: f
@@ -37,9 +34,8 @@
     #green.tab-pane
       = render 'vendors/partials/profile/green', f: f
 
-    - if f.object.paid == true
-      #photos.tab-pane
-        = render 'vendors/partials/profile/photos', f: f
+    #photos.tab-pane
+      = render 'vendors/partials/profile/photos', f: f
 
     #listing.tab-pane
       = render 'vendors/partials/profile/listing', f: f

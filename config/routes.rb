@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'signup#index'
   get '/signup/vendor' => 'signup#vendor'
-  get '/signup/individual' => 'signup#individual'
+  get '/signup/member' => 'signup#member'
 
   # get '*path' => 'application#index'
 

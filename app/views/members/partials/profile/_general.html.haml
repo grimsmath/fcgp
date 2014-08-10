@@ -1,0 +1,108 @@
+.form-group.down-20px
+  .row
+    .col-md-4
+      %label First Name
+      = f.text_field :first_name, class: 'form-control'
+
+    .col-md-4
+      %label Middle Name
+      = f.text_field :middle_name, class: 'form-control'
+
+    .col-md-4
+      %label Last Name
+      = f.text_field :last_name, class: 'form-control'
+
+= f.fields_for :addresses do |address|
+  .form-group
+    %label Street Address
+    = address.text_field :street1, class: 'form-control map-field'
+
+  .form-group
+    = address.text_field :street2, class: 'form-control map-field'
+
+  .row
+    .col-lg-6
+      .form-group
+        %label City
+        = address.text_field :city, class: 'form-control map-field'
+
+    .col-lg-3
+      .form-group
+        %label State
+        = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
+          class: 'form-control selectpicker map-field'
+
+    .col-lg-3
+      .form-group
+        %label Postal Code
+        = address.text_field :postal_code, placeholder: "xxxxx-xxxx", data: { mask: "99999-9999" },
+          class: 'form-control map-field'
+
+.row
+  .col-lg-4.col-sm-2
+    .form-group
+      %label Home Phone
+      .input-group
+        .input-group-addon
+          .i.fa.fa-phone
+        = f.text_field :phone_home, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+          %i.phone.icon
+
+  .col-lg-4.col-sm-2
+    .form-group
+      %label Work Phone
+      .input-group
+        .input-group-addon
+          .i.fa.fa-phone
+        = f.text_field :phone_work, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+          %i.phone.icon
+
+  .col-lg-4.col-sm-2
+    .form-group
+      %label Mobile Phone
+      .input-group
+        .input-group-addon
+          .i.fa.fa-phone
+        = f.text_field :phone_mobile, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+          %i.phone.icon
+
+  .col-md-6
+    .form-group
+      %label Primary Email Address
+      .input-group
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "button"}
+            .i.fa.fa-envelope
+        = f.text_field :email_personal, class: "form-control", placeholder: "jane@company.com"
+
+  .col-md-6
+    .form-group
+      %label Alternate Email Address
+      .input-group
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "button"}
+            .i.fa.fa-envelope
+        = f.text_field :email_alternate, class: "form-control", placeholder: "jane@company.com"
+
+  .col-md-12
+    .bs-callout.bs-callout-info
+      %h4 Demographics
+      %p The following fields are optional, but if you fill them out we can send you more personalized emails
+      .row
+        .col-md-4
+          .form-group
+            %label Gender
+            = f.select :gender, genders, { include_blank: '' }, class: 'form-control'
+
+        .col-md-4
+          .form-group
+            %label Birth Month
+            = select_month nil, { field_name: 'birth_month', prefix: 'member', include_blank: '' }, class: 'form-control'
+
+        .col-md-4
+          .form-group
+            %label Birth Day
+            = select_day nil, { field_name: 'birth_day', prefix: 'member', include_blank: '' }, class: 'form-control'

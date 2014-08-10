@@ -6,7 +6,7 @@ class SignupController < ApplicationController
     @vendor.tags.build
   end
 
-  def individual
-    @individual = Member.new
+  def member
+    @member = Member.new
   end
 end

@@ -1,0 +1,106 @@
+.row
+  .col-md-7.col-sm-7
+    = f.fields_for :addresses do |address|
+      .form-group
+        %label Street Address
+        = address.text_field :street1, class: 'form-control map-field map-street1'
+
+      .form-group
+        = address.text_field :street2, class: 'form-control map-field map-street2'
+
+      .row
+        .col-md-6
+          .form-group
+            %label City
+            = address.text_field :city, class: 'form-control map-field map-city'
+
+        .col-md-3
+          .form-group
+            %label State
+            = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
+              class: 'form-control selectpicker map-field map-state'
+
+        .col-md-3
+          .form-group
+            %label Postal Code
+            = address.text_field :postal_code, placeholder: "xxxxx-xxxx", data: { mask: "99999-9999" },
+              class: 'form-control map-field map-postal'
+    .row
+      .col-md-12.col-sm-12
+        = render 'vendors/partials/profile/contact', f: f
+
+  .col-md-5.col-sm-5
+    .panel.panel-default
+      .panel-heading.clearfix
+        %h4.panel-title.pull-left
+          Vendor Location
+        .lat-long.pull-right
+
+      .panel-body(style="height: 350px")
+        = f.hidden_field :latitude
+        = f.hidden_field :longitude
+
+        #map-canvas(style="height: 100%; width: 100%")
+
+      .panel-footer
+        %button.btn.btn-primary.fa.fa-map-marker
+          Get Directions
+
+:javascript
+  var AddressValues = {
+    street1: '',
+    street2: '',
+    city: '',
+    state: '',
+    postal: '',
+
+    init: function() {
+      this.street1  = $('.map-street1').val();
+      this.street2  = $('.map-street2').val();
+      this.city     = $('.map-city').val();
+      this.state    = $('.map-state option:selected').val();
+      this.postal   = $('.map-postal').val();
+    },
+
+    isReady: function() {
+      if (this.street1 != "" && this.city != "" && this.state != "") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    toString: function() {
+      return(this.street1 + " " + this.street2 + " " + this.city + ", " + this.state + " " + this.postal);
+    }
+  }
+
+  $('.map-field').change(function () {
+    updateMap();
+  });
+
+  function updateMap() {
+    AddressValues.init();
+
+    if (AddressValues.isReady() == true) {
+      var map = new GMaps({
+              div: '#map-canvas',
+              lat: -12.043333,
+              lng: -77.028333
+            });
+
+      GMaps.geocode({
+        address: AddressValues.toString(),
+        callback: function(results, status) {
+          if (status == 'OK') {
+            var latlng = results[0].geometry.location;
+            map.setCenter(latlng.lat(), latlng.lng());
+            map.addMarker({
+              lat: latlng.lat(),
+              lng: latlng.lng()
+            });
+          }
+        }
+      });
+    }
+  }
