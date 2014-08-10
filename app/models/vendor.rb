@@ -4,6 +4,7 @@ class Vendor < ActiveRecord::Base
   has_many :badges, :dependent => :destroy
   has_many :photos, :dependent => :destroy
   has_many :ratings
+  has_one :user
 
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags

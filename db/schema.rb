@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(version: 20140808151905) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "member_id"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -207,10 +208,11 @@ ActiveRecord::Schema.define(version: 20140808151905) do
   create_table "vendors", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "subscription_date"
-    t.datetime "signup_date"
+    t.string   "subscription_date"
+    t.string   "signup_date"
     t.boolean  "enabled"
     t.boolean  "paid"
+    t.float    "staff_rating",      default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
