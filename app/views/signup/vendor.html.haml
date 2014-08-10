@@ -1,51 +1,49 @@
 .container
-  .col-md-12.col-sm-2
+  .col-md-2.bs-callout.bs-callout-green1#column-1
+    %h4 Instructions
+
+  .col-md-10.col-sm-2#column-2
     %h2 New Vendor Registration
 
     = nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
       %ul.nav.nav-pills.nav-wizard{role: "tablist"}
         %li.active
-          %a{data: {toggle: "tab"}, href: "#general"}
-            General Details
+          %a#tab-general{data: {toggle: "tab"}, href: "#general"}
+            Step 1
           .nav-arrow
         %li
           .nav-wedge
-          %a{data: {toggle: "tab"}, href: "#profile"}
-            Description &amp; Hours
+          %a#tab-profile{data: {toggle: "tab"}, href: "#profile"}
+            Step 2
           .nav-arrow
         %li
           .nav-wedge
-          %a{data: {toggle: "tab"}, href: "#green"}
-            Green Details
+          %a#tab-green{data: {toggle: "tab"}, href: "#green"}
+            Step 3
           .nav-arrow
         %li
           .nav-wedge
-          %a{data: {toggle: "tab"}, href: "#photos"}
-            Photos
+          %a#tab-photos{data: {toggle: "tab"}, href: "#photos"}
+            Step 4
           .nav-arrow
         %li
           .nav-wedge
-          %a{data: {toggle: "tab"}, href: "#listing"}
-            Listing Options
+          %a#tab-listing{data: {toggle: "tab"}, href: "#listing"}
+            Step 5
           .nav-arrow
         %li
           .nav-wedge
-          %a{data: {toggle: "tab"}, href: "#complete"}
+          %a#tab-complete{data: {toggle: "tab"}, href: "#complete"}
             Complete Registration
           .nav-wedge
 
       .tab-content
         #general.tab-pane.active
           .row.down-20px
-            .col-lg-12
-              .form-group
-                %label Vendor Name
-                = f.text_field :name, class: 'form-control'
-
-            .col-lg-6.col-sm-2
+            .col-lg-7.col-sm-2
               = render 'vendors/partials/profile/general', f: f
 
-            .col-lg-6.col-sm-2
+            .col-lg-5.col-sm-2
               = render 'vendors/partials/profile/map', f: f
 
         #profile.tab-pane
@@ -62,3 +60,10 @@
 
         #complete.tab-pane
           = render 'vendors/partials/profile/complete', f: f
+
+:javascript
+  $('#tab-photos').click(function() {
+    $('.btn-add-photo').popover();
+  })
+
+  $('#column-1').height($('#column-2').height());

@@ -1,0 +1,35 @@
+= render 'partials/sitebrand'
+
+.col-md-8.col-md-offset-2
+  .row
+    .col-md-6
+      .bs-callout.bs-callout-info#column-1
+        %h4 Already signed up?  Then sign in!
+        = form_tag session_path(:user) do
+          .form-group
+            = text_field_tag 'user[email]', nil, class: 'form-control', placeholder: 'Username'
+
+          .form-group
+            = password_field_tag 'user[password]', nil, class: 'form-control', placeholder: 'Password'
+
+          .form-group
+            = check_box_tag 'user[remember_me]'
+            = label_tag 'user[remember_me]', 'Remember me'
+
+          .form-group
+            = submit_tag 'Sign in', class: 'btn btn-primary'
+            = link_to "Forgot your password?", new_password_path(:user), class: 'btn btn-default'
+
+    .col-md-6
+      .bs-callout.bs-callout-warning#column-2
+        %h4 Not signed up?  Then choose below..
+        .row.down-20px
+          .col-md-12
+            = link_to "Vendor Signup", signup_vendor_path, class: 'btn btn-success btn-lg btn-block'
+
+        .row.down-20px
+          .col-md-12
+            = link_to "Individual Signup", signup_individual_path, class: 'btn btn-primary btn-lg btn-block'
+
+:javascript
+  $('#column-2').height($('#column-1').height());

@@ -1,4 +1,8 @@
 
+.form-group
+  %label Vendor Name
+  = f.text_field :name, class: 'form-control'
+
 = f.fields_for :addresses do |address|
   .form-group
     %label Street Address
@@ -17,12 +21,14 @@
     .col-lg-3
       .form-group
         %label State
-        = address.select :state, us_states_name_and_abbreviation, { include_blank: '' }, class: 'form-control selectpicker map-field'
+        = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
+          class: 'form-control selectpicker map-field'
 
     .col-lg-3
       .form-group
         %label Postal Code
-        = address.text_field :postal_code, placeholder: "xxxxx-xxxx", data: { mask: "99999-9999" }, class: 'form-control map-field'
+        = address.text_field :postal_code, placeholder: "xxxxx-xxxx", data: { mask: "99999-9999" },
+          class: 'form-control map-field'
 
 .row
   .col-lg-4.col-sm-2
@@ -31,7 +37,8 @@
       .input-group
         .input-group-addon
           .i.fa.fa-phone
-        = f.text_field :phone_work, class: 'form-control', data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+        = f.text_field :phone_work, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
           %i.phone.icon
 
   .col-lg-4.col-sm-2
@@ -40,7 +47,8 @@
       .input-group
         .input-group-addon
           .i.fa.fa-phone
-        = f.text_field :phone_alt, class: 'form-control', data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+        = f.text_field :phone_alt, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
           %i.phone.icon
 
   .col-lg-4.col-sm-2
@@ -49,7 +57,8 @@
       .input-group
         .input-group-addon
           .i.fa.fa-fax
-        = f.text_field :phone_fax, class: 'form-control', data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+        = f.text_field :phone_fax, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
           %i.phone.icon
 
   .col-lg-12

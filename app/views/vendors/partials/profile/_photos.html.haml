@@ -4,11 +4,20 @@
       .panel-heading.clearfix
         %h4.panel-title.pull-left
           Photos
-        = f.link_to_add :photos, class: 'btn btn-primary btn-xs pull-right', data: { target: '#photo-list' } do
+        = f.link_to_add :photos, class: 'btn btn-primary btn-xs pull-right btn-add-photo',
+            data: { toggle: 'popover',
+                    placement: 'top',
+                    container: 'body',
+                    content: 'Click Here to Add a Photo',
+                    target: '#photo-list' } do
           %i.fa.fa-plus
           Add Photo
 
       .panel-body.custom
+        .bs-callout.bs-callout-info
+          %h4 Instructions
+          %p A total of 8 photos may be uploaded with a paid subscription.  Each photo may be no larger than 640x480 pixels
+
         %table#photo-list.table.table-striped.table-hover
           %thead
             %th(style="width: 250px") Image

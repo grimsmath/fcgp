@@ -17,12 +17,14 @@
 @import "colors";
 @import "bootstrap_overrides";
 @import "bootstrap";
+@import "docs";
 @import "jasny-bootstrap";
 @import "wizard-nav";
 @import "bootstrap-select";
 @import "datepicker3";
 @import "fileinput";
 @import "font-awesome";
+@import "badger";
 @import "admin";
 
 * {
@@ -87,7 +89,6 @@ textarea.horiz-only {
   height: 100%;
 }
 
-
 .categories ul {
   margin: 0;
   padding: 0;
@@ -113,4 +114,22 @@ textarea.horiz-only {
 
 .panel-body.custom {
   padding-bottom: 0;
+}
+
+.bs-callout-green1 {
+  background-color: $green1;
+  border-color: $green5;
+}
+
+.bs-callout-green1 h4 {
+  color: #fff;
+}
+
+.bs-callout-green2 {
+  background-color: $green2;
+  border-color: $green5;
+}
+
+.bs-callout-green2 h4 {
+  color: #fff;
 }

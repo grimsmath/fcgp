@@ -29,6 +29,8 @@
               %a{:href => "#"} Separated link
             %li
               %a{:href => "#"} One more separated link
+        %li
+          = link_to 'Sign Up!', signup_path
 
         - Page.where(parent_id: nil).first(5).each do |page|
           %li

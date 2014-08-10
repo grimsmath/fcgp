@@ -1,32 +1,30 @@
 = nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
   %ul.nav.nav-tabs{role: "tablist"}
     %li.active
-      %a{data: {toggle: "tab"}, href: "#general", role: "tab"}
+      %a#tab-general{data: {toggle: "tab"}, href: "#general", role: "tab"}
         General Details
     %li
-      %a{data: {toggle: "tab"}, href: "#profile", role: "tab"}
+      %a#tab-profile{data: {toggle: "tab"}, href: "#profile", role: "tab"}
         Description &amp; Hours
     %li
-      %a{data: {toggle: "tab"}, href: "#green", role: "tab"}
+      %a#tab-green{data: {toggle: "tab"}, href: "#green", role: "tab"}
         Green Details
+
+    - if f.object.paid == true
+      %li
+        %a#tab-photos{data: {toggle: "tab"}, href: "#photos", role: "tab"}
+          Photos
+
     %li
-      %a{data: {toggle: "tab"}, href: "#photos", role: "tab"}
-        Photos
-    %li
-      %a{data: {toggle: "tab"}, href: "#listing", role: "tab"}
+      %a#tab-listing{data: {toggle: "tab"}, href: "#listing", role: "tab"}
         Listing Options
     %li
-      %a{data: {toggle: "tab"}, href: "#complete", role: "tab"}
+      %a#tab-complete{data: {toggle: "tab"}, href: "#complete", role: "tab"}
         Complete Registration
 
   .tab-content
     #general.tab-pane.active
       .row.down-20px
-        .col-lg-12
-          .form-group
-            %label Vendor Name
-            = f.text_field :name, class: 'form-control'
-
         .col-lg-6.col-sm-2
           = render 'vendors/partials/profile/general', f: f
 
@@ -39,8 +37,9 @@
     #green.tab-pane
       = render 'vendors/partials/profile/green', f: f
 
-    #photos.tab-pane
-      = render 'vendors/partials/profile/photos', f: f
+    - if f.object.paid == true
+      #photos.tab-pane
+        = render 'vendors/partials/profile/photos', f: f
 
     #listing.tab-pane
       = render 'vendors/partials/profile/listing', f: f
