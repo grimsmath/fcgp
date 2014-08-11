@@ -44,17 +44,17 @@
         %h4.panel-title.pull-left
           Categories
         .pull-right
-          = f.link_to_add :categories, class: 'btn btn-primary btn-xs pull-right', data: { target: '#categories' } do
+          = f.link_to_add :category_vendors, class: 'btn btn-primary btn-xs pull-right', data: { target: '#categories' } do
             %i.fa.fa-plus
             Add Category
 
       .panel-body.custom
         #categories
-          = f.fields_for :categories, :wrapper => false do |cat_form|
+          = f.fields_for :category_vendors, :wrapper => false do |cat_form|
             .alert.alert-success.fields
               .row
                 .col-md-10
-                  = f.select :category_ids, nested_dropdown(Category.all.arrange), { include_blank: '' }, class: 'form-control'
+                  = cat_form.select :category_id, nested_dropdown(Category.all.arrange), { include_blank: '' }, class: 'form-control'
                 .col-md-2
                   = cat_form.link_to_remove class: 'btn btn-default btn-small' do
                     %i.fa.fa-trash-o

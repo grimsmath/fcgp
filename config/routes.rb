@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get '/signup/vendor' => 'signup#vendor'
   get '/signup/member' => 'signup#member'
 
+  post '/signup/vendor' => 'signup#vendor_create'
+  post '/signup/member' => 'signup#member_create'
+
   # get '*path' => 'application#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

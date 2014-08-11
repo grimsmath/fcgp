@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :show]
   layout :resolve_layout
 
   # GET /vendors
@@ -18,8 +18,6 @@ class VendorsController < ApplicationController
   def new
     @vendor = Vendor.new
     @vendor.addresses.build
-    @vendor.categories.build
-    @vendor.tags.build
   end
 
   # GET /vendors/1/edit
@@ -78,6 +76,7 @@ class VendorsController < ApplicationController
                                      :description,
                                      :subscription_date,
                                      :signup_date,
+                                     :logo,
                                      :paid,
                                      :enabled,
                                      :url,
@@ -91,11 +90,12 @@ class VendorsController < ApplicationController
                                      :mon_open, :tue_open, :wed_open, :thu_open, :fri_open, :sat_open, :sun_open,
                                      :mon_close, :tue_close, :wed_close, :thu_close, :fri_close, :sat_close, :sun_close,
 
-                                     addresses_attributes:      [:id, :street1,  :street2,     :city,    :state, :postal_code, :_destroy],
-                                     certifications_attributes: [:id, :title,    :awarded,     :image,   :notes,               :_destroy],
-                                     badges_attributes:         [:id, :title,    :awarded,     :image,                         :_destroy],
-                                     photos_attributes:         [:id, :title,    :description, :image,                         :_destroy],
-                                     categories_attributes:     [:id, :title,    :name,                                        :_destroy],
-                                     tags_attributes:           [:id, :title,    :name,                                        :_destroy])
+                                     logo_atributes:              [:id, :logo,                                                        :_destroy],
+                                     addresses_attributes:        [:id, :street1,       :street2,     :city,    :state, :postal_code, :_destroy],
+                                     certifications_attributes:   [:id, :title,         :awarded,     :image,   :notes,               :_destroy],
+                                     badges_attributes:           [:id, :title,         :awarded,     :image,                         :_destroy],
+                                     photos_attributes:           [:id, :title,         :description, :image,                         :_destroy],
+                                     category_vendors_attributes: [:id, :category_id,   :vendor_id,                                   :_destroy],
+                                     tags_attributes:             [:id, :title,         :name,                                        :_destroy])
     end
 end
