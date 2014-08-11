@@ -22,6 +22,9 @@ class Vendor < ActiveRecord::Base
   validates :enabled, presence: true
   validates :paid, presence: true
 
+  has_attached_file :logo, :styles => { medium: "300x300", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
+
   searchable do
     text :title, :description
     text :comments do

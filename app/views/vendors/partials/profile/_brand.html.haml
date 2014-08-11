@@ -1,8 +1,28 @@
 .row
-  .col-md-3
-    .drop-logo
+  .col-md-8
+    .row
+      .col-md-12
+        .form-group
+          %label Vendor Name
+          = f.text_field :name, class: 'form-control'
 
-  .col-md-9
-    .form-group
-      %label Vendor Name
-      = f.text_field :name, class: 'form-control'
+      .col-lg-12
+        %label Vendor Description
+        = f.cktext_area :description, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'tiny'}
+
+  .col-md-4
+    %label Logo
+    .drop-photo
+      - if f.object.logo?
+        = image_tag f.object.logo.url(:thumb)
+      - else
+        = f.file_field :logo
+
+:javascript
+  $('#vendor_logo').fileinput({
+    showUpload: false,
+    showRemove: false,
+    showCaption: false,
+    mainClass: 'previewClass',
+    previewFileType: 'any'
+  });

@@ -76,6 +76,11 @@ body {
   background-color: darken($green5, 0.5);
 }
 
+.thumb {
+  height: 100px;
+  width: 100px;
+}
+
 textarea.vert-only {
   resize: vertical;
 }

@@ -3,6 +3,7 @@ class CreateVendors < ActiveRecord::Migration
     create_table :vendors do |t|
       t.string :name
       t.string :description
+      t.attachment :logo
       t.string :subscription_date
       t.string :signup_date
       t.boolean :enabled
