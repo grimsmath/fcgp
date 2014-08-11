@@ -1,5 +1,5 @@
 %section#wrapper{data: {link: "link-pages"}}
   - if user_signed_in? && current_user.admin?
-    = render 'pages/partials/index/admin'
+    = render 'pages/index/admin'
   - else
-    = render 'pages/partials/index/public'
+    = render 'pages/index/public'

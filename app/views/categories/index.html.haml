@@ -1,6 +1,6 @@
 %section#wrapper{data: {link: "link-categories"}}
   .col-lg-12.col-sm-2
     - if user_signed_in? && current_user.admin?
-      = render 'categories/partials/admin'
+      = render 'categories/partials/index/admin'
     - else
-      = render 'categories/partials/public'
+      = render 'categories/partials/index/public'

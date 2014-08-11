@@ -1,0 +1,11 @@
+.col-md-12
+  .panel.panel-info
+    .panel-heading
+      %h4.panel-title
+        Featured Categories
+
+    .panel-body
+      - @categories.each do |cat|
+        = cat.name
+
+    .panel-footer

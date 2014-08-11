@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   respond_to :html, :json
 
+  before_filter :store_location
   after_filter :set_csrf_cookie_for_ng
 
   include Pundit # For authorization
@@ -12,6 +13,18 @@ class ApplicationController < ActionController::Base
 
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
+
+  def store_location
+    session[:passthru] = params[:passthru] if params[:passthru]
+  end
+
+  def redirect_back_or_default(default)
+    session[:passthru] || root_path
+  end
+
+  def after_sign_in_path_for(resource_or_scope)
+    redirect_back_or_default(resource_or_scope)
   end
 
   protected

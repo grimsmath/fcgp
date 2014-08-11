@@ -1,5 +1,5 @@
 %section#wrapper{data: {link: "link-vendors"}}
   - if user_signed_in? && current_user.admin?
-    = render 'vendors/partials/admin'
+    = render 'vendors/partials/index/admin'
   - else
-    = render 'vendors/partials/public'
+    = render 'vendors/partials/index/public'

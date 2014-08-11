@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorization
+  before_action :authorization!
   layout :resolve_layout
 
   # GET /users
