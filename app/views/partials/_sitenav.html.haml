@@ -11,24 +11,14 @@
       %form.navbar-form.navbar-left
         %input.form-control{placeholder: "Find Green Stuff...", type: "text"}
       %ul.nav.navbar-nav.navbar-left
-        %li.dropdown
-          %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
-            %span.fa.fa-leaf
+        %li
+          = link_to categories_path do
+            %i.fa.fa-book
             Categories
-            %span.caret
-          %ul.dropdown-menu{:role => "menu"}
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider
-            %li.dropdown-header Nav header
-            %li
-              %a{:href => "#"} Separated link
-            %li
-              %a{:href => "#"} One more separated link
+        %li
+          = link_to categories_path do
+            %i.fa.fa-leaf
+            Listings
         %li
           = link_to 'Sign Up!', signup_path
 

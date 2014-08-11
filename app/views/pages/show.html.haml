@@ -1,24 +1,4 @@
 - if user_signed_in? && current_user.admin?
-  -# This is for admin users
-  %section#wrapper{data: {link: "link-pages"}}
-    .row
-      .col-lg-12.col-sm-2
-        %h2
-          = @page.title
-
-        = @page.body.html_safe
-
-      .col-lg-12.col-sm-2
-        = link_to 'Back', pages_path, class: 'btn btn-default'
-
-        - if current_user.admin?
-          = link_to 'Edit', edit_page_path(@page), class: 'btn btn-primary'
+  = render 'pages/show/admin'
 - else
-  -# The following is for non-admins
-  .container(style="margin-top: 50px")
-    .col-lg-12
-      %h1
-        = @page.title
-
-    .col-lg-12
-      = @page.body.html_safe
+  = render 'pages/show/public'

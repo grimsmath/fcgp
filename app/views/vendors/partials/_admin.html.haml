@@ -1,0 +1,30 @@
+.col-lg-12.col-sm-2
+  = render 'vendors/partials/actionbar'
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th.action_column
+          Actions
+
+    %tbody
+      - if @vendors.count == 0
+        %tr
+          %td(colspan="3")
+            No vendors defined
+      - else
+        - @vendors.each do |vendor|
+          %tr
+            %td= vendor.name
+            %td= vendor.description.html_safe
+            %td.action_column
+              = render 'vendors/partials/actions', vendor: vendor
+
+    %tfoot
+      %tr
+        %th Name
+        %th Description
+        %th.action_column
+          Actions
