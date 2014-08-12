@@ -1,0 +1,81 @@
+.panel.panel-info
+  .panel-heading
+    %h4.panel-title
+      %i.fa.fa-trophy
+      Featured Listings
+
+  .panel-body
+    .feature-wrapper
+      .row
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-cat
+            %small
+              in
+              = link_to Category.where(id: 1).first.title, Category.where(id: 1).first
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+      .row
+        .col-md-12
+          %hr
+
+      .row
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe
+
+        .col-md-3
+          .vendor-logo
+            = holder_tag '150x100'
+          .vendor-title
+            %h5 Title
+          .vendor-desc
+            = BetterLorem.w(10).html_safe

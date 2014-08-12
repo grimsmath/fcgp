@@ -1,43 +1,4 @@
-= f.hidden_field :enabled
-= f.hidden_field :signup_date
-= f.hidden_field :subscription_date
-= f.hidden_field :paid
-
-.row.down-20px
-  -# Membership subscription details should only visible to admins
-  - if user_signed_in? && current_user.admin?
-    .col-md-12
-      .panel.panel-default
-        .panel-heading
-          %h4.panel-title
-            Membership Details
-
-        .panel-body
-          .col-lg-6
-            .row
-              .col-md-4
-                .form-group
-                  %label Enabled
-                  = f.select :enabled, yes_no_select, {}, class: 'form-control'
-
-              .col-md-8
-                .form-group
-                  %label Signup Date
-                  = f.text_field :signup_date, class: 'form-control datepicker'
-
-          .col-lg-6
-            .row
-              .col-lg-4
-                .form-group
-                  %label Subscription Paid?
-                  = f.select :paid, no_yes_select, {}, class: 'form-control'
-
-              .col-lg-8
-                .form-group
-                  %label Subscription Date
-                  = f.text_field :subscription_date, class: 'form-control datepicker'
-
-  -# This section is visible to new registrations and non-admins
+.row
   .col-lg-6
     .panel.panel-success
       .panel-heading.clearfix
@@ -60,7 +21,7 @@
                     %i.fa.fa-trash-o
 
   .col-lg-6
-    .panel.panel-warning
+    .panel.panel-success
       .panel-heading.clearfix
         %h4.panel-title.pull-left
           Tags

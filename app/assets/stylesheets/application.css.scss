@@ -37,7 +37,7 @@ html, body {
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 @font-face {
@@ -62,10 +62,19 @@ body {
   margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
 }
 
+#brand-container {
+  background: #f6fae9;
+  background: -webkit-linear-gradient(top, #f6fae9, $green1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(top, #f6fae9, $green1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(top, #f6fae9, $green1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, #f6fae9, $green1); /* Standard syntax */
+  border-bottom: solid 5px #468d97
+}
+
 .logo {
-  background: image-url('logo_fcgp.png') no-repeat center;
+  background: image-url('bg_brand.png') no-repeat center;
   height: 250px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 #footer, .push {

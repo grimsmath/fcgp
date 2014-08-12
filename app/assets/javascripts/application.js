@@ -28,3 +28,4 @@
 //= require pages
 //= require gmaps
 //= require admin
+//= require bootbox
