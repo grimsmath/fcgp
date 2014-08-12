@@ -1,0 +1,11 @@
+.col-md-12
+  .panel.panel-info
+    .panel-heading
+      %h4.panel-title
+        Featured Listings
+
+    .panel-body
+      - @vendors.each do |vend|
+        = vend.name
+
+    .panel-footer

@@ -1,15 +1,16 @@
-.col-lg-4.col-lg-offset-4
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    .panel.panel-primary
-      .panel-heading
-        %h4.panel-title Forgot your password?
-        = devise_error_messages!
+.row.down-20px
+  .col-md-4.col-md-offset-4
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Forgot your password?
+          = devise_error_messages!
 
-      .panel-body
-        .form-group
-          = f.label :email
-          = f.email_field :email, autofocus: true, class: 'form-control'
+        .panel-body
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, class: 'form-control'
 
-      .panel-footer
-        = f.submit "Send Instructions", class: 'btn btn-primary'
-        = render "devise/shared/links"
+        .panel-footer
+          = f.submit "Send Instructions", class: 'btn btn-primary'
+          = render "devise/shared/links"

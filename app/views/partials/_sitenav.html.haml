@@ -12,13 +12,13 @@
         %input.form-control{placeholder: "Find Green Stuff...", type: "text"}
       %ul.nav.navbar-nav.navbar-left
         %li
-          = link_to categories_path do
-            %i.fa.fa-book
-            Categories
-        %li
           = link_to vendors_path do
             %i.fa.fa-leaf
             Listings
+        %li
+          = link_to categories_path do
+            %i.fa.fa-book
+            Categories
         %li
           = link_to 'Sign Up!', signup_path
 
