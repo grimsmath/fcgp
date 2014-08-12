@@ -9,5 +9,17 @@
         %i.fa.fa-edit
         Edit Vendor
     %li
-      = link_to content_tag('i', '', class: 'fa fa-trash-o') + " Delete",
+      - if vendor.enabled
+        %a.fa.fa-lock{href: "#"}
+          Disable Vendor
+      - else
+        %a.fa.fa-unlock{href: "#"}
+          Enable Vendor
+    %li.divider
+    %li
+      %a.fa.fa-star{href: "#"}
+        Upgrade Vendor
+    %li.divider
+    %li
+      = link_to content_tag('i', '', class: 'fa fa-trash-o') + " Delete Vendor",
         vendor, confirm: "Are you sure you want to delete '#{vendor.name}'?", method: :delete

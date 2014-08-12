@@ -28,4 +28,4 @@
                       = cat.name
 
             .vendor-desc
-              = truncate(list.description.html_safe, limit: 10)
+              = list.description.truncate(100).html_safe

@@ -23,8 +23,12 @@ module FCGP
     config.to_prepare do
       DeviseController.respond_to :html, :json
     end
+
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    # Load in any extension classes
+    config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
   end
 
 end

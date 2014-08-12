@@ -4,21 +4,27 @@
   %table.table.table-striped
     %thead
       %tr
-        %th Name
-        %th Description
+        %th(style="width: 250px") Name
+        %th(style="width: 400px") Description
+        %th Status
+        %th Paid
+        %th Updated
         %th.action_column
           Actions
 
     %tbody
       - if @vendors.count == 0
         %tr
-          %td(colspan="3")
+          %td(colspan="5")
             No vendors defined
       - else
         - @vendors.each do |vendor|
           %tr
-            %td= vendor.name
-            %td= vendor.description.html_safe
+            %td= link_to vendor.name, vendor_path(vendor)
+            %td= vendor.description.truncate(100).html_safe
+            %td= vendor.enabled.status
+            %td= vendor.paid.to_y_n
+            %td= vendor.updated_at.strftime('%m/%d/%Y')
             %td.action_column
               = render 'vendors/partials/actions', vendor: vendor
 
@@ -26,5 +32,8 @@
       %tr
         %th Name
         %th Description
+        %th Status
+        %th Paid
+        %th Updated
         %th.action_column
           Actions
