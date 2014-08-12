@@ -2,7 +2,7 @@
 class DynamicRouter < ActiveRecord::Base
   def self.load
     FCGP::Application.routes.draw do
-      if Page.exists?
+      if Page.table_exists?
         Page.all.each do |pg|
           # puts "Routing #{pg.name}"
           get "/#{pg.name}", :to => "pages#show", defaults: { id: pg.id }
