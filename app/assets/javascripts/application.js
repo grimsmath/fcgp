@@ -29,3 +29,4 @@
 //= require gmaps
 //= require admin
 //= require bootbox
+//= require ekko-lightbox

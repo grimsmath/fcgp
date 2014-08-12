@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    @listings = Vendor.all
+    @featured = Vendor.where(featured: true).take(8)
   end
 end

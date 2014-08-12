@@ -1,3 +1,5 @@
 %section#wrapper{data: {link: "link-vendors"}}
-  .col-lg-12.col-sm-2
-    %h2 Vendor
+  - if user_signed_in? && current_user.admin?
+    = render 'vendors/partials/show/admin'
+  - else
+    = render 'vendors/partials/show/public'

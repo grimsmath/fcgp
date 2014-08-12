@@ -7,75 +7,25 @@
   .panel-body
     .feature-wrapper
       .row
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-cat
-            %small
-              in
-              = link_to Category.where(id: 1).first.title, Category.where(id: 1).first
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
+        - @featured.each do |list|
+          .col-md-3
+            .vendor-logo
+              = link_to vendor_path(list) do
+                = image_tag list.logo.url(:thumb)
 
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
+            .vendor-title
+              = link_to vendor_path(list) do
+                %h5= list.name
 
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
+            .vendor-cat
+              %small
+                in
+                - list.categories.each_with_index do |cat, index|
+                  = link_to category_path(cat) do
+                    - unless index == list.categories.size - 1
+                      = cat.name + ', '
+                    - else
+                      = cat.name
 
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
-
-      .row
-        .col-md-12
-          %hr
-
-      .row
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
-
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
-
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
-
-        .col-md-3
-          .vendor-logo
-            = holder_tag '150x100'
-          .vendor-title
-            %h5 Title
-          .vendor-desc
-            = BetterLorem.w(10).html_safe
+            .vendor-desc
+              = truncate(list.description.html_safe, limit: 10)

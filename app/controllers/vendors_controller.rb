@@ -86,6 +86,8 @@ class VendorsController < ApplicationController
                                      :phone_work,
                                      :phone_alt,
                                      :phone_fax,
+                                     :featured,
+                                     :accepted,
 
                                      :mon_open, :tue_open, :wed_open, :thu_open, :fri_open, :sat_open, :sun_open,
                                      :mon_close, :tue_close, :wed_close, :thu_close, :fri_close, :sat_close, :sun_close,

@@ -18,7 +18,7 @@ class Vendor < ActiveRecord::Base
   accepts_nested_attributes_for :photos, allow_destroy: true
   accepts_nested_attributes_for :tags, allow_destroy: true
 
-  has_attached_file :logo, :styles => { medium: "300x300", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :logo, :styles => { medium: "300x300", thumb: "150x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   # validates :description, presence: true

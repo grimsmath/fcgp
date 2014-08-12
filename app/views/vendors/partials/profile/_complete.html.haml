@@ -2,7 +2,7 @@
   .col-lg-12
     .checkbox
       %label
-        %input{type: "checkbox", id: 'chk_agree'}
+        = f.check_box :accepted, id: 'chk_agree'
         I Agree to the following
         = link_to 'Terms and Conditions', '/terms', target: '_blank'
 
