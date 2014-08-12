@@ -41,21 +41,6 @@ body {
   padding-top: 50px;
 }
 
-@font-face {
-  font-family: 'combinumerals_ltdregular';
-  src: font_url('/assets/CombiNumeralsLtd-webfont.eot');
-  src: font_url('/assets/CombiNumeralsLtd-webfont.eot?#iefix') format('embedded-opentype'),
-       font_url('/assets/CombiNumeralsLtd-webfont.woff') format('woff'),
-       font_url('/assets/CombiNumeralsLtd-webfont.ttf') format('truetype'),
-       font_url('/assets/CombiNumeralsLtd-webfont.svg#combinumerals_ltdregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.step {
-  font-family: 'combinumerals_ltdregular';
-}
-
 #content_wrapper {
   min-height: 100%;
   height: auto !important;
@@ -73,7 +58,7 @@ body {
 }
 
 .logo {
-  background: image-url('bg_brand.png') no-repeat center;
+  background: url('bg_brand.png') no-repeat center;
   height: 250px;
   margin-bottom: 0px;
 }
