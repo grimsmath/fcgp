@@ -20,12 +20,19 @@
 
         .col-lg-6
           .row
-            .col-lg-4
+            .col-md-4
               .form-group
                 %label Subscription Paid?
                 = f.select :paid, no_yes_select, {}, class: 'form-control'
 
-            .col-lg-8
+            .col-md-8
               .form-group
                 %label Subscription Date
                 = f.text_field :subscription_date, class: 'form-control datepicker'
+
+        .col-lg-6
+          .row
+            .col-md-4
+              .checkbox
+                %label
+                  = f.checkbox :featured
