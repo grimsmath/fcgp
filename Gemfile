@@ -53,11 +53,7 @@ gem "rails-settings-cached", "0.4.1"
 # https://github.com/stefankroes/ancestry
 gem 'ancestry', '~> 2.1.0'
 
-# https://github.com/amerine/acts_as_tree
-# gem 'acts_as_tree', '~> 2.0.0'
-
-# Use haml for more concise templates
-# http://haml.info/
+# Use haml for more concise templates http://haml.info/
 gem 'haml'
 gem 'haml-rails' # For generators.
 
@@ -94,6 +90,7 @@ gem 'file_browser', '~> 0.3.0'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+# Generate Lorem Ipsum
 gem 'betterlorem'
 
 # Use foreman for setting local env

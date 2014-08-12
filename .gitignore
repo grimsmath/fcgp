@@ -11,8 +11,13 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore Uploads folder
+/public/uploads
+/public/system
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
 
+# Ignore RubyMine project folder
 .idea
