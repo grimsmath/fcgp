@@ -4,9 +4,6 @@
     %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     %title First Coast Green Pages
-    = google_webfonts_link_tag :source_sans_pro => [400, 700]
-    = google_webfonts_link_tag :open_sans => 300
-    = google_webfonts_link_tag :raleway => 100
     %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Settings["Google.ApiKey"] + "", :type => "text/javascript"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -16,6 +13,7 @@
     #content_wrapper
       = render 'partials/sitenav'
       = render 'partials/sitebrand'
+
       .container.pad-20px
         .row
           = render 'partials/flash'

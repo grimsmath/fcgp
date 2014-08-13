@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :body
       t.boolean :enabled, default: true
       t.float :rating, default: 0.0
-      t.belongs_to :vendor
+      t.belongs_to :signup
       t.belongs_to :member
 
       t.timestamps

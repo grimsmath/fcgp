@@ -1,39 +1,38 @@
-.container.down-20px
-  .col-lg-8
-    = render 'home/partials/featured'
+.col-lg-8
+  = render 'home/partials/featured'
 
-  .col-lg-4
-    .panel.panel-success
-      .panel-heading
-        %h4.panel-title
-          %i.fa.fa-leaf
-          Browse by Category
-      .panel-body
-        %ul
-          - Category.where(ancestry: nil).each do |cat|
-            .category
-              %i.fa.fa-angle-double-right
-              = link_to cat.title, cat
+.col-lg-4
+  .panel.panel-success
+    .panel-heading
+      %h4.panel-title
+        %i.fa.fa-leaf
+        Browse by Category
+    .panel-body
+      %ul
+        - Category.where(ancestry: nil).each do |cat|
+          .category
+            %i.fa.fa-angle-double-right
+            = link_to cat.title, cat
 
-  .col-lg-8
-    .panel.panel-success
-      .panel-heading
-        %h4.panel-title
-          %i.fa.fa-quote-left
-          Recent Reviews
+.col-lg-8
+  .panel.panel-success
+    .panel-heading
+      %h4.panel-title
+        %i.fa.fa-quote-left
+        Recent Reviews
 
-      .panel-body
-        Reviews go here
+    .panel-body
+      Reviews go here
 
-  .col-lg-4
-    .panel.panel-info
-      .panel-heading
-        %h4.panel-title
-          %i.fa.fa-trophy
-          Featured Listings
+.col-lg-4
+  .panel.panel-info
+    .panel-heading
+      %h4.panel-title
+        %i.fa.fa-trophy
+        Featured Listings
 
-      .panel-body
-        Listings go here
+    .panel-body
+      Listings go here
 
 :javascript
   var colors = [

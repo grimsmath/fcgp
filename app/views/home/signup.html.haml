@@ -20,14 +20,10 @@
 
     .col-md-6
       .bs-callout.bs-callout-warning#column-2
-        %h4 Not signed up?  Then choose below..
-        .row.down-20px
+        %h4 Not signed up?
+        .row.pad-20px
           .col-md-12
-            = link_to "Vendor Signup", signup_vendor_path, class: 'btn btn-success btn-lg btn-block'
-
-        .row.down-20px
-          .col-md-12
-            = link_to "Member Signup", signup_member_path, class: 'btn btn-primary btn-lg btn-block'
+            = link_to "New Member Signup", new_member_registration_path, class: 'btn btn-primary btn-lg btn-block'
 
 :javascript
   $('#column-2').height($('#column-1').height());

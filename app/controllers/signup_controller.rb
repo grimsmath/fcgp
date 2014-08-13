@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
   before_action :authenticate_member!, except: [:index, :member]
-  def vendor
+  def signup
     @vendor = Vendor.new
     @vendor.addresses.build
   end

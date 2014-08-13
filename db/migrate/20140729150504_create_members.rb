@@ -50,7 +50,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :phone_fax
       t.string :email_personal
       t.string :email_alternate
-      t.belongs_to :vendor
+      t.belongs_to :signup
       t.datetime :signup_date
       t.boolean :enabled, default: true
 
