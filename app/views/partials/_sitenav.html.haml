@@ -21,7 +21,7 @@
         - Page.where(ancestry: nil).take(5).each do |top_page|
           - if top_page.has_children?
             %li.dropdown
-              = link_to top_page.name, data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
+              %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
                 = top_page.title
                 %b.caret
               %ul.dropdown-menu
@@ -34,8 +34,8 @@
                       = sub.title
           - else
             %li
-              a{href: "/#{top_page.name}"}
-              = top_page.title
+              %a{href: "/#{top_page.name}"}
+                = top_page.title
 
         %li
           = link_to 'Sign Up!', signup_path

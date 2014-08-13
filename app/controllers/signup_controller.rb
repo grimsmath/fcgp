@@ -7,6 +7,5 @@ class SignupController < ApplicationController
 
   def member
     @member = Member.new
-    @member.addresses.build
   end
 end

@@ -1,0 +1,13 @@
+.row
+  .col-md-12
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      %h4.panel-title New User Signup
+
+      = devise_error_messages!
+
+      = render 'members/partials/profile/general', f: f
+
+      = render 'members/partials/profile/credentials', f: f
+
+      = f.submit "Complete Signup", class: 'btn btn-primary'
+      = render "devise/shared/links"

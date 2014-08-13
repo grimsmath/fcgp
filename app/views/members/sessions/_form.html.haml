@@ -1,0 +1,20 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .bs-callout.bs-callout.green1
+    %h4 First Coast Green Pages Signin
+
+    .form-group
+      = f.label :email
+      = f.email_field :email, :autofocus => true, class: "form-control"
+
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: "form-control"
+
+    - if devise_mapping.rememberable?
+      .checkbox
+        %label
+          %input{name: "remember_me", id: "remember_me", type: "checkbox"}
+          Remember Me
+
+    = f.submit "Sign in", class: "btn btn-green"
+    = render "devise/shared/links"

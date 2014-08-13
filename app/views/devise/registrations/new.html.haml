@@ -15,11 +15,6 @@
           = f.label :password
           = f.password_field :password, autocomplete: "off", class: 'form-control'
 
-        = fields_for @member do |member|
-          .form-group
-            = member.label :first_name
-            = member.text_field :first_name, class: 'form-control'
-
         .form-group
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'

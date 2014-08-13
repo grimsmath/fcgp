@@ -1,5 +1,129 @@
 %section#wrapper{data: {link: "link-vendors"}}
-  - if member_signed_in? && current_member.admin?
-    = render 'vendors/partials/show/admin'
-  - else
-    = render 'vendors/partials/show/public'
+  .col-md-12
+    .panel.panel-success
+      .panel-heading
+        %h4.panel-title
+          Green Vendor Listing
+
+      .panel-body
+        .col-md-6
+          .bs-callout.bs-callout-green1
+            .row
+              .col-md-3
+                = image_tag @vendor.logo.url(:thumb)
+
+              .col-md-9
+                %h4= @vendor.name
+                = @vendor.description.html_safe
+
+                %h4 Hours of Operation
+                %table.table.table-striped
+                  %tr
+                    %td Monday
+                    %td= @vendor.mon_open + " - " + @vendor.mon_close
+                  %tr
+                    %td Tuesday
+                    %td= @vendor.tue_open + " - " + @vendor.tue_close
+                  %tr
+                    %td Wednesday
+                    %td= @vendor.wed_open + " - " + @vendor.wed_close
+                  %tr
+                    %td Thursday
+                    %td= @vendor.thu_open + " - " + @vendor.thu_close
+                  %tr
+                    %td Friday
+                    %td= @vendor.fri_open + " - " + @vendor.fri_close
+                  %tr
+                    %td Saturday
+                    %td= @vendor.sat_open + " - " + @vendor.sat_close
+                  %tr
+                    %td Sunday
+                    %td= @vendor.sun_open + " - " + @vendor.sun_close
+
+        .col-md-6
+          .bs-callout.bs-callout-info
+            .row
+              .col-md-8
+                %h4 Address
+                %address
+                  = @vendor.addresses.first.street1
+                  %br
+
+                  - unless @vendor.addresses.first.street2.empty?
+                    = @vendor.addresses.first.street2
+                    %br
+
+                  = @vendor.addresses.first.city + ', '
+                  = @vendor.addresses.first.state
+                  = @vendor.addresses.first.postal_code
+
+                %div(style="height: 350px;")
+                  #map-data{ data: {  street: @vendor.addresses.first.street1,
+                                      city:   @vendor.addresses.first.city,
+                                      state:  @vendor.addresses.first.state,
+                                      postal: @vendor.addresses.first.city  } }
+
+                  #map-canvas(style="border: solid 1px #dcdcdc; height: 350px")
+
+              .col-md-4
+                %h4 Contact
+                %button.btn.btn-default.btn-block.fa.fa-phone{href: "#"}
+                  = @vendor.phone_work
+
+                %button.btn.btn-default.btn-block.fa.fa-phone{href: "#"}
+                  = @vendor.phone_alt
+
+                %button.btn.btn-default.btn-block.fa.fa-fax{href: "#"}
+                  = @vendor.phone_fax
+
+                %button.btn.btn-primary.btn-block.fa.fa-map-marker{href: "#"}
+                  Get Directions
+
+          .panel.panel-success
+            .panel-heading
+              %h4.panel-title
+                Photos
+
+            .panel-body
+              .row
+              - @vendor.photos.each do |photo|
+                .col-md-3
+                  %a{href: photo.image.url(:large), data: {toggle: 'lightbox', title: photo.title, footer: photo.description}}
+                    = image_tag photo.image.url(:thumb)
+
+      .panel-footer
+        Last Updated:
+        = @vendor.updated_at.to_formatted_s(:long)
+
+:javascript
+  $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+  });
+
+  var street  = $('#map-data').data('street');
+  var city    = $('#map-data').data('city');
+  var state   = $('#map-data').data('state');
+  var postal  = $('#map-data').data('postal');
+
+  var address = street + " " + city + ", " + state + " " + postal;
+
+  var map = new GMaps({
+    div: '#map-canvas',
+    lat: -12.043333,
+    lng: -77.028333
+  });
+
+  GMaps.geocode({
+    address: address,
+    callback: function(results, status) {
+      if (status == 'OK') {
+        var latlng = results[0].geometry.location;
+        map.setCenter(latlng.lat(), latlng.lng());
+        map.addMarker({
+          lat: latlng.lat(),
+          lng: latlng.lng()
+        });
+      }
+    }
+  });
