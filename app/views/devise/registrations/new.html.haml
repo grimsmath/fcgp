@@ -1,4 +1,4 @@
-.col-md-4.col-md-offset-4.pad-40px
+.col-md-6.col-md-offset-3
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .panel.panel-primary
       .panel-heading
@@ -14,6 +14,11 @@
         .form-group
           = f.label :password
           = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+        = fields_for @member do |member|
+          .form-group
+            = member.label :first_name
+            = member.text_field :first_name, class: 'form-control'
 
         .form-group
           = f.label :password_confirmation

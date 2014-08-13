@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class MemberPolicy < ApplicationPolicy
   # Ambiguous parameters-- :user is current_user, :resource is an instance of User model
 
   def index?

@@ -25,12 +25,17 @@
                 = top_page.title
                 %b.caret
               %ul.dropdown-menu
-                %li= link_to top_page.title, top_page.name
+                %li
+                  %a{href: "/#{top_page.name}"}
+                    = top_page.title
                 - top_page.children.each do |sub|
                   %li
-                    = link_to sub.title, sub.name
+                    %a{href: "/#{sub.name}"}
+                      = sub.title
           - else
-            %li= link_to top_page.title, top_page.name
+            %li
+              a{href: "/#{top_page.name}"}
+              = top_page.title
 
         %li
           = link_to 'Sign Up!', signup_path

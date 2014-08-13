@@ -1,6 +1,13 @@
 $green1: rgb(182,216,64);
 $green2: darken($green1, 15%);
 $green3: darken($green1, 20%);
+$orange1: rgb(255,212,98);
+$orange1: rgb(239,140,64);
+$orange1: rgb(213,116,68);
+$blue1: rgb(0,175,209);
+$blue2: rgb(111,191,187);
+$blue3: rgb(70,141,151);
+$blue4: rgb(53,87,119);
 
 $navbar-default-bg: $green1;
 $navbar-default-link-color: #fff;
@@ -14,3 +21,4 @@ $navbar-default-link-color: #fff;
   color: #fff;
   background-color: $green2 !important;
 }
+

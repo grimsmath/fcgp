@@ -3,8 +3,7 @@ class Vendor < ActiveRecord::Base
   has_many :certifications, :dependent => :destroy
   has_many :badges, :dependent => :destroy
   has_many :photos, :dependent => :destroy
-  has_many :ratings
-  has_one :user
+  has_many :ratings, :dependent => :destroy
 
   has_many :category_vendors, :dependent => :destroy
   has_many :categories, :through => :category_vendors
@@ -20,21 +19,4 @@ class Vendor < ActiveRecord::Base
 
   has_attached_file :logo, :styles => { medium: "300x300", thumb: "150x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
-
-  # validates :description, presence: true
-  # validates :phone_work, presence: true
-  # validates :signup_date, presence: true
-  # validates :enabled, presence: true
-  # validates :paid, presence: true
-
-  # searchable do
-  #   text :title, :description
-  #   text :comments do
-  #     comments.map { |comment| comment.body }
-  #   end
-  #
-  #   string :sort_title do
-  #     title.downcase.gsub(/^(an?|the)/, '')
-  #   end
-  # end
 end
