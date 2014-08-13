@@ -1,25 +1,24 @@
-.row
-  .col-md-4.col-md-offset-4
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      .panel.panel-success
-        .panel-heading
-          %h4.panel-title First Coast Green Pages Signin
+.col-md-4.col-md-offset-4(style="padding-top: 40px")
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .panel.panel-success
+      .panel-heading
+        %h4.panel-title First Coast Green Pages Signin
 
-        .panel-body
-          .form-group
-            = f.label :email
-            = f.email_field :email, :autofocus => true, class: "form-control"
+      .panel-body
+        .form-group
+          = f.label :email
+          = f.email_field :email, :autofocus => true, class: "form-control"
 
-          .form-group
-            = f.label :password
-            = f.password_field :password, class: "form-control"
+        .form-group
+          = f.label :password
+          = f.password_field :password, class: "form-control"
 
-          - if devise_mapping.rememberable?
-            .checkbox
-              %label
-                %input{name: "remember_me", id: "remember_me", type: "checkbox"}
-                Remember Me
+        - if devise_mapping.rememberable?
+          .checkbox
+            %label
+              %input{name: "remember_me", id: "remember_me", type: "checkbox"}
+              Remember Me
 
-        .panel-footer
-          = f.submit "Sign in", class: "btn btn-green"
-          = render "devise/shared/links"
+      .panel-footer
+        = f.submit "Sign in", class: "btn btn-green"
+        = render "devise/shared/links"

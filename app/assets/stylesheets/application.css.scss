@@ -89,6 +89,10 @@ textarea.horiz-only {
   height: 100%;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .categories ul {
   margin: 0;
   padding: 0;
@@ -101,6 +105,14 @@ textarea.horiz-only {
   padding: 0;
   list-style-type: none;
   list-style-position: outisde;
+}
+
+.pad-20px {
+  padding-top: 20px;
+}
+
+.pad-40px {
+  padding-top: 40px;
 }
 
 .down-20px {

@@ -15,8 +15,11 @@
   %body
     #content_wrapper
       = render 'partials/sitenav'
-      = render 'partials/flash'
-      = yield
+      = render 'partials/sitebrand'
+      .container
+        .row
+          = render 'partials/flash'
+          = yield
 
       .push
 

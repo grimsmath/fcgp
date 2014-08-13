@@ -1,26 +1,24 @@
-.row.down-20px
-  .col-md-4.col-md-offset-4
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .panel.panel-primary
-        .panel-heading
-          %h4.panel-title New User Signup
+.col-md-4.col-md-offset-4.pad-40px
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title New User Signup
 
-        .panel-body
-          .alert.alert-danger
-            = devise_error_messages!
+      .panel-body
+        = devise_error_messages!
 
-          .form-group
-            = f.label :email
-            = f.email_field :email, autofocus: true, class: 'form-control'
+        .form-group
+          = f.label :email
+          = f.email_field :email, autofocus: true, class: 'form-control'
 
-          .form-group
-            = f.label :password
-            = f.password_field :password, autocomplete: "off", class: 'form-control'
+        .form-group
+          = f.label :password
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
 
-          .form-group
-            = f.label :password_confirmation
-            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
-        .panel-footer
-          = f.submit "Complete Signup", class: 'btn btn-primary'
-          = render "devise/shared/links"
+      .panel-footer
+        = f.submit "Complete Signup", class: 'btn btn-primary'
+        = render "devise/shared/links"

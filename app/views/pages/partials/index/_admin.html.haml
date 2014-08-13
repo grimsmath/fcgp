@@ -1,33 +1,30 @@
 .col-lg-12.col-sm-2
   = render 'pages/partials/menubar'
 
-  %table.table.table-hover
+  %table.table.table-striped.table-hover
     %thead
       %tr
-        %th Page Name
-        %th Page Title
-        %th Parent Page
-        %th Last Updated
+        %th(style="width: 150px") Page Name
+        %th(style="width: 300px") Page Title
+        %th(style="width: 150px") Parent Page
+        %th(style="width: 150px") Last Updated
         %th.action_column
           Actions
 
     %tbody
       - if @pages.count == 0
         %tr
-          %td(colspan="4")
+          %td(colspan="5")
             No pages defined
       - else
         - @pages.each do |page|
           %tr
-            %td(style="width: 150px")
-              = link_to page.name, edit_page_path(page)
-            %td(style="width: 300px")
-              = link_to page.title, page
-            %td(style="width: 150px")
+            %td= link_to page.name, edit_page_path(page)
+            %td= link_to page.title, page
+            %td
               - unless page.parent_id.nil?
                 = link_to Page.where(id: page.parent_id).first.name
-            %td(style="width: 150px")
-              = page.updated_at.to_formatted_s(:short)
+            %td= page.updated_at.to_formatted_s(:short)
             %td.action_column
               = render 'pages/partials/actions', page: page
 
