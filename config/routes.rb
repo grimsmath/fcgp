@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get '/admin' => 'admin#index'
 
-  resources :users
   resources :members
   resources :vendors
   resources :pages
@@ -16,9 +15,7 @@ Rails.application.routes.draw do
   resources :addresses
   resources :tags
 
-  # Root path
-  root to: "home#index"
-
+  ## Dynamic Pages
   # handle not-found pages
   get 'not_found' => 'pages#not_found'
 
@@ -29,8 +26,8 @@ Rails.application.routes.draw do
   get '/signup/vendor' => 'signup#vendor'
   get '/signup/member' => 'signup#member'
 
-  post '/signup/vendor' => 'signup#vendor_create'
-  post '/signup/member' => 'signup#member_create'
+  # Root path
+  root to: "home#index"
 
   # get '*path' => 'application#index'
 

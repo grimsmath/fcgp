@@ -41,13 +41,13 @@
           = link_to 'Sign Up!', signup_path
 
       %ul.nav.navbar-nav.pull-right
-        - if current_user
+        - if current_member
           %li.dropdown
             %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
               Welcome #{current_user.email}
               %b.caret
             %ul.dropdown-menu
-              - if current_user.admin?
+              - if current_member.admin?
                 %li= link_to "Site Administration", admin_path
                 %li.divider
               %li= link_to "User Profile", current_user

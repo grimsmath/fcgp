@@ -3,20 +3,20 @@
     .col-md-6
       .bs-callout.bs-callout-info#column-1
         %h4 Already signed up?  Then sign in!
-        = form_tag session_path(:user) do
+        = form_tag session_path(:member) do
           .form-group
-            = text_field_tag 'user[email]', nil, class: 'form-control', placeholder: 'Username'
+            = text_field_tag 'member[email]', nil, class: 'form-control', placeholder: 'Email'
 
           .form-group
-            = password_field_tag 'user[password]', nil, class: 'form-control', placeholder: 'Password'
+            = password_field_tag 'member[password]', nil, class: 'form-control', placeholder: 'Password'
 
           .form-group
-            = check_box_tag 'user[remember_me]'
-            = label_tag 'user[remember_me]', 'Remember me'
+            = check_box_tag 'member[remember_me]'
+            = label_tag 'member[remember_me]', 'Remember me'
 
           .form-group
             = submit_tag 'Sign in', class: 'btn btn-primary'
-            = link_to "Forgot your password?", new_password_path(:user), class: 'btn btn-default'
+            = link_to "Forgot your password?", new_password_path(:member), class: 'btn btn-default'
 
     .col-md-6
       .bs-callout.bs-callout-warning#column-2

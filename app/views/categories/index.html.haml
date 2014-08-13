@@ -1,5 +1,5 @@
 %section#wrapper{data: {link: "link-categories"}}
-  - if user_signed_in? && current_user.admin?
+  - if member_signed_in? && current_member.admin?
     = render 'categories/partials/index/admin'
   - else
     = render 'categories/partials/index/public'
