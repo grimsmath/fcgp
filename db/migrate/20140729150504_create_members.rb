@@ -52,7 +52,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :email_alternate
       t.belongs_to :vendor
       t.datetime :signup_date
-      t.boolean :enabled
+      t.boolean :enabled, default: true
 
       t.timestamps
     end

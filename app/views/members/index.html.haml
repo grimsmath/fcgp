@@ -5,9 +5,12 @@
     %table.table.table-striped
       %thead
         %tr
+          %th Email
           %th Last Name
           %th First Name
-          %th Actions
+          %th Status
+          %th.action_column
+            Actions
 
       %tbody
         - if @members.count == 0
@@ -17,13 +20,18 @@
         - else
           - @members.each do |member|
             %tr
+              %td= member.email
               %td= member.first_name
               %td= member.last_name
-              %td
+              %td= member.enabled
+              %td.action_column
                 = render 'members/partials/actions', member: member
 
       %tfoot
         %tr
+          %th Email
           %th Last Name
           %th First Name
-          %th Actions
+          %th Status
+          %th.action_column
+            Actions

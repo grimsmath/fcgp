@@ -1,4 +1,4 @@
-- if user_signed_in? && current_user.admin?
+- if member_signed_in? && current_member.admin?
   = render 'pages/partials/show/admin'
 - else
   = render 'pages/partials/show/public'

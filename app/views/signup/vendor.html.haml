@@ -3,7 +3,7 @@
     %h2.bg-success.text-center(style="padding: 10px")
       New Vendor Registration
 
-    - if user_signed_in? && current_user.admin?
+    - if member_signed_in? && current_member.admin?
       .bs-docs-section
         %h3.page-header Vendor Meta
         = render 'vendors/partials/profile/meta', f: f

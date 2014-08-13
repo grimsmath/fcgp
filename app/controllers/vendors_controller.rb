@@ -12,6 +12,7 @@ class VendorsController < ApplicationController
   # GET /vendors/1
   # GET /vendors/1.json
   def show
+    render :layout => 'application'
   end
 
   # GET /vendors/new
