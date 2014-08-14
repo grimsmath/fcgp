@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814025050) do
+ActiveRecord::Schema.define(version: 20140814135608) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -91,6 +91,16 @@ ActiveRecord::Schema.define(version: 20140814025050) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "topic"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dynamic_routers", force: true do |t|
     t.datetime "created_at"

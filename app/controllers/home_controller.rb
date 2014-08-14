@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def contact
-    p 'Home Search called'
+    @contact = Contact.new
   end
 
 end

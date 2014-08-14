@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :members
+  resources :contacts
 
-  resources :alerts
+  devise_for :members
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :addresses
   resources :tags
+  resources :alerts
 
   post '/search' => 'home#search'
   get '/contact' => 'home#contact'

@@ -1,2 +1,21 @@
-.col-md-12
-  %h3 Contact Us
+.col-md-8.col-md-offset-2
+  .bs-callout.bs-callout-green1
+    %h4.bs-title
+      Contact Us
+    
+    = form_for(@contact, html: { role: "form" }) do |f|
+      .form-group
+        %label Your Name
+        = f.text_field :name, class: 'form-control'
+
+      .form-group
+        %label Your Email Address
+        = f.text_field :email, class: 'form-control'
+
+      .form-group
+        %label Topic
+        = f.select :topic, class: 'form-control'
+
+      .form-group
+        %label Your Message
+        = f.text_area :body, class: 'form-control'
