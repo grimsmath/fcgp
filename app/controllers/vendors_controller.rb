@@ -29,6 +29,9 @@ class VendorsController < ApplicationController
   def create
     @vendor = Vendor.new(vendor_params)
 
+    # We need to relate the current member to the new vendor object
+    vendor.members.build(vendor_id: @vendor.id, member_id: current_member.id)
+
     respond_to do |format|
       if @vendor.save
         format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
