@@ -41,6 +41,11 @@ body {
   padding-top: 50px;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .red::first-letter {
   color: red;
 }
