@@ -1,0 +1,28 @@
+.col-md-8.col-md-offset-2
+  .bs-callout.bs-callout-green1
+    %h4.bs-title
+      Contact Us
+
+    .alert.alert-danger
+      - if @contact.errors.any?
+        #error_explanation
+          %h3
+            = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
+          %ul
+            - @contact.errors.full_messages.each do |msg|
+              %li= msg
+
+    = form_for(@contact, html: { role: "form" }) do |f|
+      .form-group
+        = f.text_field :name, class: 'form-control', placeholder: 'Your name'
+
+      .form-group
+        = f.text_field :email, class: 'form-control', placeholder: 'Your email address'
+
+      .form-group
+        = f.select :topic, topics, { include_blank: 'Select a topic...' }, class: 'form-control'
+
+      .form-group
+        = f.text_area :body, rows: 10, class: 'form-control', placeholder: 'Your message...'
+
+      = f.submit "Send Message", class: 'btn btn-primary'

@@ -39,6 +39,15 @@ module ApplicationHelper
     return and_or_select.reverse!
   end
 
+  def topics
+    [
+      ['Listing your company',    'listing'     ],
+      ['Your membership',         'membership'  ],
+      ['Advertising on our site'  'advertising' ],
+      ['General questions',       'general'     ]
+    ]
+  end
+
   def months
     [
       ['01', 'January'    ],

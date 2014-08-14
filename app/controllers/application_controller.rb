@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
       super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
     end
 
+    def is_admin?
+      member_signed_in? && current_member.admin? && params[:admin] == 'true' || false
+    end
+
     def resolve_layout
       return "application"
 

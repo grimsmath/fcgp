@@ -1,0 +1,19 @@
+.col-md-12
+  %h2 Site Contacts
+
+  %table.table.table-striped.table-hover
+    %tr
+      %th Date
+      %th From
+      %th Topic
+      %th Message
+      %th.action_column
+
+    - @contacts.each do |contact|
+      %tr
+        %td= contact.created_at.to_formatted_s(:short)
+        %td= contact.name
+        %td= contact.topic
+        %td= contact.message.truncate(100)
+        %td
+          = render 'contacts/partials/actions', f: f

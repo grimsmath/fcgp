@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :alerts
 
   post '/search' => 'home#search'
-  get '/contact' => 'home#contact'
 
   ## Dynamic Pages
   # handle not-found pages

@@ -1,10 +1,16 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_member!, :except => [:new, :create, :show]
+  layout :resolve_layout
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    if is_admin?
+      @contacts = Contact.all
+    else
+      @contact = Contact.new
+    end
   end
 
   # GET /contacts/1
@@ -28,7 +34,10 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        notice = is_admin? ? 'Thank you for sending your message!  Someone will get back to you shortly.'
+                           : 'Contact was created successfully.'
+
+        format.html { redirect_to @contact, notice: notice }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -69,6 +78,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params[:contact]
+      params.require(:contact).permit(:name, :email, :company, :company, :topic, :body)
     end
 end
