@@ -3,8 +3,8 @@
     %h4.bs-title
       Contact Us
 
-    .alert.alert-danger
-      - if @contact.errors.any?
+    - if @contact.errors.any?
+      .alert.alert-danger
         #error_explanation
           %h3
             = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"

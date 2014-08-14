@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_member!, :except => [:new, :create, :show]
+  before_action :authenticate_member!, :except => [:index, :new, :create]
   layout :resolve_layout
 
   # GET /contacts
@@ -34,10 +34,8 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        notice = is_admin? ? 'Thank you for sending your message!  Someone will get back to you shortly.'
-                           : 'Contact was created successfully.'
-
-        format.html { redirect_to @contact, notice: notice }
+        notice = 'Thank you for sending your message!  Someone will get back to you shortly.'
+        format.html { redirect_to root_path, notice: notice }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
