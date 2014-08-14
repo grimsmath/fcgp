@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813181520) do
+ActiveRecord::Schema.define(version: 20140814003500) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -128,9 +128,6 @@ ActiveRecord::Schema.define(version: 20140813181520) do
     t.string   "phone_work"
     t.string   "phone_mobile"
     t.string   "phone_fax"
-    t.string   "email_personal"
-    t.string   "email_alternate"
-    t.integer  "vendor_id"
     t.datetime "signup_date"
     t.boolean  "enabled"
     t.datetime "created_at"
