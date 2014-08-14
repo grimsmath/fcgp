@@ -30,7 +30,7 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(vendor_params)
 
     # We need to relate the current member to the new vendor object
-    vendor.members.build(vendor_id: @vendor.id, member_id: current_member.id)
+    @vendor.members.build(vendor_id: @vendor.id, member_id: current_member.id)
 
     respond_to do |format|
       if @vendor.save
