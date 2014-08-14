@@ -3,7 +3,6 @@ class Vendor < ActiveRecord::Base
   has_many :certifications, :dependent => :destroy
   has_many :badges, :dependent => :destroy
   has_many :photos, :dependent => :destroy
-  has_many :ratings, :dependent => :destroy
 
   has_many :member_vendors, :dependent => :destroy
   has_many :members, :through => :member_vendors
