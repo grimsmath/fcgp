@@ -1,28 +1,10 @@
 .hidden-sm.hidden-md.hidden-lg
   .list-group
+
     - @featured.each do |list|
       .list-group-item
         .col-md-12
-          .vendor-logo
-            = link_to vendor_path(list) do
-              = image_tag list.logo.url(:thumb)
-
-          .vendor-title
-            = link_to vendor_path(list) do
-              %h5= list.name
-
-          .vendor-cat
-            %small
-              in
-              - list.categories.each_with_index do |cat, index|
-                = link_to category_path(cat) do
-                  - unless index == list.categories.size - 1
-                    = cat.name + ', '
-                  - else
-                    = cat.name
-
-          .vendor-desc
-            = list.description.truncate(100).html_safe
+          = render 'home/partials/vendor', list: list
 
 .panel.panel-info.hidden-xs
   .panel-heading
