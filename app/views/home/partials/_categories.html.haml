@@ -1,10 +1,10 @@
-.panel.panel-success.flex-col
+.panel.panel-success
   .panel-heading
     %h4.panel-title
       %i.fa.fa-leaf
       Browse by Category
 
-  .panel-body.flex-grow
+  .panel-body
     %ul
       - Category.where(ancestry: nil).each do |cat|
         .category
