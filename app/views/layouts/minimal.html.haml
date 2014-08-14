@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title First Coast Green Pages
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    #content_wrapper
+      .container(style="padding: 40px 0")
+        .row
+          = render 'partials/flash'
+          = yield
+
+      .push
+
+    = render 'partials/sitefoot'

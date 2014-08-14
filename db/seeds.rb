@@ -15,20 +15,15 @@ Settings["Mapping.DefaultLong"] = -81.6614  # Jacksonville, FL
 Member.destroy_all()
 
 # An administrator
-admin = Member.create(email: 'admin@green.org', password: 'password')
+admin = Member.create(email: 'admin@usgbcnf.org', password: 'password')
 admin.toggle!(:admin)
 
-# A moderator
-mod = Member.create(email: 'mod@green.org', password: 'password')
-mod.toggle!(:moderator)
-
-# An individual member
-Member.create(email: 'member@green.org', password: 'password')
-
-# A vendor
-Member.create(email: 'vendor@green.org', password: 'password')
-
 # Top-level categories
-Category.create(title: 'Category 1', name: 'cat01', enabled: true)
-Category.create(title: 'Category 2', name: 'cat02', enabled: true)
-Category.create(title: 'Category 3', name: 'cat03', enabled: true)
+Category.create(title: 'Food (Restaurants, Farms, Markets)', name: 'food', enabled: true)
+Category.create(title: 'Travel (Transportation, Lodging, Recreation)', name: 'travel', enabled: true)
+Category.create(title: 'Building/Remodeling', name: 'building', enabled: true)
+Category.create(title: 'Clothing & Accessories', name: 'clothing', enabled: true)
+Category.create(title: 'Household, Yard & Garden (Products)', name: 'household', enabled: true)
+Category.create(title: 'Health & Wellness', name: 'health_wellness', enabled: true)
+Category.create(title: 'Services (Residential & Commercial)', name: 'services', enabled: true)
+Category.create(title: 'Community, Education, & Advocacy', name: 'community', enabled: true)

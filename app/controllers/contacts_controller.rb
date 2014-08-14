@@ -21,6 +21,10 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+
+    if request.referer == "www.firstcoastgreenpages.org"
+      render :layout => 'otherlayout'
+    end
   end
 
   # GET /contacts/1/edit

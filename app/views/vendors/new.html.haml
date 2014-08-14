@@ -1,5 +1,5 @@
-%section#wrapper{data: {link: "link-vendors"}}
-  .col-lg-12.col-sm-2
-    %h2 New Vendor Profile
-
+.col-lg-12
+  - if is_admin?
     = render 'vendors/partials/form'
+  - else
+    = render 'vendors/partials/signup'
