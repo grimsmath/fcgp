@@ -6,53 +6,101 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "First Coast Green Pages", root_path, class: 'navbar-brand'
+      = link_to "Home", root_path, class: 'navbar-brand'
+
     .navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-left
         %li
           = link_to vendors_path do
             %i.fa.fa-leaf
             Listings
-        %li
-          = link_to categories_path do
-            %i.fa.fa-book
-            Categories
 
-        - Page.where(ancestry: nil).take(5).each do |top_page|
+        - Page.where(ancestry: nil).take(6).each do |top_page|
           - if top_page.has_children?
             %li.dropdown
               %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
                 = top_page.title
-                %b.caret
-              %ul.dropdown-menu
+                %span.caret
+              %ul.dropdown-menu{role: "menu"}
                 %li
-                  %a{href: "/#{top_page.name}"}
-                    = top_page.title
+                  - unless top_page.icon.nil?
+                    %a{href: "/#{top_page.name}"}
+                      %i{class: "#{top_page.icon}"}
+                      = top_page.title
+                  - else
+                    %a{href: "/#{top_page.name}"}
+                      = top_page.title
                 - top_page.children.each do |sub|
                   %li
                     %a{href: "/#{sub.name}"}
                       = sub.title
           - else
             %li
-              %a{href: "/#{top_page.name}"}
-                = top_page.title
+              - if top_page.icon
+                %a{href: "/#{top_page.name}"}
+                  %i{class: "#{top_page.icon}"}
+                  = top_page.title
+              - else
+                %a{href: "/#{top_page.name}"}
+                  = top_page.title
 
         %li
-          = link_to 'Sign Up!', signup_path
+          = link_to 'Sign Up!', new_member_session_path
 
-      %ul.nav.navbar-nav.pull-right
+      %ul.nav.navbar-nav.navbar-right
         - if current_member
           %li.dropdown
             %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
               Welcome #{current_member.email}
               %b.caret
-            %ul.dropdown-menu
+            %ul.dropdown-menu{role: "menu"}
               - if current_member.admin?
-                %li= link_to "Site Administration", admin_path
+                %li.dropdown-header Administrator Functions
+                %li
+                  = link_to vendors_path(admin: true) do
+                    %i.fa.fa-truck
+                    Manage Vendors
+                %li
+                  = link_to members_path(admin: true) do
+                    %i.fa.fa-users
+                    Manage Members
+                %li
+                  = link_to categories_path(admin: true) do
+                    %i.fa.fa-book
+                    Manage Categories
                 %li.divider
-              %li= link_to "User Profile", current_member
-              %li= link_to "Change Password", current_member
+
+                %li.dropdown-header Site Functions
+                %li
+                  = link_to pages_path(admin: true) do
+                    %i.fa.fa-cubes
+                    Dynamic Pages
+                %li
+                  = link_to alerts_path(admin: true) do
+                    %i.fa.fa-bell
+                    Site Alerts
+                %li.divider
+
+              - if current_member.moderator? || current_member.admin?
+                %li.dropdown-header Moderator Functions
+                %li
+                  %a.fa.fa-quote-left{href: "#"}
+                    Moderate Reviews
+                %li
+                  %a.fa.fa-quote-left{href: "#"}
+                    Moderate Vendors
+                %li
+                  %a.fa.fa-quote-left{href: "#"}
+                    Moderate Categories
+                %li.divider
+              %li
+                = link_to member_dashboard_path(current_member) do
+                  %i.fa.fa-user
+                  User Dashboard
               %li.divider
-              %li= link_to "Log out", destroy_member_session_path, :method => :delete
+              %li
+                = link_to destroy_member_session_path, :method => :delete do
+                  %i.fa.fa-sign-out
+                  Logout
         - else
-          %li= link_to 'Sign In', '/members/sign_in'
+          %li= link_to 'Sign In', new_member_session_path

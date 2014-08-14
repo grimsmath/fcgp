@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  get '/admin' => 'admin#index'
+  resources :members do
+    get 'dashboard'
+  end
 
-  resources :members
   resources :vendors
   resources :pages
   resources :categories

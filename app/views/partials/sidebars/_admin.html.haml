@@ -1,33 +1,15 @@
-%ul.nav.nav-sidebar
-  %li.active#link-dashboard
-    = link_to admin_path do
-      %i.fa.fa-dashboard
-      Admin Dashboard
-  %li#link-pages
-    = link_to pages_path do
-      %i.fa.fa-folder-open
-      Dynamic Pages
-  %li#link-categories
-    = link_to categories_path do
-      %i.fa.fa-cubes
-      Categories
-%ul.nav.nav-sidebar
-  %li#link-vendors
-    = link_to vendors_path do
-      %i.fa.fa-truck
-      Vendors
-  %li#link-members
-    = link_to members_path do
-      %i.fa.fa-building
-      Members
+%nav#admin-nav.navmenu.navmenu-default.navmenu-fixed-left.offcanvas{:role => "navigation"}
+  %a.navmenu-brand{:href => "#"} Brand
+  %ul.nav.navmenu-nav
+    %li.active
+      %a{:href => "#"} Home
+    %li
+      %a{:href => "#"} Link
+    %li
+      %a{:href => "#"} Link
 
-%ul.nav.nav-sidebar
-  %li#link-alerts
-    = link_to alerts_path do
-      %i.fa.fa-bell
-      Site Alerts
-
-  %li
-    %a{:href => ""}
-      %i.fa.fa-gear
-      Configuration
+.navbar.navbar-default.navbar-fixed-top
+  %button.navbar-toggle{"data-canvas" => "body", "data-target" => "#admin-nav", "data-toggle" => "offcanvas", :type => "button"}
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar

@@ -1,7 +1,7 @@
 class AlertsController < ApplicationController
   before_action :set_alert, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_member!
-  layout "admin"
+  layout :resolve_layout
 
   # GET /alerts
   # GET /alerts.json

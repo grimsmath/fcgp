@@ -10,6 +10,10 @@ module ApplicationHelper
     end
   end
 
+  def is_admin?
+    member_signed_in? && current_member.admin? && params[:admin] == 'true' || false
+  end
+
   def nested_dropdown(items)
     result = []
     items.map do |item, sub_items|

@@ -33,16 +33,18 @@ class ApplicationController < ActionController::Base
     end
 
     def resolve_layout
-      case member_signed_in?
-        when true
-          if current_member.admin?
-            "admin"
-          else
-            "application"
-          end
-        else
-          "application"
-      end
+      return "application"
+
+      # case member_signed_in?
+      #   when true
+      #     if current_member.admin?
+      #       "admin"
+      #     else
+      #       "application"
+      #     end
+      #   else
+      #     "application"
+      # end
     end
 
   private

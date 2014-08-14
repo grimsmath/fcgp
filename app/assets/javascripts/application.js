@@ -16,13 +16,13 @@
 //= require jquery.timepicker
 //= require jquery_nested_form
 //= require turbolinks
-//= require jasny-bootstrap
+//= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap.wysiwig
 //= require bootstrap-select
+//= require jasny-bootstrap
 //= require moment
 //= require fileinput
-//= require bootstrap
 //= require ckeditor/init
 //= require holder
 //= require pages

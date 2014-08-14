@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814003500) do
+ActiveRecord::Schema.define(version: 20140814025050) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 20140814003500) do
     t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "icon"
   end
 
   add_index "pages", ["ancestry"], name: "index_pages_on_ancestry"

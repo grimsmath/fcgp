@@ -9,6 +9,10 @@ class MembersController < ApplicationController
     @members = Member.all
   end
 
+  def dashboard
+
+  end
+
   # GET /members/1
   # GET /members/1.json
   def show

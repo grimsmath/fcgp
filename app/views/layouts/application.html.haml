@@ -14,9 +14,11 @@
       = render 'partials/sitenav'
       = render 'partials/sitebrand'
 
-      .container.pad-20px
+      .container(style="padding: 40px 0")
         .row
           = render 'partials/flash'
+          = render "partials/search"
+
           = yield
 
       .push

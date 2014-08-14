@@ -1,15 +1,13 @@
 .col-md-6.col-md-offset-3
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     .bs-callout.bs-callout-green1
-      %h4 First Coast Green Pages Signin
+      %h4.bs-title First Coast Green Pages Signin
 
       .form-group
-        = f.label :email
-        = f.email_field :email, :autofocus => true, class: "form-control"
+        = f.email_field :email, :autofocus => true, class: "form-control", placeholder: 'Email address'
 
       .form-group
-        = f.label :password
-        = f.password_field :password, class: "form-control"
+        = f.password_field :password, class: "form-control", placeholder: 'Password'
 
       - if devise_mapping.rememberable?
         .checkbox

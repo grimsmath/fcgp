@@ -8,6 +8,12 @@
     = f.text_field :name, readonly: true, class: 'form-control'
 
   .form-group
+    %label
+      Icon Class (<a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a>
+      or <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a>)
+    = f.text_field :icon, class: 'form-control'
+
+  .form-group
     = f.label :sub_title
     = f.text_field :sub_title, class: 'form-control'
 

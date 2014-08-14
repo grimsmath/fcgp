@@ -1,8 +1,8 @@
-.col-md-8.col-md-offset-2
+.col-md-10.col-md-offset-1
   .row
     .col-md-6
-      .bs-callout.bs-callout-info#column-1
-        %h4 Already signed up?  Then sign in!
+      .bs-callout.bs-callout-green1#column-1
+        %h4.bs-title Already signed up?  Then sign in!
         = form_tag session_path(:member) do
           .form-group
             = text_field_tag 'member[email]', nil, class: 'form-control', placeholder: 'Email'
