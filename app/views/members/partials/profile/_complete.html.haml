@@ -1,0 +1,24 @@
+.row
+  .col-lg-12
+    .checkbox
+      %label
+        = f.check_box :accepted, id: 'chk_agree'
+        I Agree to the following
+        = link_to 'Terms and Conditions', '/terms', target: '_blank'
+
+  .col-lg-12
+    = f.submit 'Complete Signup', id: 'btn-submit', class: 'btn btn-primary'
+
+:javascript
+  $('#btn-submit').click(function () {
+    var checked = $('#chk_agree').prop('checked');
+    if (checked == false) {
+      bootbox.alert({
+        title: "Incomplete Registration",
+        message: "Please click the <strong>I Agree to the Terms and Conditions</strong> checkbox first!",
+        backdrop: false,
+        animate: false
+      });
+      return false;
+    }
+  });

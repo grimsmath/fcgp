@@ -41,6 +41,10 @@ body {
   padding-top: 50px;
 }
 
+.red::first-letter {
+  color: red;
+}
+
 #content_wrapper {
   min-height: 100%;
   height: auto !important;
