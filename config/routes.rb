@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :addresses
   resources :tags
 
+  post '/search' => 'home#search'
+  get '/contact' => 'home#contact'
+
   ## Dynamic Pages
   # handle not-found pages
   get 'not_found' => 'pages#not_found'

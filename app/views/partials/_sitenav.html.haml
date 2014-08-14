@@ -43,6 +43,10 @@
               - else
                 %a{href: "/#{top_page.name}"}
                   = top_page.title
+        %li
+          = link_to contact_path do
+            %i.fa.fa-envelope
+            Contact Us
 
         %li
           = link_to 'Sign Up!', new_member_session_path

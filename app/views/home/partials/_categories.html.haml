@@ -1,0 +1,12 @@
+.panel.panel-success.flex-col
+  .panel-heading
+    %h4.panel-title
+      %i.fa.fa-leaf
+      Browse by Category
+
+  .panel-body.flex-grow
+    %ul
+      - Category.where(ancestry: nil).each do |cat|
+        .category
+          %i.fa.fa-angle-double-right
+          = link_to cat.title, cat

@@ -3,7 +3,7 @@
     .col-md-12
       .form-group
         .input-group
-          = text_field_tag :terms, nil, class: 'form-control', placeholder: 'Search...'
+          = text_field_tag :terms, nil, class: 'form-control', placeholder: 'Search for something green here...'
           %span.input-group-btn
             %button.btn.btn-success{:type => "submit"}
               %i.fa.fa-search
@@ -11,5 +11,5 @@
 
 :javascript
   $('#form-search').submit(function() {
-    return false;
+
   });

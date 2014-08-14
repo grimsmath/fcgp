@@ -1,1 +1,14 @@
-= render "home/partials/catnav"
+.container
+  .row.row-flex
+    .col-md-8
+      = render 'home/partials/featured'
+
+    .col-md-4
+      = render 'home/partials/categories'
+
+  .row.row-flex
+    .col-md-8
+      = render 'home/partials/reviews'
+
+    .col-md-4
+      = render 'home/partials/ads'
