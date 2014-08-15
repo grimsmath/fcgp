@@ -1,13 +1,14 @@
-.row
-  .col-md-12(style="padding-bottom: 20px")
-    = form_tag("/search", method: "post", id: 'form-search') do
-      .form-group
-        .input-group
-          = text_field_tag :terms, nil, class: 'form-control', placeholder: 'Search for something green here...'
-          %span.input-group-btn
-            %button.btn.btn-success{:type => "submit"}
-              %i.fa.fa-search
-              Search
+.container
+  .row
+    .col-md-12
+      = form_tag("/search", method: "post", id: 'form-search') do
+        .form-group
+          .input-group
+            = text_field_tag :terms, nil, class: 'form-control', placeholder: 'Search for something green here...'
+            %span.input-group-btn
+              %button.btn.btn-success{:type => "submit"}
+                %i.fa.fa-search
+                Search
 
 :javascript
   $('#form-search').submit(function() {
