@@ -14,13 +14,13 @@
       = render 'partials/sitenav'
       = render 'partials/sitebrand'
 
-      -#.container
-      -#  .row(style="margin-top: 40px")
-      = render 'partials/flash'
-      = render "partials/search"
+      .container
+        .row(style="margin-top: 40px")
+          = render 'partials/flash'
+          = render "partials/search"
 
-      = yield
+          = yield
 
     -#  .push
     -#
-    -#= render 'partials/sitefoot'
+    = render 'partials/sitefoot'
