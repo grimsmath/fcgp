@@ -17,9 +17,16 @@
     = f.label :sub_title
     = f.text_field :sub_title, class: 'form-control'
 
-  .form-group
-    %label Parent Page
-    = f.select :parent_id, nested_dropdown(Page.all.arrange), { include_blank: '' }, class: 'form-control'
+  .row
+    .col-md-6.col-sm-6
+      .form-group
+        %label Parent Page
+        = f.select :parent_id, nested_dropdown(Page.all.arrange), { include_blank: '' }, class: 'form-control'
+
+    .col-md-6.col-sm-6
+      .form-group
+        %label Sort Order (ex. 1.5 would be after 1 but before 2)
+        = f.text_field :order, class: 'form-control'
 
   .form-group
     = f.label :body

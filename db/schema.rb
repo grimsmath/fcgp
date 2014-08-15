@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814135608) do
+ActiveRecord::Schema.define(version: 20140815020705) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "title"
     t.string   "awarded"
     t.text     "notes"
-    t.integer  "signup_id"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "icon"
+    t.float    "order"
   end
 
   add_index "pages", ["ancestry"], name: "index_pages_on_ancestry"
@@ -180,8 +181,8 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.text     "body"
     t.boolean  "enabled",    default: true
     t.float    "rating",     default: 0.0
-    t.integer  "signup_id"
     t.integer  "member_id"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
