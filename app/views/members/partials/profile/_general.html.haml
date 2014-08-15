@@ -1,40 +1,45 @@
-.form-group
+.row
   .col-md-5.col-sm-5
-    %label * First Name
-    = f.text_field :first_name, autofocus: true, class: 'form-control'
+    .form-group
+      %label * First Name
+      = f.text_field :first_name, autofocus: true, class: 'form-control'
 
   .col-md-2.col-sm-2
-    %label Middle Initial
-    = f.text_field :middle_initial, class: 'form-control'
+    .form-group
+      %label Middle Initial
+      = f.text_field :middle_initial, class: 'form-control'
 
   .col-md-5.col-sm-5
-    %label * Last Name
-    = f.text_field :last_name, class: 'form-control'
+    .form-group
+      %label * Last Name
+      = f.text_field :last_name, class: 'form-control'
 
-= f.fields_for :addresses do |address|
-  .form-group
-    %label * Street Address
-    = address.text_field :street1, class: 'form-control map-field'
-
-  .form-group
-    = address.text_field :street2, class: 'form-control map-field'
-
-  .row
-    .col-md-6.col-sm-6
+.row
+  .col-md-12.col-sm-12
+    = f.fields_for :addresses do |address|
       .form-group
-        %label * City
-        = address.text_field :city, class: 'form-control map-field'
+        %label * Street Address
+        = address.text_field :street1, class: 'form-control map-field'
 
-    .col-md-3.col-sm-3
       .form-group
-        %label * State
-        = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
-          class: 'form-control selectpicker map-field'
+        = address.text_field :street2, class: 'form-control map-field'
 
-    .col-md-3.col-sm-3
-      .form-group
-        %label * Postal Code
-        = address.text_field :postal_code, placeholder: "xxxxx", class: 'form-control map-field'
+      .row
+        .col-md-6.col-sm-6
+          .form-group
+            %label * City
+            = address.text_field :city, class: 'form-control map-field'
+
+        .col-md-3.col-sm-3
+          .form-group
+            %label * State
+            = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
+              class: 'form-control selectpicker map-field'
+
+        .col-md-3.col-sm-3
+          .form-group
+            %label * Postal Code
+            = address.text_field :postal_code, placeholder: "xxxxx", class: 'form-control map-field'
 
 .row
   .col-md-4.col-sm-4
