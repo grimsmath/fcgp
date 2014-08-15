@@ -54,11 +54,11 @@
     postal: '',
 
     init: function() {
-      this.street1  = $('.map-street1').val();
-      this.street2  = $('.map-street2').val();
-      this.city     = $('.map-city').val();
-      this.state    = $('.map-state option:selected').val();
-      this.postal   = $('.map-postal').val();
+      this.street1  = $('#vendor_addresses_attributes_0_street1').val();
+      this.street2  = $('#vendor_addresses_attributes_0_street2').val();
+      this.city     = $('#vendor_addresses_attributes_0_city').val();
+      this.state    = $('#vendor_addresses_attributes_0_state').val();
+      this.postal   = $('#vendor_addresses_attributes_0_postal_code').val();
     },
 
     isReady: function() {
