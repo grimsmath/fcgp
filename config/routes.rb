@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :contacts
 
-  devise_for :members
+  devise_for :members, controllers: {registrations: 'registration'}
 
   mount Ckeditor::Engine => '/ckeditor'
 
