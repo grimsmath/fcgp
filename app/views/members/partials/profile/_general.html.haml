@@ -1,14 +1,14 @@
 .form-group.down-20px
   .row
-    .col-md-5
+    .col-md-5.col-sm-5
       %label * First Name
       = f.text_field :first_name, autofocus: true, class: 'form-control'
 
-    .col-md-2
+    .col-md-2.col-sm-2
       %label Middle Initial
       = f.text_field :middle_initial, class: 'form-control'
 
-    .col-md-5
+    .col-md-5.col-sm-5
       %label * Last Name
       = f.text_field :last_name, class: 'form-control'
 
@@ -21,24 +21,24 @@
     = address.text_field :street2, class: 'form-control map-field'
 
   .row
-    .col-lg-6
+    .col-md-6.col-sm-6
       .form-group
         %label * City
         = address.text_field :city, class: 'form-control map-field'
 
-    .col-lg-3
+    .col-md-3.col-sm-3
       .form-group
         %label * State
         = address.select :state, us_states_name_and_abbreviation, { include_blank: '' },
           class: 'form-control selectpicker map-field'
 
-    .col-lg-3
+    .col-md-3.col-sm-3
       .form-group
         %label * Postal Code
         = address.text_field :postal_code, placeholder: "xxxxx", class: 'form-control map-field'
 
 .row
-  .col-lg-4
+  .col-md-4.col-sm-4
     .form-group
       %label Home Phone
       .input-group
@@ -48,7 +48,7 @@
           data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
           %i.phone.icon
 
-  .col-lg-4
+  .col-md-4.col-sm-4
     .form-group
       %label Work Phone
       .input-group
@@ -58,7 +58,7 @@
           data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
           %i.phone.icon
 
-  .col-lg-4
+  .col-md-4.col-sm-4
     .form-group
       %label Mobile Phone
       .input-group
