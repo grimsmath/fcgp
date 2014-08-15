@@ -1,16 +1,15 @@
-.form-group.down-20px
-  .row
-    .col-md-5.col-sm-5
-      %label * First Name
-      = f.text_field :first_name, autofocus: true, class: 'form-control'
+.form-group
+  .col-md-5.col-sm-5
+    %label * First Name
+    = f.text_field :first_name, autofocus: true, class: 'form-control'
 
-    .col-md-2.col-sm-2
-      %label Middle Initial
-      = f.text_field :middle_initial, class: 'form-control'
+  .col-md-2.col-sm-2
+    %label Middle Initial
+    = f.text_field :middle_initial, class: 'form-control'
 
-    .col-md-5.col-sm-5
-      %label * Last Name
-      = f.text_field :last_name, class: 'form-control'
+  .col-md-5.col-sm-5
+    %label * Last Name
+    = f.text_field :last_name, class: 'form-control'
 
 = f.fields_for :addresses do |address|
   .form-group

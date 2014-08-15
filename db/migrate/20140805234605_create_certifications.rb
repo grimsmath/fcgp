@@ -4,7 +4,7 @@ class CreateCertifications < ActiveRecord::Migration
       t.string :title
       t.string :awarded
       t.text :notes
-      t.belongs_to :signup
+      t.belongs_to :vendor
 
       t.timestamps
     end
