@@ -1,5 +1,6 @@
-.col-lg-12
-  - if is_admin?
-    = render 'vendors/partials/form'
-  - else
-    = render 'vendors/partials/signup'
+.row
+  .col-lg-12
+    - if is_admin?
+      = render 'vendors/partials/form'
+    - else
+      = render 'vendors/partials/signup'

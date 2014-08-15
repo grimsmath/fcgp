@@ -4,7 +4,7 @@ class CreateBadges < ActiveRecord::Migration
       t.string :title
       t.string :awarded
       t.attachment :image
-      t.belongs_to :signup
+      t.belongs_to :vendor
 
       t.timestamps
     end
