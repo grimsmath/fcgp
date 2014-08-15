@@ -3,77 +3,77 @@
     %h2.bg-success.text-center(style="padding: 10px")
       New Vendor Registration
 
-    - if is_admin?
-      .bs-docs-section
-    - else
-      .bs-docs-section.hidden
-        %h3.page-header Vendor Meta
-        = render 'vendors/partials/profile/meta', f: f
-
-    .bs-docs-section
-      %h3.page-header General Details
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please provide your company's name, a brief description, and
-        you may upload a single 100x100 (pixels) logo by clicking on the
-        <span class="label label-primary">Browse</span> button.
-      = render 'vendors/partials/profile/brand', f: f
-
-    .bs-docs-section
-      %h3.page-header Address &amp; Location
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please enter the address of your company's primary business location.  A Google Map
-        will automatically be generated for you.
-      = render 'vendors/partials/profile/address', f: f
-
-    .bs-docs-section
-      %h3.page-header Hours of Operation
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please indicate the hours when your company is open and closed.  You may choose to have different
-        hours of operations per day, or you can click the <span class="label label-primary">Set All Open</span> button
-        and the <span class="label label-primary">Set All Closed</span> button accordingly.
-      = render 'vendors/partials/profile/hours', f: f
-
-    .bs-docs-section
-      %h3.page-header Green Certifications
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        In this section you may add any Green certifications you have been awarded, including specifying the date
-        when the certification was earned/awarded.  You may also upload Green badges (100x100 pixel sized logo).  To
-        add a certification, click the <span class="label label-primary">+ Add Certification</span> button.  To upload
-        a badge, click on the <span class="label label-primary">+ Add Badge</span> button and then click the
-        <span class="label label-primary">Browse</span> button to locate the image on your computer.  There are no
-        limits to the number of certifications and badges that you may add to your profile.
-      = render 'vendors/partials/profile/green', f: f
-
-    .bs-docs-section
-      %h3.page-header Photos
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        In this section you may upload a total of 8 photographs.  The photos may not be larger than 640x480 pixels, and
-        they must be owned by your or free of copyright restrictions.  Each photo may have a title and a caption.
-        By clicking the <span class="label label-primary">+ Add Photo</span> button you agree to be bound to these terms.
-      = render 'vendors/partials/profile/photos', f: f
-
-    .bs-docs-section
-      %h3.page-header Listing Options
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        In this section you may select the various Green categories that you would like your profile to show in, and
-        you may enter various tag phrases that will help users of the site to find your company.  To add a category,
-        click the <span class="label label-primary">+ Add Category</span> button.  Likewise, to add a tag, click the
-        <span class="label label-primary">+ Add Tag</span> button.
-      = render 'vendors/partials/profile/listing', f: f
-
-    .bs-docs-section(style="margin-bottom: 40px")
-      %h3.page-header Complete Signup
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
-        checkbox and then click the <span class="label label-primary">Complete Registration</span> button.  Your
-        registration will be evaluated by staff and you will be notified when your registration is approved.  If you
-        are electing to purchase a subscription you will be temporarily redirected to PayPal to complete your
-        payment.
-      = render 'vendors/partials/profile/complete', f: f
+    -#- if is_admin?
+    -#  .bs-docs-section
+    -#- else
+    -#  .bs-docs-section.hidden
+    -#    %h3.page-header Vendor Meta
+    -#    = render 'vendors/partials/profile/meta', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header General Details
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please provide your company's name, a brief description, and
+    -#    you may upload a single 100x100 (pixels) logo by clicking on the
+    -#    <span class="label label-primary">Browse</span> button.
+    -#  = render 'vendors/partials/profile/brand', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Address &amp; Location
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please enter the address of your company's primary business location.  A Google Map
+    -#    will automatically be generated for you.
+    -#  = render 'vendors/partials/profile/address', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Hours of Operation
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please indicate the hours when your company is open and closed.  You may choose to have different
+    -#    hours of operations per day, or you can click the <span class="label label-primary">Set All Open</span> button
+    -#    and the <span class="label label-primary">Set All Closed</span> button accordingly.
+    -#  = render 'vendors/partials/profile/hours', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Green Certifications
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    In this section you may add any Green certifications you have been awarded, including specifying the date
+    -#    when the certification was earned/awarded.  You may also upload Green badges (100x100 pixel sized logo).  To
+    -#    add a certification, click the <span class="label label-primary">+ Add Certification</span> button.  To upload
+    -#    a badge, click on the <span class="label label-primary">+ Add Badge</span> button and then click the
+    -#    <span class="label label-primary">Browse</span> button to locate the image on your computer.  There are no
+    -#    limits to the number of certifications and badges that you may add to your profile.
+    -#  = render 'vendors/partials/profile/green', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Photos
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    In this section you may upload a total of 8 photographs.  The photos may not be larger than 640x480 pixels, and
+    -#    they must be owned by your or free of copyright restrictions.  Each photo may have a title and a caption.
+    -#    By clicking the <span class="label label-primary">+ Add Photo</span> button you agree to be bound to these terms.
+    -#  = render 'vendors/partials/profile/photos', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Listing Options
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    In this section you may select the various Green categories that you would like your profile to show in, and
+    -#    you may enter various tag phrases that will help users of the site to find your company.  To add a category,
+    -#    click the <span class="label label-primary">+ Add Category</span> button.  Likewise, to add a tag, click the
+    -#    <span class="label label-primary">+ Add Tag</span> button.
+    -#  = render 'vendors/partials/profile/listing', f: f
+    -#
+    -#.bs-docs-section(style="margin-bottom: 40px")
+    -#  %h3.page-header Complete Signup
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
+    -#    checkbox and then click the <span class="label label-primary">Complete Registration</span> button.  Your
+    -#    registration will be evaluated by staff and you will be notified when your registration is approved.  If you
+    -#    are electing to purchase a subscription you will be temporarily redirected to PayPal to complete your
+    -#    payment.
+    -#  = render 'vendors/partials/profile/complete', f: f
