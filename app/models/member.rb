@@ -9,4 +9,8 @@ class Member < ActiveRecord::Base
   has_many :reviews, :dependent => :destroy
   has_many :locations, :dependent => :destroy
   has_many :addresses, :through => :locations
+
+  def full_name
+    "#{last_name}, #{first_name}"
+  end
 end

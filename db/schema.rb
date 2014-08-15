@@ -107,13 +107,6 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.datetime "updated_at"
   end
 
-  create_table "member_vendors", force: true do |t|
-    t.integer  "member_id"
-    t.integer  "vendor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "members", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -213,7 +206,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
   end
 
   create_table "tags_vendors", id: false, force: true do |t|
-    t.integer  "signup_id"
+    t.integer  "vendor_id"
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -230,6 +223,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "signup_date"
     t.boolean  "enabled"
     t.boolean  "paid"
+    t.integer  "member_id"
     t.float    "staff_rating",      default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"

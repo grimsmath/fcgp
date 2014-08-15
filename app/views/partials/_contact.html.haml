@@ -1,20 +1,21 @@
 = form_for(Contact.new, id: 'form-contact') do |f|
-  %h4(style="color: #fff")
-    Send Us a Message
+  %div(style="padding-bottom: 20px")
+    %h4(style="color: #fff")
+      Send Us a Message
 
-  .form-group
-    = f.text_field :name, class: 'form-control', placeholder: 'Your name'
+    .form-group
+      = f.text_field :name, class: 'form-control', placeholder: 'Your name'
 
-  .form-group
-    = f.text_field :email, class: 'form-control', placeholder: 'Your email address'
+    .form-group
+      = f.text_field :email, class: 'form-control', placeholder: 'Your email address'
 
-  .form-group
-    = f.select :topic, topics, { include_blank: 'Select a topic...' }, class: 'form-control'
+    .form-group
+      = f.select :topic, topics, { include_blank: 'Select a topic...' }, class: 'form-control'
 
-  .form-group
-    = f.text_area :body, rows: 5, class: 'form-control', placeholder: 'Your message...'
+    .form-group
+      = f.text_area :body, rows: 5, class: 'form-control', placeholder: 'Your message...'
 
-  = f.submit "Send Message", class: 'btn btn-primary'
+    = f.submit "Send Message", class: 'btn btn-primary'
 
 :javascript
   $('#form-contact').submit(function() {

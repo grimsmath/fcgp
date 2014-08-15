@@ -1,12 +1,4 @@
-.hidden-sm.hidden-md.hidden-lg
-  .list-group
-
-    - @featured.each do |list|
-      .list-group-item
-        .col-md-12
-          = render 'home/partials/vendor', list: list
-
-.panel.panel-info.hidden-xs
+.panel.panel-info
   .panel-heading
     %h4.panel-title
       %i.fa.fa-trophy

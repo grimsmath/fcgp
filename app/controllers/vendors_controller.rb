@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_member!, except: [:index, :new, :create, :show]
+  before_action :authenticate_member!, except: [:index, :show]
   layout :resolve_layout
 
   # GET /vendors
@@ -18,7 +18,6 @@ class VendorsController < ApplicationController
   def new
     @vendor = Vendor.new
     @vendor.addresses.build
-    @vendor.members.build
   end
 
   # GET /vendors/1/edit

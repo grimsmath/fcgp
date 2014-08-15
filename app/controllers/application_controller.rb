@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :store_location
   after_filter :set_csrf_cookie_for_ng
 
+  before_action :configure_devise_permitted_parameters, if: :devise_controller?
+
   include Pundit # For authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -34,6 +36,37 @@ class ApplicationController < ActionController::Base
 
     def is_admin?
       member_signed_in? && current_member.admin? && params[:admin] == 'true' || false
+    end
+
+    def configure_devise_permitted_parameters
+      p '************ hello world **************'
+      registration_params = [
+        :first_name,
+        :last_name,
+        :email,
+        :password,
+        :password_confirmation,
+        :url,
+        :accepted,
+
+        :addresses_attributes => [
+          :street1,
+          :street2,
+          :city,
+          :state,
+          :postal_code
+        ]
+      ]
+
+      if params[:action] == 'update'
+        devise_parameter_sanitizer.for(:member) {
+          |u| u.permit(registration_params << :current_password)
+        }
+      elsif params[:action] == 'create'
+        devise_parameter_sanitizer.for(:member) {
+          |u| u.permit(registration_params)
+        }
+      end
     end
 
     def resolve_layout

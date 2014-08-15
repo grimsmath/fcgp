@@ -39,8 +39,7 @@
                   Feature this vendor on front page
 
             .col-md-6
-              = f.fields_for :members do |member|
-                .form-group
-                  %label Assigned Member
-                  = member.text_field :id, value: current_member.id, class: 'form-control'
+              %label Assigned Member
+              = f.collection_select :member_id, Member.all, :id, :full_name, { include_blank: '' },
+                class: 'form-control selectpicker map-field map-state'
 
