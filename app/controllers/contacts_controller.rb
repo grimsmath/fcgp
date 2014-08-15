@@ -22,8 +22,8 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
 
-    p request.referrer
-    if request.referrer? && request.referrer == "http://www.firstcoastgreenpages.org"
+    p request.referrer.path
+    if request.referrer.path == "http://www.firstcoastgreenpages.org"
       render :layout => 'otherlayout'
     end
   end
