@@ -1,38 +1,36 @@
-.row
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   .col-md-12
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .col-md-12
-        %h2.bg-success.text-center(style="padding: 10px")
-          New Member Signup
+    %h2.bg-success.text-center(style="padding: 10px")
+      New Member Signup
 
-        = devise_error_messages!
+    = devise_error_messages!
 
-        .bs-docs-section
-          %h3.page-header General Details
-          .bs-callout.bs-callout-green1
-            %h4 Instructions
-            Please complete the following fields.  All fields with an asterisk are required.
-          = render 'members/partials/profile/general', f: f
+    .bs-docs-section
+      %h3.page-header General Details
+      .bs-callout.bs-callout-green1
+        %h4 Instructions
+        Please complete the following fields.  All fields with an asterisk are required.
+      = render 'members/partials/profile/general', f: f
 
-        -#.bs-docs-section
-        -#  %h3.page-header Security Credentials
-        -#  .bs-callout.bs-callout-green1
-        -#    %h4 Instructions
-        -#    Please enter a valid email address and a password.  Your email address will be your login for the site.
-        -#  = render 'members/partials/profile/credentials', f: f
-        -#
-        -#.bs-docs-section
-        -#  %h3.page-header Demographics <span class="badge badge-primary">Optional</badge>
-        -#  .bs-callout.bs-callout-green1
-        -#    %h4 Instructions
-        -#    By answering the following questions we may better taylor the site to your specific preferences.  These
-        -#    questions are completely optional and you may choose not to fill them out.
-        -#  = render 'members/partials/profile/demographics', f: f
-        -#
-        -#.bs-docs-section(style="padding-bottom: 20px;")
-        -#  %h3.page-header Complete Signup
-        -#  .bs-callout.bs-callout-green1
-        -#    %h4 Instructions
-        -#    Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
-        -#    checkbox and then click the <span class="label label-primary">Complete Signup</span> button.
-        -#  = render 'members/partials/profile/complete', f: f
+    -#.bs-docs-section
+    -#  %h3.page-header Security Credentials
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please enter a valid email address and a password.  Your email address will be your login for the site.
+    -#  = render 'members/partials/profile/credentials', f: f
+    -#
+    -#.bs-docs-section
+    -#  %h3.page-header Demographics <span class="badge badge-primary">Optional</badge>
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    By answering the following questions we may better taylor the site to your specific preferences.  These
+    -#    questions are completely optional and you may choose not to fill them out.
+    -#  = render 'members/partials/profile/demographics', f: f
+    -#
+    -#.bs-docs-section(style="padding-bottom: 20px;")
+    -#  %h3.page-header Complete Signup
+    -#  .bs-callout.bs-callout-green1
+    -#    %h4 Instructions
+    -#    Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
+    -#    checkbox and then click the <span class="label label-primary">Complete Signup</span> button.
+    -#  = render 'members/partials/profile/complete', f: f
