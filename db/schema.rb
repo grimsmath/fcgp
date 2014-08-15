@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "city"
     t.string   "state"
     t.string   "postal_code"
-    t.integer  "vendor_id"
     t.integer  "member_id"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "vendor_id"
+    t.integer  "signup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "title"
     t.string   "awarded"
     t.text     "notes"
-    t.integer  "vendor_id"
+    t.integer  "signup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,8 +138,11 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.string   "phone_work"
     t.string   "phone_mobile"
     t.string   "phone_fax"
+    t.string   "email_personal"
+    t.string   "email_alternate"
+    t.integer  "signup_id"
     t.datetime "signup_date"
-    t.boolean  "enabled"
+    t.boolean  "enabled",                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accepted"
@@ -184,7 +187,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
     t.text     "body"
     t.boolean  "enabled",    default: true
     t.float    "rating",     default: 0.0
-    t.integer  "vendor_id"
+    t.integer  "signup_id"
     t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -201,29 +204,6 @@ ActiveRecord::Schema.define(version: 20140814135608) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
 
-  create_table "sqlite_sp_functions", id: false, force: true do |t|
-    t.text "name"
-    t.text "text"
-  end
-
-# Could not dump table "sqlite_stat1" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-# Could not dump table "sqlite_stat4" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "sqlite_vs_links_names", id: false, force: true do |t|
-    t.text "name"
-    t.text "alias"
-  end
-
-  create_table "sqlite_vs_properties", id: false, force: true do |t|
-    t.text "parentType"
-    t.text "parentName"
-    t.text "propertyName"
-    t.text "propertyValue"
-  end
-
   create_table "tags", force: true do |t|
     t.string   "title"
     t.string   "name"
@@ -233,7 +213,7 @@ ActiveRecord::Schema.define(version: 20140814135608) do
   end
 
   create_table "tags_vendors", id: false, force: true do |t|
-    t.integer  "vendor_id"
+    t.integer  "signup_id"
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"

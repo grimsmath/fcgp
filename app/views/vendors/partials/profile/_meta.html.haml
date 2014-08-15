@@ -37,3 +37,10 @@
                 %label
                   = f.check_box :featured
                   Feature this vendor on front page
+
+            .col-md-6
+              = f.fields_for :members do |member|
+                .form-group
+                  %label Assigned Member
+                  = member.text_field :id, value: current_member.id, class: 'form-control'
+

@@ -8,6 +8,7 @@ class CreateVendors < ActiveRecord::Migration
       t.string :signup_date
       t.boolean :enabled
       t.boolean :paid
+      t.belongs_to :member
       t.float :staff_rating, default: 0.0
 
       t.timestamps

@@ -6,8 +6,8 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :postal_code
-      t.belongs_to :signup
       t.belongs_to :member
+      t.belongs_to :vendor
 
       t.timestamps
     end

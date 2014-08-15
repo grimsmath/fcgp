@@ -5,6 +5,8 @@
 
     - if is_admin?
       .bs-docs-section
+    - else
+      .bs-docs-section.hidden
         %h3.page-header Vendor Meta
         = render 'vendors/partials/profile/meta', f: f
 

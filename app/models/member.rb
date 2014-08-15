@@ -4,8 +4,7 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :member_vendors, :dependent => :destroy
-  has_many :vendors, :through => :member_vendors
+  has_many :vendors
 
   has_many :reviews, :dependent => :destroy
   has_many :locations, :dependent => :destroy

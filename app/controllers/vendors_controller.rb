@@ -18,6 +18,7 @@ class VendorsController < ApplicationController
   def new
     @vendor = Vendor.new
     @vendor.addresses.build
+    @vendor.members.build
   end
 
   # GET /vendors/1/edit
@@ -28,9 +29,6 @@ class VendorsController < ApplicationController
   # POST /vendors.json
   def create
     @vendor = Vendor.new(vendor_params)
-
-    # We need to relate the current member to the new vendor object
-    @vendor.members.build(vendor_id: @vendor.id, member_id: current_member.id)
 
     respond_to do |format|
       if @vendor.save
@@ -91,6 +89,7 @@ class VendorsController < ApplicationController
                                      :phone_fax,
                                      :featured,
                                      :accepted,
+                                     :member_id,
 
                                      :mon_open, :tue_open, :wed_open, :thu_open, :fri_open, :sat_open, :sun_open,
                                      :mon_close, :tue_close, :wed_close, :thu_close, :fri_close, :sat_close, :sun_close,

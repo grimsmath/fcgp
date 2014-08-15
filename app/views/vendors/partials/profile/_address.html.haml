@@ -23,8 +23,7 @@
         .col-md-3
           .form-group
             %label Postal Code
-            = address.text_field :postal_code, placeholder: "xxxxx-xxxx", data: { mask: "99999-9999" },
-              class: 'form-control map-field map-postal'
+            = address.text_field :postal_code, class: 'form-control map-field map-postal'
     .row
       .col-md-12.col-sm-12
         = render 'vendors/partials/profile/contact', f: f
