@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815020705) do
+ActiveRecord::Schema.define(version: 20140815133531) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140815020705) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "signup_id"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -121,21 +121,6 @@ ActiveRecord::Schema.define(version: 20140815020705) do
     t.string   "current_sign_in_ip"
     t.datetime "last_sign_in_at"
     t.string   "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "middle_initial"
-    t.string   "gender"
-    t.string   "birth_month"
-    t.string   "birth_day"
-    t.string   "phone_home"
-    t.string   "phone_work"
-    t.string   "phone_mobile"
-    t.string   "phone_fax"
-    t.string   "email_personal"
-    t.string   "email_alternate"
-    t.integer  "signup_id"
-    t.datetime "signup_date"
-    t.boolean  "enabled",                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accepted"
@@ -176,6 +161,26 @@ ActiveRecord::Schema.define(version: 20140815020705) do
   end
 
   add_index "photos", ["vendor_id"], name: "index_photos_on_vendor_id"
+
+  create_table "profiles", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_initial"
+    t.string   "gender"
+    t.string   "birth_month"
+    t.string   "birth_day"
+    t.string   "phone_home"
+    t.string   "phone_work"
+    t.string   "phone_mobile"
+    t.string   "phone_fax"
+    t.string   "email_personal"
+    t.string   "email_alternate"
+    t.integer  "signup_id"
+    t.datetime "signup_date"
+    t.boolean  "enabled",         default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", force: true do |t|
     t.text     "body"

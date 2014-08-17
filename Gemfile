@@ -96,6 +96,8 @@ gem 'betterlorem'
 # Use foreman for setting local env
 gem 'foreman'
 
+gem "select2-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
