@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815133531) do
+ActiveRecord::Schema.define(version: 20140817043755) do
 
   create_table "addresses", force: true do |t|
     t.string   "street1"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140815133531) do
   create_table "members", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
+    t.boolean  "super_admin",            default: false
     t.boolean  "admin",                  default: false
     t.boolean  "moderator",              default: false
     t.boolean  "email_only",             default: false
@@ -135,7 +136,7 @@ ActiveRecord::Schema.define(version: 20140815133531) do
     t.string   "sub_title"
     t.text     "description"
     t.text     "body"
-    t.integer  "user_id"
+    t.integer  "member_id"
     t.integer  "parent_id"
     t.string   "ancestry"
     t.boolean  "enabled"
@@ -164,8 +165,8 @@ ActiveRecord::Schema.define(version: 20140815133531) do
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
-    t.string   "last_name"
     t.string   "middle_initial"
+    t.string   "last_name"
     t.string   "gender"
     t.string   "birth_month"
     t.string   "birth_day"
@@ -173,11 +174,9 @@ ActiveRecord::Schema.define(version: 20140815133531) do
     t.string   "phone_work"
     t.string   "phone_mobile"
     t.string   "phone_fax"
-    t.string   "email_personal"
-    t.string   "email_alternate"
-    t.integer  "signup_id"
-    t.datetime "signup_date"
-    t.boolean  "enabled",         default: true
+    t.string   "accepted"
+    t.boolean  "enabled",        default: true
+    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

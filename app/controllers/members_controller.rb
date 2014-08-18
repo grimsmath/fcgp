@@ -21,6 +21,7 @@ class MembersController < ApplicationController
   # GET /members/new
   def new
     @member = Member.new
+    @member.address.build
   end
 
   # GET /members/1/edit

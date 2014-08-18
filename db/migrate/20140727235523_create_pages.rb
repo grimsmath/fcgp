@@ -6,7 +6,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :sub_title
       t.text :description
       t.text :body
-      t.belongs_to :user
+      t.belongs_to :member
       t.references :parent
       t.string :ancestry
       t.boolean :enabled

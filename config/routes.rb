@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :members
+  # devise_for :members
+  devise_for :members, controllers: {registrations: 'registrations'}
 
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :members do
     get 'dashboard'
+  end
+
+  namespace :admin do
+    get '/'         => 'dashboard#index'
+    get 'dashboard' => 'dashboard#index'
   end
 
   resources :vendors
@@ -24,8 +30,6 @@ Rails.application.routes.draw do
 
   # This is a globbing catch-all route
   DynamicRouter.load
-
-  get 'signup' => 'home#signup'
 
   # Root path
   root to: "home#index"

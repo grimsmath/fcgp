@@ -24,7 +24,6 @@
 //= require moment
 //= require fileinput
 //= require ckeditor/init
-//= require holder
 //= require pages
 //= require gmaps
 //= require admin

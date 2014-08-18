@@ -61,7 +61,22 @@ Category.create(title: 'Community, Education, & Advocacy',
 # Contact Us,
 
 Page.destroy_all()
-Page.create(title: 'News & Events',       name: 'news_and_events',      order: 1.0)
-Page.create(title: 'Suggest a Listing',   name: 'suggest_a_listing',    order: 2.0)
-Page.create(title: 'Advertise',           name: 'advertise',            order: 3.0)
-Page.create(title: 'Green Your Business', name: 'green_your_business',  order: 4.0)
+Page.create(title: 'News & Events',
+            name: 'news_and_events',
+            order: 1.0,
+            member_id: 1)
+
+Page.create(title: 'Suggest a Listing',
+            name: 'suggest_a_listing',
+            order: 2.0,
+            member_id: 1)
+
+Page.create(title: 'Advertise',
+            name: 'advertise',
+            order: 3.0,
+            member_id: 1)
+
+Page.create(title: 'Green Your Business',
+            name: 'green_your_business',
+            order: 4.0,
+            member_id: 1)

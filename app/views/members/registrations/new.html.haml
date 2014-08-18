@@ -1,3 +1,4 @@
+= resource.build_profile if resource.profile.nil?
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   .col-md-12
     %h2.bg-success.text-center(style="padding: 10px")
@@ -10,7 +11,8 @@
       .bs-callout.bs-callout-green1
         %h4 Instructions
         Please complete the following fields.  All fields with an asterisk are required.
-      = render 'members/partials/profile/general', f: f
+      = f.fields_for :profile do |profile|
+        = render 'members/partials/profile/general', f: profile
 
     .bs-docs-section
       %h3.page-header Security Credentials
@@ -25,7 +27,8 @@
         %h4 Instructions
         By answering the following questions we may better taylor the site to your specific preferences.  These
         questions are completely optional and you may choose not to fill them out.
-      = render 'members/partials/profile/demographics', f: f
+      = f.fields_for :profile do |profile|
+        = render 'members/partials/profile/demographics', f: profile
 
     .bs-docs-section(style="padding-bottom: 20px;")
       %h3.page-header Complete Signup
@@ -33,4 +36,5 @@
         %h4 Instructions
         Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
         checkbox and then click the <span class="label label-primary">Complete Signup</span> button.
-      = render 'members/partials/profile/complete', f: f
+      = f.fields_for :profile do |profile|
+        = render 'members/partials/profile/complete', f: profile

@@ -6,7 +6,7 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# MySQL
+# MySQL (raw DSL to MySQL without using AR)
 gem 'mysql2'
 
 # Use SCSS for stylesheets
@@ -71,9 +71,6 @@ gem 'bootstrap-sass', '~> 3.1.1.1'
 # Font Awesome icons for SASS
 gem 'font-awesome-sass'
 
-# https://github.com/narkoz/holder_rails
-gem 'holder_rails'
-
 # https://github.com/thoughtbot/paperclip
 gem "paperclip", "~> 4.1"
 
@@ -96,6 +93,7 @@ gem 'betterlorem'
 # Use foreman for setting local env
 gem 'foreman'
 
+# https://github.com/argerim/select2-rails
 gem "select2-rails"
 
 # Use ActiveModel has_secure_password
