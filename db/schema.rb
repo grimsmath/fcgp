@@ -112,9 +112,10 @@ ActiveRecord::Schema.define(version: 20140820140036) do
     t.string   "current_sign_in_ip"
     t.datetime "last_sign_in_at"
     t.string   "last_sign_in_ip"
+    t.boolean  "accepted"
+    t.boolean  "enabled",                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "accepted"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
@@ -160,12 +161,11 @@ ActiveRecord::Schema.define(version: 20140820140036) do
     t.string   "gender"
     t.string   "birth_month"
     t.string   "birth_day"
-    t.string   "phone_home"
-    t.string   "phone_work"
-    t.string   "phone_mobile"
-    t.string   "phone_fax"
-    t.string   "accepted"
-    t.boolean  "enabled",        default: true
+    t.string   "phone"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"

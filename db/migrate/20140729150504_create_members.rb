@@ -5,7 +5,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
-      ## Roles for Pundit
+      ## Roles
       t.boolean :super_admin, default: false
       t.boolean :admin,       default: false
       t.boolean :moderator,   default: false

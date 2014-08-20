@@ -8,6 +8,7 @@ class CreateProfile < ActiveRecord::Migration
       t.string :birth_month
       t.string :birth_day
       t.string :phone
+      t.attachment :avatar
       t.belongs_to :member
 
       t.timestamps

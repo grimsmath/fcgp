@@ -1,6 +1,6 @@
 %section#wrapper{data: {link: "link-members"}}
   .col-lg-12.col-sm-2
-    = render 'members/partials/actionbar'
+    = render 'profiles/partials/actionbar'
 
     %table.table.table-striped
       %thead
@@ -18,7 +18,7 @@
             %td(colspan="4")
               No members defined
         - else
-          - @members.each do |member|
+          - @profiles.each do |profile|
             %tr
               %td= member.email
               %td= member.first_name
