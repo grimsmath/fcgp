@@ -1,5 +1,5 @@
-.navbar.navbar-default.top-nav.navbar-fixed-top{role: "navigation"}
-  .container-fluid
+.navbar.navbar-default.top-nav#navbar-top{role: "navigation", data: {spy: 'affix', offset: {top: "250"}}}
+  .container
     .navbar-header
       %button.navbar-toggle{data:{target: ".navbar-collapse", toggle: "collapse", type: "button"}}
         %span.sr-only Toggle navigation

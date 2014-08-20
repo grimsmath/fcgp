@@ -21,7 +21,6 @@ class MembersController < ApplicationController
   # GET /members/new
   def new
     @member = Member.new
-    @member.address.build
   end
 
   # GET /members/1/edit
@@ -85,14 +84,6 @@ class MembersController < ApplicationController
                                      :gender,
                                      :birth_month,
                                      :birth_day,
-                                     :accepted,
-                                     addresses_attributes: [
-                                       :id,
-                                       :street1,
-                                       :street2,
-                                       :city,
-                                       :state,
-                                       :postal_code,
-                                       :_destroy])
+                                     :accepted)
     end
 end

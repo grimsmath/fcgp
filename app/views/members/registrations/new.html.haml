@@ -1,22 +1,50 @@
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+= simple_form_for(resource, as: resource_name, html: { role: "form" }, url: registration_path(resource_name)) do |f|
   .col-md-12
-    %h2.bg-success.text-center(style="padding: 10px")
-      New Member Signup
+    .row
+      .col-md-6.col-md-offset-3
+        .bs-docs-section
+          %h3.page-header
+            New Member Signup
 
-    = devise_error_messages!
+          .bs-callout.bs-callout-green1
+            %h4 Instructions
+            Please enter a unique valid email address, a password, and agree to the terms and conditions for
+            using the site.  Your email address will be your login for the site.
 
-    .bs-docs-section
-      %h3.page-header Security Credentials
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please enter a valid email address and a password.  Your email address will be your login for the site.
-      = render 'members/partials/profile/credentials', f: f
+    .row(style="padding-bottom: 60px")
+      .col-md-6.col-md-offset-3
+        = devise_error_messages!
 
-    .bs-docs-section(style="padding-bottom: 20px;")
-      %h3.page-header Complete Signup
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        Please review the profile settings above.  If you are satisfied, click the <strong>I Agree to the Terms and Conditions</strong>
-        checkbox and then click the <span class="label label-primary">Complete Signup</span> button.
-      = f.fields_for :profile do |profile|
-        = render 'members/partials/profile/complete', f: profile
+        .form-group
+          %label * Email Address
+          = f.email_field :email, class: 'form-control'
+
+        .form-group
+          %label * Password
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+        .form-group
+          %label * Password Confirmation
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+
+        .checkbox
+          %label
+            = f.check_box :accepted, id: 'chk_agree'
+            I Agree to the following
+            = link_to 'Terms and Conditions', '/terms', target: '_blank'
+
+        = f.submit 'Complete Signup', id: 'btn-submit', class: 'btn btn-primary'
+
+:javascript
+  $('#btn-submit').click(function () {
+    var checked = $('#chk_agree').prop('checked');
+    if (checked == false) {
+      bootbox.alert({
+        title: "Incomplete Registration",
+        message: "Please click the <strong>I Agree to the Terms and Conditions</strong> checkbox first!",
+        backdrop: false,
+        animate: false
+      });
+      return false;
+    }
+  });

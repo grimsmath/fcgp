@@ -7,12 +7,7 @@ class CreateProfile < ActiveRecord::Migration
       t.string :gender
       t.string :birth_month
       t.string :birth_day
-      t.string :phone_home
-      t.string :phone_work
-      t.string :phone_mobile
-      t.string :phone_fax
-      t.string :accepted
-      t.boolean :enabled, default: true
+      t.string :phone
       t.belongs_to :member
 
       t.timestamps

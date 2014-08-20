@@ -33,6 +33,13 @@
 //  margin: 0;
 //}
 
+* {
+  // Remove rounded corners from all bootstrap elements
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -40,12 +47,19 @@ html, body {
 }
 
 body {
-  padding-top: 50px;
+//  padding-top: 50px;
 }
 
 ul {
   margin: 0;
   padding: 0;
+}
+
+#navbar-top.affix {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  width: 100%
 }
 
 .red::first-letter {
