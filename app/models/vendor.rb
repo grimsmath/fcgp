@@ -1,5 +1,5 @@
 class Vendor < ActiveRecord::Base
-  has_many :addresses, :dependent => :destroy
+  has_many :locations, as: :locatable
   has_many :certifications, :dependent => :destroy
   has_many :badges, :dependent => :destroy
   has_many :photos, :dependent => :destroy
@@ -12,7 +12,7 @@ class Vendor < ActiveRecord::Base
   has_and_belongs_to_many :tags
 
   accepts_nested_attributes_for :category_vendors, allow_destroy: true
-  accepts_nested_attributes_for :addresses, allow_destroy: true
+  accepts_nested_attributes_for :locations, allow_destroy: true
   accepts_nested_attributes_for :certifications, allow_destroy: true
   accepts_nested_attributes_for :badges, allow_destroy: true
   accepts_nested_attributes_for :photos, allow_destroy: true

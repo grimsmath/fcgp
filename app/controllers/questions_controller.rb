@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class QuestionsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_member!, :except => [:index, :new, :create]
   layout :resolve_layout

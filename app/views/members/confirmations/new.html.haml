@@ -4,11 +4,13 @@
       .panel.panel-default
         .panel-heading
           %h4 Resend Confirmation Instructions
+
         .panel-body
           = devise_error_messages!
           .form-group
             = f.label :email
             = f.email_field :email, :autofocus => true, class: "form-control"
+
         .panel-footer
           = f.submit "Resend confirmation instructions", class: "btn btn-primary"
-          = render "devise/shared/links"
+          = render "members/shared/links"

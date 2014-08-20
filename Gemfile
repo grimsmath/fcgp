@@ -47,6 +47,9 @@ gem 'pundit'
 # https://rubygems.org/gems/arel
 gem 'arel', '~> 5.0.1.20140414130214'
 
+# https://github.com/airblade/paper_trail
+gem 'paper_trail', '~> 3.0.3'
+
 # https://github.com/huacnlee/rails-settings-cached
 gem "rails-settings-cached", "0.4.1"
 

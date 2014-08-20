@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   resources :vendors
   resources :pages
   resources :categories
-  resources :addresses
+  resources :locations
   resources :tags
   resources :alerts
-  resources :contacts
+  resources :questions
 
   post '/search' => 'home#search'
 

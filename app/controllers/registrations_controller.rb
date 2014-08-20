@@ -6,27 +6,36 @@ class RegistrationsController < Devise::RegistrationsController
     # Override Devise default behaviour and create a profile as well
     build_resource({})
     resource.build_profile
+    resource.build_addresses
     respond_with self.resource
   end
 
   protected
     def configure_permitted_parameters
+      profile_attributes    = [ :first_name,
+                                :middle_initial,
+                                :last_name,
+                                :gender,
+                                :birth_month,
+                                :birth_day,
+                                :phone_home,
+                                :phone_work,
+                                :phone_mobile,
+                                :enabled,
+                                :accepted ]
+
+      locations_attributes  = [ :street1,
+                                :street2,
+                                :city,
+                                :state,
+                                :postal_code  ]
+
       devise_parameter_sanitizer.for(:sign_up) { |u|
         u.permit(:email,
                  :password,
                  :password_confirmation,
-                 :profile_attributes => [:first_name,
-                                         :middle_initial,
-                                         :last_name,
-                                         :gender,
-                                         :birth_month,
-                                         :birth_day,
-                                         :phone_home,
-                                         :phone_work,
-                                         :phone_mobile,
-                                         :enabled,
-                                         :accepted,
-                                         :address_attributes => [:street1, :street2, :city, :state, :postal_code]])
+                 profile_attributes,
+                 locations_attributes)
       }
     end
 end
