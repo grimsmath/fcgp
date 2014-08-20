@@ -3,18 +3,10 @@
   %head
     %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title First Coast Green Pages
+    %title Admin | First Coast Green Pages
     %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Settings["Google.ApiKey"] + "", :type => "text/javascript"}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'admin/admin', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-
   %body
-    #content_wrapper
-      = render 'partials/sitenav'
-      = render 'partials/flash'
-
-      = yield
-
-    .push
-    = render 'partials/sitefoot'
+    %section#main
