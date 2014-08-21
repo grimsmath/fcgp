@@ -11,7 +11,7 @@
       %p.list-group-item-text
         The following options are available to you as a member
 
-    = link_to edit_member_registration_path, class: 'list-group-item' do
+    = link_to edit_profile_path(current_member), class: 'list-group-item' do
       %i.fa.fa-user
       Edit Profile
 
@@ -22,7 +22,3 @@
     %div.list-group-item
       = link_to new_vendor_path, class: 'btn btn-success btn-block' do
         Register a Vendor
-
-.col-md-9
-  -# link, avatar, handle, data_who, data_what, data_when, message_content
-  = Timeline.new_item('#', '#', 'Grimsmath', 'Jim Smith', 'Did something', '01-24-2014', 'I did something cool').html_safe

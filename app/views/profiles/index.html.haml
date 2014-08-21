@@ -13,19 +13,19 @@
             Actions
 
       %tbody
-        - if @members.count == 0
+        - if @profiles.count == 0
           %tr
             %td(colspan="4")
-              No members defined
+              No profiles defined
         - else
           - @profiles.each do |profile|
             %tr
-              %td= member.email
-              %td= member.first_name
-              %td= member.last_name
-              %td= member.enabled
+              %td
+              %td
+              %td
+              %td
               %td.action_column
-                = render 'members/partials/actions', member: member
+                = render 'profiles/partials/actions', profile: profile
 
       %tfoot
         %tr

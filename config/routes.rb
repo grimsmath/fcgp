@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   # devise_for :members
   devise_for :members, controllers: {registrations: 'registrations'}
 
-  mount Ckeditor::Engine => '/ckeditor'
+  resources :profiles
+  resources :vendors
+  resources :pages
+  resources :categories
+  resources :locations
+  resources :tags
+  resources :alerts
+  resources :messages
 
   resources :members do
     get 'dashboard'
@@ -14,14 +21,6 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
   end
 
-  resources :vendors
-  resources :pages
-  resources :categories
-  resources :locations
-  resources :tags
-  resources :alerts
-  resources :messages
-
   post '/search' => 'home#search'
 
   ## Dynamic Pages
@@ -30,6 +29,9 @@ Rails.application.routes.draw do
 
   # This is a globbing catch-all route
   DynamicRouter.load
+
+  # CKEditor
+  mount Ckeditor::Engine => '/ckeditor'
 
   # Root path
   root to: "home#index"

@@ -18,10 +18,10 @@ class VendorsControllerTest < ActionController::TestCase
 
   test "should create vendor" do
     assert_difference('Vendor.count') do
-      post :create, profile: { city: @vendor.city, description: @vendor.description, name: @vendor.name, postalcode: @vendor.postalcode, state: @vendor.state, street1: @vendor.street1, street2: @vendor.street2 }
+      post :create, profiles: { city: @vendor.city, description: @vendor.description, name: @vendor.name, postalcode: @vendor.postalcode, state: @vendor.state, street1: @vendor.street1, street2: @vendor.street2 }
     end
 
-    assert_redirected_to vendor_path(assigns(:profile))
+    assert_redirected_to vendor_path(assigns(:profiles))
   end
 
   test "should show vendor" do
@@ -35,8 +35,8 @@ class VendorsControllerTest < ActionController::TestCase
   end
 
   test "should update vendor" do
-    patch :update, id: @vendor, profile: { city: @vendor.city, description: @vendor.description, name: @vendor.name, postalcode: @vendor.postalcode, state: @vendor.state, street1: @vendor.street1, street2: @vendor.street2 }
-    assert_redirected_to vendor_path(assigns(:profile))
+    patch :update, id: @vendor, profiles: { city: @vendor.city, description: @vendor.description, name: @vendor.name, postalcode: @vendor.postalcode, state: @vendor.state, street1: @vendor.street1, street2: @vendor.street2 }
+    assert_redirected_to vendor_path(assigns(:profiles))
   end
 
   test "should destroy vendor" do

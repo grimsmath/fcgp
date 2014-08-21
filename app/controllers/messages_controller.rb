@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     if is_admin?
       @messages = Message.all
     else
-      @messages = Message.new
+      @message = Message.new
     end
   end
 

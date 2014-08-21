@@ -38,20 +38,20 @@ class Timeline
             }
 
             doc.div(class: 'post-meta') {
-              doc.div(class: 'asker-meta') {
-                doc.span(class: 'qa-message-what') {
-                  doc.span(class: 'qa-message-what-data') {
-                    doc.text "#{data_what}"
-                  }
-                }
+              doc.span(class: 'asker-meta') {
                 doc.span(class: 'qa-message-when') {
                   doc.span(class: 'qa-message-when-data') {
-                    doc.text "#{data_when}"
+                    doc.text "#{data_when} "
                   }
                 }
                 doc.span(class: 'qa-message-who') {
                   doc.span(class: 'qa-message-who-pad') {
-                    doc.text "by"
+                    doc.text " by "
+                  }
+                }
+                doc.span(class: 'qa-message-what') {
+                  doc.span(class: 'qa-message-what-data') {
+                    doc.text "#{data_what}"
                   }
                 }
                 doc.span(class: 'qa-message-who-data') {

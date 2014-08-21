@@ -21,6 +21,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @profile = Profile.where(member_id: current_member.id).first unless current_member.admin?
   end
 
   # POST /profiles
@@ -66,12 +67,12 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.find_or_create_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:first_name,
+      params.require(:profiles).permit(:first_name,
                                       :middle_initial,
                                       :last_name,
                                       :phone_home,
