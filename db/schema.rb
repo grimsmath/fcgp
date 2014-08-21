@@ -121,6 +121,16 @@ ActiveRecord::Schema.define(version: 20140820140036) do
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
 
+  create_table "messages", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "topic"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "name",        null: false
     t.string   "title",       null: false
@@ -167,16 +177,6 @@ ActiveRecord::Schema.define(version: 20140820140036) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "member_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "questions", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "company"
-    t.string   "topic"
-    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

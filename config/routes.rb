@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :tags
   resources :alerts
-  resources :questions
+  resources :messages
 
   post '/search' => 'home#search'
 

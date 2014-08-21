@@ -1,0 +1,20 @@
+.col-lg-12
+  = render 'messages/partials/menubar'
+
+  %table.table.table-striped.table-hover
+    %tr
+      %th Date
+      %th From
+      %th Topic
+      %th Message
+      %th.action_column
+        Actions
+
+    - @messages.each do |message|
+      %tr
+        %td= message.created_at.to_formatted_s(:short)
+        %td= message.name
+        %td= message.topic
+        %td= message.body.truncate(100).html_safe
+        %td.action_column
+          = render 'messages/partials/actions', message: message

@@ -22,3 +22,7 @@
     %div.list-group-item
       = link_to new_vendor_path, class: 'btn btn-success btn-block' do
         Register a Vendor
+
+.col-md-9
+  -# link, avatar, handle, data_who, data_what, data_when, message_content
+  = Timeline.new_item('#', '#', 'Grimsmath', 'Jim Smith', 'Did something', '01-24-2014', 'I did something cool').html_safe

@@ -8,7 +8,7 @@ class ContactsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:questions)
+    assert_not_nil assigns(:messages)
   end
 
   test "should get new" do

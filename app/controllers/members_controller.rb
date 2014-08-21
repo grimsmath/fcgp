@@ -1,3 +1,5 @@
+require 'Timeline'
+
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_member!

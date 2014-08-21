@@ -5,9 +5,9 @@
     %span.sr-only Toggle Dropdown
   %nav.dropdown-menu
     %li
-      = link_to edit_contact_path(contact) do
+      = link_to edit_message_path(message) do
         %i.fa.fa-edit
-        Edit Contact
+        Edit Message
     %li
-      = link_to content_tag('i', '', class: 'fa fa-trash-o') + " Delete",
-        contact, confirm: "Are you sure you want to delete the contact?", method: :delete
+      = link_to message_tag('i', '', class: 'fa fa-trash-o') + " Delete",
+        message, confirm: "Are you sure you want to delete the message?", method: :delete

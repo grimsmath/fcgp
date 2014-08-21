@@ -64,6 +64,8 @@ gem 'haml-rails' # For generators.
 gem 'nested_form'
 gem 'simple_form'
 
+gem 'nokogiri'
+
 # Used for pagination
 # https://github.com/amatsuda/kaminari
 gem 'kaminari'

@@ -207,6 +207,7 @@ DEPENDENCIES
   kaminari
   mysql2
   nested_form
+  nokogiri
   paper_trail (~> 3.0.3)
   paperclip (~> 4.1)
   pundit

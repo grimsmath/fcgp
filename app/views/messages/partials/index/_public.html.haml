@@ -1,18 +1,18 @@
 .col-md-8.col-md-offset-2
   .bs-callout.bs-callout-green1
     %h4.bs-title
-      Contact Us
+      Message Us
 
     - if @contact.errors.any?
       .alert.alert-danger
         #error_explanation
           %h3
-            = "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
+            = "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
           %ul
-            - @contact.errors.full_messages.each do |msg|
+            - @message.errors.full_messages.each do |msg|
               %li= msg
 
-    = form_for(@contact, html: { role: "form" }) do |f|
+    = form_for(@message, html: { role: "form" }) do |f|
       .form-group
         = f.text_field :name, class: 'form-control', placeholder: 'Your name'
 

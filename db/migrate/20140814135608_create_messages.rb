@@ -1,6 +1,6 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreateMessages < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
+    create_table :messages do |t|
       t.string :name
       t.string :email
       t.string :company
