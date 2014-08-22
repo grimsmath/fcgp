@@ -1,0 +1,24 @@
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  .col-lg-12
+    .bs-docs-section
+      %h3.page-header
+        Edit Account Profile
+
+      .bs-callout.bs-callout-green1
+        %h4 Instructions
+        Here you can make changes to your security profile.  When you have completed making your changes, please click
+        the <span class="label label-primary">Update Profile</span> button.  You may also cancel your membership
+        at the bottom of the page.
+
+    = devise_error_messages!
+
+    .bs-docs-section(style="padding-bottom: 40px")
+      %h3.page-header Cancel My Membership
+      .bs-callout.bs-callout-green1
+        %h4 Instructions
+        If you are unhappy with your membership and would like to cancel it, please click the checkbox and then the
+        <span class="label label-primary">Cancel My Membership</span> button.
+
+      = button_to "Cancel My Membership", registration_path(resource_name),
+        data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary'

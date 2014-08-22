@@ -1,3 +1,0 @@
-class TagPolicy < ApplicationPolicy
-
-end

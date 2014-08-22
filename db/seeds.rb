@@ -8,15 +8,15 @@
 Settings.destroy_all()
 Settings["System.name"]         = "First Coast Green Pages"
 Settings["Google.ApiKey"]       = 'AIzaSyBBeWJOpwAsjKC-C2D90JURMRNXn0Sa6rE'
-Settings["Mapping.DefaultLat"]  = 30.3369    # Jacksonville, FL
-Settings["Mapping.DefaultLong"] = -81.6614  # Jacksonville, FL
+Settings["Mapping.DefaultLat"]  = 30.3369     # Jacksonville, FL
+Settings["Mapping.DefaultLong"] = -81.6614    # Jacksonville, FL
 
 ## Members
 Member.destroy_all()
 
 # An administrator
 admin = Member.create(email: 'admin@usgbcnf.org', password: 'password')
-admin.toggle!(:admin)
+admin.toggle!(:super_admin)
 
 # Top-level categories
 Category.destroy_all()

@@ -15,4 +15,24 @@ class Member < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :locations
+
+  def user_type
+    if self.super_admin?
+      'Super Administrator'
+    elsif self.admin?
+      'Administrator'
+    elsif self.moderator?
+      'Moderator'
+    else
+      'User'
+    end
+  end
+
+  def vendor_count
+    Vendor.where(member_id: self.id).count
+  end
+
+  def vendor_reviews
+    Review.where(member_id: self.id).count
+  end
 end

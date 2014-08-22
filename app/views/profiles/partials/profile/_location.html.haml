@@ -1,24 +1,32 @@
-= f.fields_for :locations do |loc|
-  .form-group
-    %label * Street Address
-    = loc.text_field :street1, class: 'form-control map-field'
+.row
+  .col-md-12
+    %h3.page-header
+      Address
 
-  .form-group
-    = loc.text_field :street2, class: 'form-control map-field'
+  .col-md-5
 
-  .row
-    .col-md-6.col-sm-6
+  .col-md-7
+    = f.fields_for :locations do |loc|
       .form-group
-        %label * City
-        = loc.text_field :city, class: 'form-control map-field'
+        %label * Street Address
+        = loc.text_field :street1, class: 'form-control map-field'
 
-    .col-md-3.col-sm-3
       .form-group
-        %label * State
-        = loc.select :state, us_states_name_and_abbreviation, { include_blank: '' },
-          class: 'form-control selectpicker map-field'
+        = loc.text_field :street2, class: 'form-control map-field'
 
-    .col-md-3.col-sm-3
-      .form-group
-        %label * Postal Code
-        = loc.text_field :postal_code, placeholder: "xxxxx", class: 'form-control map-field'
+      .row
+        .col-md-6.col-sm-6
+          .form-group
+            %label * City
+            = loc.text_field :city, class: 'form-control map-field'
+
+        .col-md-3.col-sm-3
+          .form-group
+            %label * State
+            = loc.select :state, us_states_name_and_abbreviation, { include_blank: '' },
+              class: 'form-control selectpicker map-field'
+
+        .col-md-3.col-sm-3
+          .form-group
+            %label * Postal Code
+            = loc.text_field :postal_code, placeholder: "xxxxx", class: 'form-control map-field'

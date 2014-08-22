@@ -1,3 +1,0 @@
-class VendorPolicy < ApplicationPolicy
-
-end

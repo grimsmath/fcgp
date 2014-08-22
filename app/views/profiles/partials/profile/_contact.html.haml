@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    %h3.page-header
+      Contact Information
+
+  .col-md-5
+
+  .col-md-7
+    .form-group
+      %label Home Phone
+      .input-group
+        .input-group-addon
+          .i.fa.fa-phone
+        = f.text_field :phone, class: 'form-control',
+          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
+          %i.phone.icon

@@ -1,35 +1,31 @@
-.row
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   .col-lg-12
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      .bs-docs-section
-        %h3.page-header Edit Account Profile
-        .bs-callout.bs-callout-green1
-          %h4 Instructions
-          Here you can make changes to your member profile.  When you have completed making your changes, please click
-          the <span class="label label-primary">Update Profile</span> button.  You may also cancel your membership
-          at the bottom of the page.
+    .bs-docs-section
+      %h3.page-header
+        Edit Account Profile
 
-      = devise_error_messages!
+      .bs-callout.bs-callout-green1
+        %h4 Instructions
+        Here you can make changes to your security profile.  When you have completed making your changes, please click
+        the <span class="label label-primary">Update Profile</span> button.  You may also cancel your membership
+        at the bottom of the page.
 
-      = render 'members/partials/profile/general', f: f
-      = render 'members/partials/profile/credentials', f: f
+    = devise_error_messages!
 
-      .form-group
-        = f.label :current_password
-        = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+    .form-group
+      %label * Current Password
+      = f.password_field :current_password, autocomplete: "off", class: 'form-control'
 
-      .form-group
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .form-group
+      %label * New Password
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
 
-      = f.submit "Update Profile", class: 'btn btn-primary'
+    .form-group
+      %label * Password Confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
-      .bs-docs-section
-        %h3.page-header Cancel My Membership
-        .bs-callout.bs-callout-green1
-          %h4 Instructions
-          If you are unhappy with your membership and would like to cancel it, please click the checkbox and then the
-          <span class="label label-primary">Cancel My Membership</span> button.
+    .form-group
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
 
-        = button_to "Cancel My Membership", registration_path(resource_name),
-          data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary'
+    = f.submit "Update Password", class: 'btn btn-primary'

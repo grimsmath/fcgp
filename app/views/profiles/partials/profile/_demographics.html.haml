@@ -1,15 +1,23 @@
 .row
-  .col-md-4
-    .form-group
-      %label Gender
-      = f.select :gender, genders, { include_blank: '' }, class: 'form-control'
+  .col-md-12
+    %h3.page-header
+      Demographics
 
-  .col-md-4
-    .form-group
-      %label Birth Month
-      = select_month nil, { field_name: 'birth_month', prefix: 'member', include_blank: '' }, class: 'form-control'
+  .col-md-5
 
-  .col-md-4
-    .form-group
-      %label Birth Day
-      = select_day nil, { field_name: 'birth_day', prefix: 'member', include_blank: '' }, class: 'form-control'
+  .col-md-7
+    .row
+      .col-md-4
+        .form-group
+          %label Gender
+          = f.select :gender, genders, { include_blank: '' }, class: 'form-control'
+
+      .col-md-4
+        .form-group
+          %label Birth Month
+          = select_month nil, { field_name: 'birth_month', prefix: 'member', include_blank: '' }, class: 'form-control'
+
+      .col-md-4
+        .form-group
+          %label Birth Day
+          = select_day nil, { field_name: 'birth_day', prefix: 'member', include_blank: '' }, class: 'form-control'

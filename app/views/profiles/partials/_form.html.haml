@@ -1,0 +1,14 @@
+= form_for(@profile, html: { role: "form", multipart: true }) do |f|
+  = render 'profiles/partials/profile/general', f: f
+
+  = render 'profiles/partials/profile/contact', f: f
+
+  = render 'profiles/partials/profile/location', f: f
+
+  = render 'profiles/partials/profile/demographics', f: f
+
+  = render 'profiles/partials/profile/green', f: f
+
+  .col-md-12
+    .row
+      = f.submit "Save Changes", class: 'btn btn-primary btn-large'

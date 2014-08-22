@@ -30,3 +30,4 @@
 //= require bootbox
 //= require ekko-lightbox
 //= require select2
+//= require dropzone

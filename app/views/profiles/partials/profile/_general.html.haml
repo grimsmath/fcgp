@@ -1,26 +1,69 @@
 .row
-  .col-md-5.col-sm-5
-    .form-group
-      %label * First Name
-      = f.text_field :first_name, autofocus: true, class: 'form-control'
+  .col-md-5
+    .row
+      .col-md-8
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title
+              Avatar
 
-  .col-md-2.col-sm-2
-    .form-group
-      %label Middle Initial
-      = f.text_field :middle_initial, class: 'form-control'
+          .panel-body
+            .preview(style="min-height: 200px")
+              - if f.object.avatar?
+                = image_tag f.object.avatar.url(:small)
+              = f.file_field :avatar, class: 'file'
 
-  .col-md-5.col-sm-5
-    .form-group
-      %label * Last Name
-      = f.text_field :last_name, class: 'form-control'
+  .col-md-7
+    .row
+      .col-md-12
+        .bs-callout.bs-callout-green1
+          %h4.bs-title
+            Current User Details
+          .row.bg-warning.pad_tb_5
+            .col-md-4
+              Username/Email:
+            .col-md-8
+              = current_member.email
 
-.row
-  .col-md-4.col-sm-4
-    .form-group
-      %label Home Phone
-      .input-group
-        .input-group-addon
-          .i.fa.fa-phone
-        = f.text_field :phone_home, class: 'form-control',
-          data: {mask: "999-999-9999"}, placeholder: "xxx-xxx-xxxx" do
-          %i.phone.icon
+          .row.bg-success.pad_tb_5
+            .col-md-4
+              User Type:
+            .col-md-8
+              = current_member.user_type
+
+          .row.bg-warning.pad_tb_5
+            .col-md-4
+              Vendor Profile Count:
+            .col-md-8
+              = current_member.vendor_count
+
+          .row.bg-success.pad_tb_5
+            .col-md-4
+              Vendor Reviews:
+            .col-md-8
+              = current_member.vendor_reviews
+
+    .row
+      .col-md-5
+        .form-group
+          %label * First
+          = f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: 'First name'
+
+      .col-md-2
+        .form-group
+          %label Middle
+          = f.text_field :middle_initial, class: 'form-control', placeholder: 'MI'
+
+      .col-md-5
+        .form-group
+          %label * Last
+          = f.text_field :last_name, class: 'form-control', placeholder: 'Last name'
+
+:javascript
+  $('#profile_avatar').fileinput({
+    showUpload: false,
+    showRemove: false,
+    showCaption: false,
+    elPreviewContainer: '.file-preview',
+    browseClass: 'btn btn-primary btn-block',
+  });
