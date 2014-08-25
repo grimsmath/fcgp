@@ -40,9 +40,8 @@ gem 'spring', group: :development
 # https://github.com/plataformatec/devise
 gem 'devise'
 
-# Use pundit for authorization
-# https://github.com/elabs/pundit
-gem 'pundit'
+# https://github.com/CanCanCommunity/cancancan
+gem 'cancancan', '~> 1.9'
 
 # https://rubygems.org/gems/arel
 gem 'arel', '~> 5.0.1.20140414130214'
@@ -51,7 +50,7 @@ gem 'arel', '~> 5.0.1.20140414130214'
 gem 'paper_trail', '~> 3.0.3'
 
 # https://github.com/huacnlee/rails-settings-cached
-gem "rails-settings-cached", "0.4.1"
+gem 'rails-settings-cached', '0.4.1'
 
 # https://github.com/stefankroes/ancestry
 gem 'ancestry', '~> 2.1.0'
@@ -77,7 +76,7 @@ gem 'bootstrap-sass', '~> 3.1.1.1'
 gem 'font-awesome-sass'
 
 # https://github.com/thoughtbot/paperclip
-gem "paperclip", "~> 4.1"
+gem 'paperclip', '~> 4.1'
 
 # https://github.com/travishaynes/Google-Webfonts-Helper
 gem 'google-webfonts'
@@ -98,8 +97,7 @@ gem 'betterlorem'
 # Use foreman for setting local env
 gem 'foreman'
 
-# https://github.com/argerim/select2-rails
-gem "select2-rails"
+gem 'select2-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

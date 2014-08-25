@@ -19,7 +19,7 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap.wysiwig
-//= require bootstrap-select
+//= require select2
 //= require jasny-bootstrap
 //= require moment
 //= require fileinput
@@ -29,5 +29,4 @@
 //= require admin
 //= require bootbox
 //= require ekko-lightbox
-//= require select2
 //= require dropzone

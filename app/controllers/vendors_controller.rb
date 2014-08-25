@@ -17,7 +17,7 @@ class VendorsController < ApplicationController
   # GET /vendors/new
   def new
     @vendor = Vendor.new
-    @vendor.addresses.build
+    @vendor.locations.build
   end
 
   # GET /vendors/1/edit

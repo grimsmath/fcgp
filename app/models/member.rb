@@ -8,8 +8,8 @@ class Member < ActiveRecord::Base
          :trackable,
          :validatable
 
-  has_many  :locations, :as => :locatable
   has_many  :vendors
+  has_many  :locations, :as => :locatable
   has_many  :reviews, :dependent => :destroy
   has_one   :profile, :dependent => :destroy, autosave: true
 

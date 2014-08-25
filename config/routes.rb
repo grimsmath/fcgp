@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # devise_for :members
   devise_for :members, controllers: {registrations: 'registrations'}
 
+  # Plural Resources
   resources :vendors
   resources :pages
   resources :categories
@@ -10,19 +11,16 @@ Rails.application.routes.draw do
   resources :tags
   resources :alerts
   resources :messages
+  resources :members
 
-  resources :members do
-    get 'dashboard'
-  end
-
+  # Singular Resources
   resource :profile
 
+  # Administrative Resources
   namespace :admin do
     get '/'         => 'dashboard#index'
     get 'dashboard' => 'dashboard#index'
   end
-
-  post '/search' => 'home#search'
 
   ## Dynamic Pages
   # handle not-found pages
@@ -33,6 +31,9 @@ Rails.application.routes.draw do
 
   # CKEditor
   mount Ckeditor::Engine => '/ckeditor'
+
+  # Global Individual Routes
+  post '/search' => 'home#search'
 
   # Root path
   root to: "home#index"

@@ -1,3 +1,49 @@
 %section#wrapper{data: {link: "link-members"}}
-  .col-lg-12.col-sm-2
-    %h2 Member
+  .col-md-12
+    .bs-docs-section
+      %h3.page-header
+        Member Profile
+
+  .col-md-3
+    .list-group
+      %a.list-group-item.active
+        %h4.list-group-item-heading
+          Member Options
+        %p.list-group-item-text
+          The following options are available to you as a member
+
+      = link_to edit_profile_path, class: 'list-group-item' do
+        %i.fa.fa-user
+        Edit Profile
+
+      = link_to edit_member_registration_path, class: 'list-group-item' do
+        %i.fa.fa-key
+        Change Password
+
+      %div.list-group-item
+        = link_to new_vendor_path, class: 'btn btn-success btn-block' do
+          Register a Vendor
+
+  .col-md-9
+    .row
+      .col-md-12
+        .bs-callout.bs-callout-green1(style="margin-top: 0")
+          %h4.callout-title
+            Member Details
+          - if @profile.first_name.nil?
+            %p
+              Welcome #{@profile.member.email}! You currently do not have a complete profile.  We recommend you complete
+              your profile by clicking on <span class="label label-primary">Edit Profile</span> button to the left.
+          - else
+            %p Welcome #{@profile.first_name}
+
+      .col-md-12
+        .bs-callout.bs-callout-green1(style="margin-top: 0")
+          %h4.callout-title
+            Registered Vendors
+
+      .col-md-12
+        .bs-callout.bs-callout-green1(style="margin-top: 0")
+          %h4.callout-title
+            Reviews
+

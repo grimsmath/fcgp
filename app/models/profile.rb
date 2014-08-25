@@ -17,7 +17,6 @@ class Profile < ActiveRecord::Base
     if self.location.nil?
       build_location
     end
-
     self
   end
 end

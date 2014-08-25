@@ -1,9 +1,6 @@
 = nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
   .col-md-12
-    %h2.bg-success.text-center(style="padding: 10px")
-      New Vendor Registration
-
-    - if is_admin?
+    - if current_member.admin?
       .bs-docs-section
     - else
       .bs-docs-section.hidden
@@ -11,7 +8,7 @@
         = render 'vendors/partials/profile/meta', f: f
 
     .bs-docs-section
-      %h3.page-header General Details
+      %h3.page-header Vendor Signup
       .bs-callout.bs-callout-green1
         %h4 Instructions
         Please provide your company's name, a brief description, and
@@ -20,12 +17,12 @@
       = render 'vendors/partials/profile/brand', f: f
 
     .bs-docs-section
-      %h3.page-header Address &amp; Location
+      %h3.page-header Location
       .bs-callout.bs-callout-green1
         %h4 Instructions
         Please enter the address of your company's primary business location.  A Google Map
         will automatically be generated for you.
-      = render 'vendors/partials/profile/address', f: f
+      = render 'vendors/partials/profile/location', f: f
 
     .bs-docs-section
       %h3.page-header Hours of Operation
