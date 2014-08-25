@@ -6,7 +6,7 @@
   .col-md-5
 
   .col-md-7
-    = f.fields_for :locations do |loc|
+    = f.fields_for :location do |loc|
       .form-group
         %label * Street Address
         = loc.text_field :street1, class: 'form-control map-field'

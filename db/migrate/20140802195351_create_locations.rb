@@ -6,7 +6,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string  :city
       t.string  :state
       t.string  :postal_code
-      t.references :locateable, polymorphic: true
+      t.references :locatable, polymorphic: true
 
       t.timestamps
     end

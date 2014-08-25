@@ -14,9 +14,13 @@ Settings["Mapping.DefaultLong"] = -81.6614    # Jacksonville, FL
 ## Members
 Member.destroy_all()
 
+# A Super Administrator
+root = Member.create(email: 'grimsmath@gmail.com', password: 'password')
+root.toggle!(:super_admin)
+
 # An administrator
 admin = Member.create(email: 'admin@usgbcnf.org', password: 'password')
-admin.toggle!(:super_admin)
+admin.toggle!(:admin)
 
 # Top-level categories
 Category.destroy_all()

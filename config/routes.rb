@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # devise_for :members
   devise_for :members, controllers: {registrations: 'registrations'}
 
-  resources :profiles
   resources :vendors
   resources :pages
   resources :categories
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   resources :members do
     get 'dashboard'
   end
+
+  resource :profile
 
   namespace :admin do
     get '/'         => 'dashboard#index'

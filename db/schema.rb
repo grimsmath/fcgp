@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20140820140036) do
     t.string   "city"
     t.string   "state"
     t.string   "postal_code"
-    t.integer  "locateable_id"
-    t.string   "locateable_type"
+    t.integer  "locatable_id"
+    t.string   "locatable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -15,9 +15,12 @@
       .col-md-4
         .form-group
           %label Birth Month
-          = select_month nil, { field_name: 'birth_month', prefix: 'member', include_blank: '' }, class: 'form-control'
+          = f.select :birth_month, months, { include_blank: '' }, class: 'form-control'
+          -#= select_month select_month(f.object.birth_month) || select_month(1),
+          -#  { field_name: 'birth_month', prefix: 'profile', include_blank: '' }, class: 'form-control'
 
       .col-md-4
         .form-group
           %label Birth Day
-          = select_day nil, { field_name: 'birth_day', prefix: 'member', include_blank: '' }, class: 'form-control'
+          = f.select :birth_day, days, { include_blank: '' }, class: 'form-control'
+          -#= select_day nil, { field_name: 'birth_day', prefix: 'profile', include_blank: '' }, class: 'form-control'
