@@ -10,13 +10,14 @@
         %label Vendor Description
         = f.cktext_area :description, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'tiny'}
 
-  .col-md-4
-    %label Logo
-    .drop-photo
-      - if f.object.logo?
-        = image_tag f.object.logo.url(:thumb)
-      - else
-        = f.file_field :logo
+  - if f.object.paid?
+    .col-md-4
+      %label Logo
+      .drop-photo
+        - if f.object.logo?
+          = image_tag f.object.logo.url(:thumb)
+        - else
+          = f.file_field :logo
 
 :javascript
   $('#vendor_logo').fileinput({

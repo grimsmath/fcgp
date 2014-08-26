@@ -1,4 +1,49 @@
-- if is_admin?
-  = render 'vendors/partials/form'
-- else
-  = render 'vendors/partials/signup'
+.col-md-12
+  .bs-docs-section
+    %h3.page-header
+      Choose Your Listing Type
+
+  .row
+    .col-md-4.col-md-offset-2
+      .panel.panel-success
+        .panel-heading
+          %h4.text-center
+            FREE LISTING
+        .panel-body.text-center
+          %p.lead
+            %strong FREE
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            No Brand Logo
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            No Photos
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Basic Analytics
+        .panel-footer
+          = link_to vendor_new_free_path, class: 'btn btn-block btn-primary' do
+            SELECT FREE LISTING
+
+    .col-md-4
+      .panel.panel-success
+        .panel-heading
+          %h4.text-center
+            ANNUAL PAID LISTING
+        .panel-body.text-center
+          %p.lead
+            %strong $25 / year
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Brand Logo
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Unlimited photos
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Detailed Analytics
+        .panel-footer
+          = link_to vendor_new_paid_path, class: 'btn btn-block btn-primary' do
+            SELECT ANNUAL PAID LISTING

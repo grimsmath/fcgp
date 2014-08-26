@@ -3,7 +3,7 @@
   %head
     %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title #{Settings['System.name']}
+    %title Site Administration | #{Settings['System.name']}
     %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Settings["Google.ApiKey"] + "", :type => "text/javascript"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
@@ -12,12 +12,12 @@
 
   %body
     #content_wrapper
-      = render 'partials/sitebrand'
       = render 'partials/sitenav'
-      = render 'partials/search'
+      = render 'admin/partials/nav'
 
       .container
         .row
+          %h2 Site Administration
           = render 'partials/flash'
           = yield
 

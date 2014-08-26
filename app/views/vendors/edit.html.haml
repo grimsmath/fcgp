@@ -1,4 +1,23 @@
-%section#wrapper{data: {link: "link-vendors"}}
-  .col-lg-12.col-sm-2
-    %h2 Edit Vendor Profile
-    = render 'vendors/partials/form'
+.col-md-12
+  .bs-docs-section
+    %h3.page-header
+      Edit Vendor Profile
+
+.col-md-3
+  / Nav tabs
+  %ul.nav.nav-tabs{:role => "tablist"}
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#home", :role => "tab"} Home
+    %li
+      %a{"data-toggle" => "tab", :href => "#profile", :role => "tab"} Profile
+    %li
+      %a{"data-toggle" => "tab", :href => "#messages", :role => "tab"} Messages
+    %li
+      %a{"data-toggle" => "tab", :href => "#settings", :role => "tab"} Settings
+
+  / Tab panes
+  .tab-content
+    #home.tab-pane.active ...
+    #profile.tab-pane ...
+    #messages.tab-pane ...
+    #settings.tab-pane ...

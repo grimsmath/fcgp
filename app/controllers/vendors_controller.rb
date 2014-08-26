@@ -3,29 +3,31 @@ class VendorsController < ApplicationController
   before_action :authenticate_member!, except: [:index, :show]
   layout :resolve_layout
 
-  # GET /vendors
-  # GET /vendors.json
   def index
     @vendors = Vendor.all
   end
 
-  # GET /vendors/1
-  # GET /vendors/1.json
   def show
   end
 
-  # GET /vendors/new
   def new
-    @vendor = Vendor.new
-    @vendor.locations.build
   end
 
-  # GET /vendors/1/edit
+  # Free listing
+  def free
+    @vendor = Vendor.new(paid: false, signup_date: DateTime.now)
+    render :template => 'vendors/signup'
+  end
+
+  # Paid listing
+  def paid
+    @vendor = Vendor.new(paid: true, signup_date: DateTime.now)
+    render :template => 'vendors/signup'
+  end
+
   def edit
   end
 
-  # POST /vendors
-  # POST /vendors.json
   def create
     @vendor = Vendor.new(vendor_params)
 
@@ -40,8 +42,6 @@ class VendorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /vendors/1
-  # PATCH/PUT /vendors/1.json
   def update
     respond_to do |format|
       if @vendor.update(vendor_params)
@@ -54,8 +54,6 @@ class VendorsController < ApplicationController
     end
   end
 
-  # DELETE /vendors/1
-  # DELETE /vendors/1.json
   def destroy
     @vendor.destroy
     respond_to do |format|
@@ -94,7 +92,7 @@ class VendorsController < ApplicationController
                                      :mon_close, :tue_close, :wed_close, :thu_close, :fri_close, :sat_close, :sun_close,
 
                                      logo_atributes:              [:id, :logo,                                                        :_destroy],
-                                     addresses_attributes:        [:id, :street1,       :street2,     :city,    :state, :postal_code, :_destroy],
+                                     locations_attributes:        [:id, :street1,       :street2,     :city,    :state, :postal_code, :_destroy],
                                      certifications_attributes:   [:id, :title,         :awarded,     :image,   :notes,               :_destroy],
                                      badges_attributes:           [:id, :title,         :awarded,     :image,                         :_destroy],
                                      photos_attributes:           [:id, :title,         :description, :image,                         :_destroy],

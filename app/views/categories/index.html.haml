@@ -1,5 +1,27 @@
-%section#wrapper{data: {link: "link-categories"}}
-  - if is_admin?
-    = render 'categories/partials/index/admin'
-  - else
-    = render 'categories/partials/index/public'
+.pad-40px
+  .col-md-9
+    .panel.panel-info
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-leaf
+          BROWSE CATEGORIES
+
+      .panel-body
+        %ul
+          - @categories.each do |cat|
+            %li
+              .category
+                %i.fa.fa-angle-double-right
+                = link_to category_path(cat.name) do
+                  = cat.title
+                <span class="label label-info">
+                = cat.children.count
+                </span>
+
+  .col-md-3
+    .panel.panel-info
+      .panel-heading
+        %h4.panel-title
+          FEATURED CATEGORIES
+
+      .panel-body

@@ -9,4 +9,4 @@
       - Category.where(ancestry: nil).each do |cat|
         .category
           %i.fa.fa-angle-double-right
-          = link_to cat.title, cat
+          = link_to cat.title, category_path(cat.name)

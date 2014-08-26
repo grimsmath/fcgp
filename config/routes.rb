@@ -5,21 +5,30 @@ Rails.application.routes.draw do
 
   # Plural Resources
   resources :vendors
-  resources :pages
-  resources :categories
+
+  get 'vendor/new/free', to: 'vendors#free'
+  get 'vendor/new/paid', to: 'vendors#paid'
+
   resources :locations
-  resources :tags
-  resources :alerts
   resources :messages
   resources :members
+  resources :categories
+  resources :pages
 
   # Singular Resources
   resource :profile
 
+  get '/category/:id', to: 'categories#show', as: 'category_show_path'
+
   # Administrative Resources
   namespace :admin do
-    get '/'         => 'dashboard#index'
-    get 'dashboard' => 'dashboard#index'
+    resources :pages
+    resources :categories
+    resources :alerts
+    resources :tags
+    resources :members
+
+    get '/' => 'admin#index'
   end
 
   ## Dynamic Pages

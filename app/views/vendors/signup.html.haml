@@ -1,14 +1,7 @@
-= nested_form_for(@vendor, html: { multipart: true, role: "form" }) do |f|
+= nested_form_for(@vendor.with_blank_location, html: { multipart: true, role: 'form' }) do |f|
   .col-md-12
-    - if current_member.admin?
-      .bs-docs-section
-    - else
-      .bs-docs-section.hidden
-        %h3.page-header Vendor Meta
-        = render 'vendors/partials/profile/meta', f: f
-
     .bs-docs-section
-      %h3.page-header Vendor Signup
+      %h3.page-header New Vendor Signup
       .bs-callout.bs-callout-green1
         %h4 Instructions
         Please provide your company's name, a brief description, and
@@ -45,14 +38,15 @@
         limits to the number of certifications and badges that you may add to your profile.
       = render 'vendors/partials/profile/green', f: f
 
-    .bs-docs-section
-      %h3.page-header Photos
-      .bs-callout.bs-callout-green1
-        %h4 Instructions
-        In this section you may upload a total of 8 photographs.  The photos may not be larger than 640x480 pixels, and
-        they must be owned by your or free of copyright restrictions.  Each photo may have a title and a caption.
-        By clicking the <span class="label label-primary">+ Add Photo</span> button you agree to be bound to these terms.
-      = render 'vendors/partials/profile/photos', f: f
+    - if f.object.paid?
+      .bs-docs-section
+        %h3.page-header Photos
+        .bs-callout.bs-callout-green1
+          %h4 Instructions
+          In this section you may upload a total of 8 photographs.  The photos may not be larger than 640x480 pixels, and
+          they must be owned by your or free of copyright restrictions.  Each photo may have a title and a caption.
+          By clicking the <span class="label label-primary">+ Add Photo</span> button you agree to be bound to these terms.
+        = render 'vendors/partials/profile/photos', f: f
 
     .bs-docs-section
       %h3.page-header Listing Options

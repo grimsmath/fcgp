@@ -42,11 +42,6 @@ html, body {
   height: 100%;
   width: 100%;
   background-color: #f6fae9
-//  background-color: #f5f5f5
-}
-
-body {
-//  padding-top: 50px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,6 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 ul {
   margin: 0;
   padding: 0;
+  list-style-type: none
 }
 
 .navbar {
@@ -81,7 +77,7 @@ ul {
 }
 
 #content_wrapper {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -145,6 +141,10 @@ textarea.horiz-only {
   list-style-position: outisde;
 }
 
+.category a {
+  text-decoration: none;
+}
+
 .pad_tb_5 {
   padding: 5px 0;
 }
@@ -192,7 +192,142 @@ h4.bs-title {
   color: #fff;
 }
 
-.dropdown-menu {
+.navbar .dropdown-menu {
   min-width:auto;
   width:100%;
+}
+
+.lead { font-size: 33px;margin-bottom:0px; }
+
+// Coupon CSS
+section .coupon {
+  padding: 5% 0;
+}
+
+.coupon.alizarin {
+  background: #e74c3c;
+}
+
+.coupon.amethyst {
+  background: #9b59b6;
+}
+
+.coupon.emerald {
+  background: #2ecc71;
+}
+
+.coupon.midnight-blue {
+  background: #2c3e50;
+}
+
+.coupon.peter-river {
+  background: #3498db;
+}
+
+.coupon.dl {
+  background: #f0f0f0;
+  padding: 30px 0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.coupon.dl:before {
+  content: " ";
+  height: 20px;
+  width: 20px;
+  background: #ddd;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  margin-left: -10px;
+}
+
+.coupon.dl .brand {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.coupon.dl .discount {
+  min-height: 50px;
+  position: relative;
+  font-size: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+
+  padding: 20px 15px 0;
+  color: #f1c40f;
+}
+
+.coupon.dl .discount:after {
+  content: " ";
+
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  position: absolute;
+  bottom: -20px;
+  left: 20%;
+}
+
+.coupon.dl .discount.alizarin:after {
+  border-top: 20px solid #e74c3c;
+}
+
+.coupon.dl .discount.peter-river:after {
+  border-top: 20px solid #3498db;
+}
+
+.coupon.dl .discount.emerald:after {
+  border-top: 20px solid #2ecc71;
+}
+
+.coupon.dl .discount.amethyst:after {
+  border-top: 20px solid #9b59b6;
+}
+
+.coupon.dl .discount .type {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: -30px;
+}
+
+.coupon.dl .descr {
+  color: #999;
+  margin-top: 10px;
+  padding: 20px 15px;
+}
+
+.coupon.dl .ends {
+  padding: 0 15px;
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.coupon.dl .coupon {
+  min-height: 50px;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px 15px;
+}
+
+.coupon.dl .coupon a.open-code {
+  color: #16a085;
+}
+
+.coupon.dl .coupon .code {
+  letter-spacing: 1px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  color: #f1c40f;
+  background: #f0f0f0;
 }

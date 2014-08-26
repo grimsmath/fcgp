@@ -1,12 +1,12 @@
-.navbar.navbar-default.top-nav#navbar-top{role: "navigation", data: {spy: 'affix', offset: {top: "250"}}}
+.navbar.navbar-default.top-nav#navbar-top{role: 'navigation', data: {spy: 'affix', offset: {top: '250'}}}
   .container
     .navbar-header
-      %button.navbar-toggle{data:{target: ".navbar-collapse", toggle: "collapse", type: "button"}}
+      %button.navbar-toggle{data:{target: '.navbar-collapse', toggle: 'collapse', type: 'button'}}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "Home", root_path, class: 'navbar-brand'
+      = link_to 'Home', root_path, class: 'navbar-brand'
 
     .navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-left
@@ -18,10 +18,10 @@
         - Page.where(ancestry: nil).take(6).each do |top_page|
           - if top_page.has_children?
             %li.dropdown
-              %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
+              %a.dropdown-toggle{data: {toggle: 'dropdown'}, href: '#'}
                 = top_page.title
                 %span.caret
-              %ul.dropdown-menu{role: "menu"}
+              %ul.dropdown-menu{role: 'menu'}
                 %li
                   - unless top_page.icon.nil?
                     %a{href: "/#{top_page.name}"}
@@ -55,58 +55,32 @@
       %ul.nav.navbar-nav.navbar-right
         - if current_member
           %li.dropdown
-            %a.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
+            %a.dropdown-toggle{data: {toggle: 'dropdown'}, href: '#'}
               Welcome #{current_member.email}
               %b.caret
-            %ul.dropdown-menu{role: "menu"}
+            %ul.dropdown-menu{role: 'menu'}
               - if current_member.admin?
-                %li.dropdown-header Administrator Functions
                 %li
-                  = link_to vendors_path(admin: true) do
-                    %i.fa.fa-truck
-                    Manage Vendors
-                %li
-                  = link_to members_path(admin: true) do
-                    %i.fa.fa-users
-                    Manage Members
-                %li
-                  = link_to categories_path(admin: true) do
-                    %i.fa.fa-book
-                    Manage Categories
-                %li.divider
+                  = link_to admin_path do
+                    %i.fa.fa-gear
+                    Site Administration
 
-                %li.dropdown-header Site Functions
-                %li
-                  = link_to pages_path(admin: true) do
-                    %i.fa.fa-cubes
-                    Dynamic Pages
-                %li
-                  = link_to messages_path(admin: true) do
-                    %i.fa.fa-comment
-                    Site Messages
-                %li
-                  = link_to alerts_path(admin: true) do
-                    %i.fa.fa-bell
-                    Site Alerts
                 %li.divider
 
               - if current_member.moderator? || current_member.admin?
-                %li.dropdown-header Moderator Functions
                 %li
-                  %a.fa.fa-quote-left{href: "#"}
-                    Moderate Reviews
-                %li
-                  %a.fa.fa-quote-left{href: "#"}
-                    Moderate Vendors
-                %li
-                  %a.fa.fa-quote-left{href: "#"}
-                    Moderate Categories
+                  %a.fa.fa-comments{href: '#'}
+                    Site Moderation
+
                 %li.divider
+
               %li
                 = link_to profile_path do
                   %i.fa.fa-user
                   Member Profile
+
               %li.divider
+
               %li
                 = link_to destroy_member_session_path, :method => :delete do
                   %i.fa.fa-sign-out
