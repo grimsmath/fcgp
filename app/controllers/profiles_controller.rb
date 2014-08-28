@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @vendors = Vendor.my_members
   end
 
   def new

@@ -78,6 +78,8 @@ gem 'font-awesome-sass'
 # https://github.com/thoughtbot/paperclip
 gem 'paperclip', '~> 4.1'
 
+gem 'angularjs-rails'
+
 # https://github.com/travishaynes/Google-Webfonts-Helper
 gem 'google-webfonts'
 

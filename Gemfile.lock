@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
+    angularjs-rails (1.2.22)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     betterlorem (0.1.2)
@@ -189,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry (~> 2.1.0)
+  angularjs-rails
   arel (~> 5.0.1.20140414130214)
   betterlorem
   bootstrap-sass (~> 3.1.1.1)

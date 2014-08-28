@@ -25,4 +25,10 @@ class Vendor < ActiveRecord::Base
     locations.build
     self
   end
+
+  scope :featured,  -> { where(featured: true)  }
+  scope :enabled,   -> { where(enabled: true)   }
+  scope :disabled,  -> { where(enabled: false)  }
+
+  scope :my_members, -> { where(member_id: current_member.id) }
 end

@@ -1,11 +1,29 @@
-.col-md-12
-  .panel.panel-info
-    .panel-heading
-      %h4.panel-title
-        Featured Listings
+.col-md-12.pad-40px
+  .row
+    .col-md-8
+      .panel.panel-info
+        .panel-heading
+          %h4.panel-title
+            Featured Listings
 
-    .panel-body
-      - @vendors.each do |vend|
-        = vend.name
+        .panel-body
+          %ul.vendors-list
+            - @vendors.featured.each do |vend|
+              %li
+                = link_to vend.name, vendor_path(vend)
 
-    .panel-footer
+        .panel-footer
+
+    .col-md-4
+      .panel.panel-info
+        .panel-heading
+          %h4.panel-title
+            New Listings
+
+        .panel-body
+          %ul.vendors-list
+            - @vendors.each do |vend|
+              %li
+                = link_to vend.name, vendor_path(vend)
+
+        .panel-footer

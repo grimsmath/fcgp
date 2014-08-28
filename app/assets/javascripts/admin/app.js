@@ -1,0 +1,1 @@
+adminApp = angular.module('AdminApp', ['ngResource', 'ngRoute']);
