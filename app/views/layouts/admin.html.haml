@@ -6,8 +6,15 @@
     %title Site Administration | #{Settings['System.name']}
     %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Settings["Google.ApiKey"] + "", :type => "text/javascript"}
     = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
-    = yield
+    = render 'admin/partials/nav'
+
+    #wrapper
+      = render 'admin/partials/sidebar'
+
+      / Page Content
+      #page-content-wrapper
+        = yield

@@ -18,14 +18,11 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-datepicker
-//= require bootstrap.wysiwig
 //= require jasny-bootstrap
 //= require moment
 //= require fileinput
 //= require ckeditor/init
 //= require pages
 //= require gmaps
-//= require admin/admin.js
 //= require bootbox
 //= require ekko-lightbox
-//= require dropzone

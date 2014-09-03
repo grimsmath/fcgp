@@ -1,0 +1,14 @@
+%tr
+  %td
+    = link_to cat.id, edit_admin_category_path(cat), remote: true
+  %td
+    = link_to cat.title, admin_category_path(cat)
+    .action-links.hide
+      = link_to 'Edit', edit_admin_category_path(cat)
+  %td= cat.name
+  %td= cat.parent.title unless cat.parent.nil?
+  %td= cat.created_at
+  %td= cat.updated_at
+  %td
+    = link_to edit_admin_category_path(cat), class: 'btn btn-sm' do
+      %i.fa.fa-edit

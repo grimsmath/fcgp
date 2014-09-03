@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @vendors = Vendor.my_members
+    @vendors = Vendor.where(member_id: current_member.id)
   end
 
   def new

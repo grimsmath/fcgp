@@ -1,0 +1,22 @@
+.clearfix(style="border-bottom: solid 1px #dcdcdc")
+  %h3.pull-left(style="padding-top: 5px")
+    %strong
+      CATEGORIES
+
+  .pull-right(style="padding-top: 5px")
+    .btn-group
+      = link_to new_admin_category_path, remote: true, class: 'btn btn-sm btn-primary' do
+        %i.fa.fa-plus-circle
+        New
+
+    .btn-group
+      %button.btn.btn-sm.btn-danger{:type => 'button'}
+        Delete
+
+:javascript
+  $('#edit-category').click(function () {
+    // Retrieve the selected id
+    $("input[type='checkbox']:checked").each(function() {
+      console.log($(this).val());
+    });
+  });

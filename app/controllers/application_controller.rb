@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     end
 
     def is_admin?
-      member_signed_in? && current_member.admin? && params[:admin] == 'true' || false
+      member_signed_in? && current_member.admin? && params[:home] == 'true' || false
     end
 
     def resolve_layout

@@ -23,12 +23,16 @@ Rails.application.routes.draw do
   # Administrative Resources
   namespace :admin do
     resources :pages
-    resources :categories
+    resources :categories do
+      collection do
+        post :edit_multiple
+      end
+    end
     resources :alerts
     resources :tags
     resources :members
 
-    get '/' => 'admin#index'
+    get '/' => 'home#index'
   end
 
   ## Dynamic Pages
@@ -45,7 +49,7 @@ Rails.application.routes.draw do
   post '/search' => 'home#search'
 
   # Root path
-  root to: "home#index"
+  root to: 'home#index'
 
   # get '*path' => 'application#index'
 

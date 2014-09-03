@@ -1,0 +1,14 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th ID
+      %th Title
+      %th Name
+      %th Parent
+      %th Created
+      %th Updated
+      %th.action_column
+        Actions
+
+  %tbody.entries
+    = render 'admin/categories/partials/entries'

@@ -1,0 +1,300 @@
+* {
+  // Remove rounded corners from all bootstrap elements
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #f6fae9
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: OpenSansCondensedLight, Arial, Helvetica;
+  color: #555;
+  font-weight: bold
+}
+
+.page-header {
+  border-bottom: dashed 2px #999999;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none
+}
+
+.navbar {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#navbar-top.affix {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  width: 100%
+}
+
+.red::first-letter {
+  color: red;
+}
+
+#content_wrapper {
+  padding-bottom: 20px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#brand-container {
+  background: #f6fae9;
+  background: -webkit-linear-gradient(top, #f6fae9, $green1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(top, #f6fae9, $green1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(top, #f6fae9, $green1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, #f6fae9, $green1); /* Standard syntax */
+  border-bottom: solid 5px #468d97
+}
+
+.logo {
+  background: image-url("bg_brand.png") no-repeat center;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+#footer, .push {
+  padding: 50px 0;
+  min-height: 150px;
+}
+
+#footer {
+  background-color: darken($green5, 0.5);
+}
+
+.thumb {
+  height: 100px;
+  width: 100px;
+}
+
+textarea.vert-only {
+  resize: vertical;
+}
+
+textarea.horiz-only {
+  resize: horizontal;
+}
+
+.fill-text-area {
+  width: 100%;
+  height: 100%;
+}
+
+.categories ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: outisde;
+}
+
+.categories ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: outisde;
+}
+
+.category a {
+  text-decoration: none;
+}
+
+.pad_tb_5 {
+  padding: 5px 0;
+}
+
+.pad-20px {
+  padding-top: 20px;
+}
+
+.pad-40px {
+  padding-top: 40px;
+}
+
+.down-20px {
+  padding-bottom: 20px;
+}
+
+.action_column {
+  width: 150px;
+  text-align: center
+}
+
+.panel-body.custom {
+  padding-bottom: 0;
+}
+
+h4.bs-title {
+  padding-bottom: 20px;
+}
+
+.bs-callout-green1 {
+  background-color: $green1;
+  border-color: $green5;
+}
+
+.bs-callout-green1 h4 {
+  color: #fff;
+}
+
+.bs-callout-green2 {
+  background-color: $green2;
+  border-color: $green5;
+}
+
+.bs-callout-green2 h4 {
+  color: #fff;
+}
+
+.navbar .dropdown-menu {
+  min-width:auto;
+  width:100%;
+}
+
+.lead { font-size: 33px;margin-bottom:0px; }
+
+// Coupon CSS
+section .coupon {
+  padding: 5% 0;
+}
+
+.coupon.alizarin {
+  background: #e74c3c;
+}
+
+.coupon.amethyst {
+  background: #9b59b6;
+}
+
+.coupon.emerald {
+  background: #2ecc71;
+}
+
+.coupon.midnight-blue {
+  background: #2c3e50;
+}
+
+.coupon.peter-river {
+  background: #3498db;
+}
+
+.coupon.dl {
+  background: #f0f0f0;
+  padding: 30px 0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.coupon.dl:before {
+  content: " ";
+  height: 20px;
+  width: 20px;
+  background: #ddd;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  margin-left: -10px;
+}
+
+.coupon.dl .brand {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.coupon.dl .discount {
+  min-height: 50px;
+  position: relative;
+  font-size: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+
+  padding: 20px 15px 0;
+  color: #f1c40f;
+}
+
+.coupon.dl .discount:after {
+  content: " ";
+
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  position: absolute;
+  bottom: -20px;
+  left: 20%;
+}
+
+.coupon.dl .discount.alizarin:after {
+  border-top: 20px solid #e74c3c;
+}
+
+.coupon.dl .discount.peter-river:after {
+  border-top: 20px solid #3498db;
+}
+
+.coupon.dl .discount.emerald:after {
+  border-top: 20px solid #2ecc71;
+}
+
+.coupon.dl .discount.amethyst:after {
+  border-top: 20px solid #9b59b6;
+}
+
+.coupon.dl .discount .type {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: -30px;
+}
+
+.coupon.dl .descr {
+  color: #999;
+  margin-top: 10px;
+  padding: 20px 15px;
+}
+
+.coupon.dl .ends {
+  padding: 0 15px;
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.coupon.dl .coupon {
+  min-height: 50px;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px 15px;
+}
+
+.coupon.dl .coupon a.open-code {
+  color: #16a085;
+}
+
+.coupon.dl .coupon .code {
+  letter-spacing: 1px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  color: #f1c40f;
+  background: #f0f0f0;
+}

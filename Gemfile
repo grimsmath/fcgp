@@ -63,9 +63,9 @@ gem 'haml-rails' # For generators.
 gem 'nested_form'
 gem 'simple_form'
 
+# http://nokogiri.org/
 gem 'nokogiri'
 
-# Used for pagination
 # https://github.com/amatsuda/kaminari
 gem 'kaminari'
 
@@ -78,6 +78,7 @@ gem 'font-awesome-sass'
 # https://github.com/thoughtbot/paperclip
 gem 'paperclip', '~> 4.1'
 
+# https://github.com/hiravgandhi/angularjs-rails/
 gem 'angularjs-rails'
 
 # https://github.com/travishaynes/Google-Webfonts-Helper
@@ -98,17 +99,3 @@ gem 'betterlorem'
 
 # Use foreman for setting local env
 gem 'foreman'
-
-gem 'select2-rails'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

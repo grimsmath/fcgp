@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def is_admin?
-    member_signed_in? && current_member.admin? && params[:admin] == 'true' || false
+    member_signed_in? && current_member.admin? && params[:home] == 'true' || false
   end
 
   def nested_dropdown(items)

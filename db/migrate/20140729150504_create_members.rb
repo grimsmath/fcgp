@@ -7,7 +7,7 @@ class CreateMembers < ActiveRecord::Migration
 
       ## Roles
       t.boolean :super_admin, default: false
-      t.boolean :admin,       default: false
+      t.boolean :home,       default: false
       t.boolean :moderator,   default: false
       t.boolean :email_only,  default: false
 

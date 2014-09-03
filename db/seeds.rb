@@ -20,12 +20,17 @@ root.toggle!(:super_admin)
 
 # An administrator
 admin = Member.create(email: 'admin@usgbcnf.org', password: 'password')
-admin.toggle!(:admin)
+admin.toggle!(:home)
 
 # Top-level categories
 Category.destroy_all()
 Category.create(title: 'Food (Restaurants, Farms, Markets)',
                 name: 'food',
+                enabled: true)
+
+Category.create(title: 'Community Gardens',
+                name: 'community_gardens',
+                ancestry: '1',
                 enabled: true)
 
 Category.create(title: 'Travel (Transportation, Lodging, Recreation)',

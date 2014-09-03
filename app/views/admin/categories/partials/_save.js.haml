@@ -1,0 +1,12 @@
+
+:plain
+  $("ul.errors").html("")
+
+- if @product.errors.any?
+  = @product.errors.full_messages.each do |message|
+    $("ul.errors").append($("<li />").html("#{j message.html_safe }"))
+
+- else
+  :plain
+    $(".product-index").html("#{j render('index')}")
+    $("#product-modal").modal("hide")

@@ -1,0 +1,26 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %button.close{data: { dismiss: 'modal' }, :type => 'button'}
+        %span{data: { aria: { hidden: true } }} &times;
+        %span.sr-only Close
+      %h3
+        = title
+
+    = form_for(@category, remote: true, html: { role: 'form' }) do |f|
+      .modal-body
+        .form-group
+          %label Title
+          = f.text_field :title, class: 'form-control'
+
+        .form-group
+          %label Name
+          = f.text_field :name, class: 'form-control'
+
+        .form-group
+          %label Parent Category
+          = f.select :parent_id, nested_dropdown(Category.all.arrange), { include_blank: '' }, class: 'form-control'
+
+      .modal-footer
+        %button.btn.btn-default{data: { dismiss: 'modal' }, type: 'button'} Close
+        = f.submit class: 'btn btn-primary'
