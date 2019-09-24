@@ -4,9 +4,6 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # MySQL (raw DSL to MySQL without using AR)
 #gem 'ruby-mysql'
 gem 'mysql2'
