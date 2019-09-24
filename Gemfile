@@ -1,37 +1,35 @@
 source 'https://rubygems.org'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # MySQL (raw DSL to MySQL without using AR)
-gem 'mysql2'
+gem 'ruby-mysql'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sassc-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'coffee-rails'
 
 # Use jquery as the JavaScript library
-gem 'jquery-cdn', '2.1.1'
+gem 'jquery-cdn'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
@@ -41,19 +39,19 @@ gem 'spring', group: :development
 gem 'devise'
 
 # https://github.com/CanCanCommunity/cancancan
-gem 'cancancan', '~> 1.9'
+gem 'cancancan'
 
 # https://rubygems.org/gems/arel
-gem 'arel', '~> 5.0.1.20140414130214'
+gem 'arel'
 
 # https://github.com/airblade/paper_trail
-gem 'paper_trail', '~> 3.0.3'
+gem 'paper_trail'
 
 # https://github.com/huacnlee/rails-settings-cached
-gem 'rails-settings-cached', '0.4.1'
+gem 'rails-settings-cached'
 
 # https://github.com/stefankroes/ancestry
-gem 'ancestry', '~> 2.1.0'
+gem 'ancestry'
 
 # Use haml for more concise templates http://haml.info/
 gem 'haml'
@@ -70,13 +68,13 @@ gem 'nokogiri'
 gem 'kaminari'
 
 # https://rubygems.org/gems/bootstrap-sass
-gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'bootstrap-sass'
 
 # Font Awesome icons for SASS
 gem 'font-awesome-sass'
 
 # https://github.com/thoughtbot/paperclip
-gem 'paperclip', '~> 4.1'
+gem 'paperclip'
 
 # https://github.com/hiravgandhi/angularjs-rails/
 gem 'angularjs-rails'
@@ -85,10 +83,10 @@ gem 'angularjs-rails'
 gem 'google-webfonts'
 
 # https://github.com/galetahub/ckeditor
-gem 'ckeditor', '~> 4.1.0'
+gem 'ckeditor'
 
 # https://github.com/eric1234/file_browser
-gem 'file_browser', '~> 0.3.0'
+gem 'file_browser'
 
 # Add Apache Solr searching to ActiveRecord models
 gem 'sunspot_rails'
