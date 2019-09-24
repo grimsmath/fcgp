@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
 
   # devise_for :members
   devise_for :members, controllers: {registrations: 'registrations'}
@@ -41,9 +42,6 @@ Rails.application.routes.draw do
 
   # This is a globbing catch-all route
   DynamicRouter.load
-
-  # CKEditor
-  mount Ckeditor::Engine => '/ckeditor'
 
   # Global Individual Routes
   post '/search' => 'home#search'

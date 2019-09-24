@@ -8,7 +8,8 @@ gem 'rails'
 gem 'sqlite3'
 
 # MySQL (raw DSL to MySQL without using AR)
-gem 'ruby-mysql'
+#gem 'ruby-mysql'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sassc-rails'
@@ -41,14 +42,11 @@ gem 'devise'
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan'
 
-# https://rubygems.org/gems/arel
-gem 'arel'
-
 # https://github.com/airblade/paper_trail
 gem 'paper_trail'
 
 # https://github.com/huacnlee/rails-settings-cached
-gem 'rails-settings-cached'
+gem "rails-settings-cached", "~> 2.0"
 
 # https://github.com/stefankroes/ancestry
 gem 'ancestry'
@@ -83,7 +81,7 @@ gem 'angularjs-rails'
 gem 'google-webfonts'
 
 # https://github.com/galetahub/ckeditor
-gem 'ckeditor'
+gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
 
 # https://github.com/eric1234/file_browser
 gem 'file_browser'

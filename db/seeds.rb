@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Settings.destroy_all()
-Settings["System.name"]         = "First Coast Green Pages"
-Settings["Google.ApiKey"]       = 'AIzaSyBBeWJOpwAsjKC-C2D90JURMRNXn0Sa6rE'
-Settings["Mapping.DefaultLat"]  = 30.3369     # Jacksonville, FL
-Settings["Mapping.DefaultLong"] = -81.6614    # Jacksonville, FL
+Setting.destroy_all()
+Setting.system_name   = "First Coast Green Pages"
+Setting.google_apikey = 'AIzaSyBBeWJOpwAsjKC-C2D90JURMRNXn0Sa6rE'
+Setting.default_lat   = 30.3369     # Jacksonville, FL
+Setting.default_long  = -81.6614    # Jacksonville, FL
 
 ## Members
 Member.destroy_all()
@@ -20,7 +20,6 @@ root.toggle!(:super_admin)
 
 # An administrator
 admin = Member.create(email: 'admin@usgbcnf.org', password: 'password')
-admin.toggle!(:home)
 
 # Top-level categories
 Category.destroy_all()

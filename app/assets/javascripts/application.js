@@ -21,7 +21,6 @@
 //= require jasny-bootstrap
 //= require moment
 //= require fileinput
-//= require ckeditor/init
 //= require pages
 //= require gmaps
 //= require bootbox

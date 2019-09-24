@@ -3,11 +3,12 @@
   %head
     %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title #{Settings['System.name']}
+    %title #{Setting.system_name}
     %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Settings["Google.ApiKey"] + "", :type => "text/javascript"}
+    %script{:src => "https://maps.googleapis.com/maps/api/js?key=" + Setting.google_apikey + "", :type => "text/javascript"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag Ckeditor.cdn_url
     = csrf_meta_tags
 
   %body

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: ab55dff215999c6efbb9190459bc84ab2514ea1c
+  specs:
+    ckeditor (5.0.0)
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,7 +66,6 @@ GEM
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
     angularjs-rails (1.6.8)
-    arel (9.0.0)
     autoprefixer-rails (9.6.1.1)
       execjs
     bcrypt (3.1.13)
@@ -69,8 +75,6 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.3)
     cancancan (3.0.1)
-    ckeditor (5.0.0)
-      orm_adapter (~> 0.5.0)
     climate_control (0.2.0)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -152,6 +156,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.12.0)
     multipart-post (2.1.1)
+    mysql2 (0.5.2)
     nested_form (0.3.2)
     nio4r (2.5.1)
     nokogiri (1.10.4)
@@ -209,7 +214,6 @@ GEM
     rsolr (2.2.1)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
-    ruby-mysql (2.9.14)
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
     sassc (2.2.1)
@@ -268,11 +272,10 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   angularjs-rails
-  arel
   betterlorem
   bootstrap-sass
   cancancan
-  ckeditor
+  ckeditor!
   coffee-rails
   devise
   file_browser
@@ -284,13 +287,13 @@ DEPENDENCIES
   jbuilder
   jquery-cdn
   kaminari
+  mysql2
   nested_form
   nokogiri
   paper_trail
   paperclip
   rails
-  rails-settings-cached
-  ruby-mysql
+  rails-settings-cached (~> 2.0)
   sassc-rails
   sdoc
   simple_form

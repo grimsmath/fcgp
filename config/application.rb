@@ -25,7 +25,8 @@ module FCGP
     end
 
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w[ckeditor/config.js]
 
     # Load in any extension classes
     config.autoload_paths += Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
