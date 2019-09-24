@@ -1,18 +1,10 @@
 default:
   adapter: mysql2
-  host: davidkingjr.com
-  port: 3306
-  database: fcgp
-  username: fcgp_user
-  password: apg2nsas
+  uri: <%= ENV['DATABASE_URL'] %>
 
 development:
   adapter: mysql2
-  host: davidkingjr.com
-  port: 3306
-  database: fcgp
-  username: fcgp_user
-  password: apg2nsas
+  uri: <%= ENV['DATABASE_URL'] %>
 
 test:
   adapter: mysql2
